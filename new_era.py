@@ -153,11 +153,25 @@ class NewEraPump:
         return self._send(f'VOL {code}')
 
     def set_volume(self, volume_ul):
+        """
+        Set the Volume to be Dispensed. Input is in µL for a uniform driver API.
+        The NE4000x numeric field is only 4 digits + 1 decimal (manual sec 9.4),
+        so a large µL value like 107600 overflows and is silently rejected.
+        Pick the unit (µL or mL) that keeps the value inside 4 significant digits,
+        set that unit first, then send the value.
+        """
+        # 9999 µL is the largest value that fits the field in µL.
+        if volume_ul <= 9999:
+            unit_code = 'UL'
+            value = volume_ul
+        else:
+            unit_code = 'ML'
+            value = volume_ul / 1000.0   # µL -> mL
         with self._lock:
             self.ser.reset_input_buffer()
-            self.ser.write(f'{self.address}VOL UL\r'.encode())
+            self.ser.write(f'{self.address}VOL {unit_code}\r'.encode())
             self._read_until_etx()
-            self.ser.write(f'{self.address}VOL {_fmt_number(volume_ul)}\r'.encode())
+            self.ser.write(f'{self.address}VOL {_fmt_number(value)}\r'.encode())
             raw = self._read_until_etx()
         return self._parse(raw)
 
@@ -271,20 +285,18 @@ class NewEraPump:
     def infuse(self, rate, units, volume, diameter_mm):
         self._ensure_stopped()
         self.set_diameter(diameter_mm)
-        self._send('VOL UL')          # re-lock after diameter resets units
         self.set_direction('infuse')
         self.set_rate(rate, units)
-        self.set_volume(volume * 1000)  # convert mL to µL
+        self.set_volume(volume * 1000)  # set_volume takes µL and picks the unit that fits
         self.run()
         self.wait_until_done()
 
     def withdraw(self, rate, units, volume, diameter_mm):
         self._ensure_stopped()
         self.set_diameter(diameter_mm)
-        self._send('VOL UL')          # missing — diameter resets units
         self.set_direction('withdraw')
         self.set_rate(rate, units)
-        self.set_volume(volume * 1000)  # missing — needs mL -> µL conversion
+        self.set_volume(volume * 1000)  # set_volume takes µL and picks the unit that fits
         self.run()
         self.wait_until_done()
 
