@@ -19,9 +19,91 @@ Usage:
 
 import time
 import threading
+import queue
 from datetime import datetime
 from harvard_elite import HarvardElite
 from new_era import NewEraNetwork, NewEraPump
+
+
+# ── PUMP WORKER THREAD ────────────────────────────────────────────────────────
+
+class PumpWorker:
+    """
+    Processes setup tasks (set diameter, rate, volume) in a dedicated thread.
+    Each pump gets its own worker to avoid blocking the main thread.
+    """
+
+    def __init__(self, pump_id, logger):
+        self._pump_id = pump_id
+        self._logger = logger
+        self._queue = queue.Queue()
+        self._thread = None
+        self._stop_event = threading.Event()
+        self._errors = []          # list of (label, message)
+        self._errors_lock = threading.Lock()
+        self._done_count = 0       # tasks fully processed (success or fail)
+        self._submitted = 0        # tasks queued
+
+    def start(self):
+        """Start the worker thread."""
+        self._thread = threading.Thread(target=self._run, daemon=False)
+        self._thread.start()
+
+    def _run(self):
+        """Main worker loop — run queued callables until stop_event."""
+        while not self._stop_event.is_set():
+            try:
+                task = self._queue.get(timeout=0.1)
+            except queue.Empty:
+                continue
+            if task is None:  # sentinel to stop
+                break
+            label, fn = task
+            try:
+                fn()
+                self._logger.log(self._pump_id, f'{label} OK')
+            except Exception as e:
+                with self._errors_lock:
+                    self._errors.append((label, str(e)))
+                self._logger.log(self._pump_id, f'{label} ERROR', str(e))
+            finally:
+                self._done_count += 1
+
+    def submit(self, label, fn):
+        """Queue a labeled callable to run on the worker thread."""
+        self._submitted += 1
+        self._queue.put((label, fn))
+
+    def wait_idle(self, timeout=300):
+        """
+        Block until every submitted task has finished processing.
+        Raises RuntimeError if any task errored, TimeoutError if it hangs.
+        """
+        deadline = time.time() + timeout
+        while self._done_count < self._submitted:
+            if time.time() > deadline:
+                raise TimeoutError(
+                    f'{self._pump_id}: tasks did not finish within {timeout}s '
+                    f'({self._done_count}/{self._submitted} done)'
+                )
+            time.sleep(0.02)
+        self.raise_if_errors()
+
+    def raise_if_errors(self):
+        """Raise if any queued task failed since the last check, then clear."""
+        with self._errors_lock:
+            if self._errors:
+                errs = self._errors
+                self._errors = []
+                detail = '; '.join(f'{label}: {msg}' for label, msg in errs)
+                raise RuntimeError(f'{self._pump_id} setup failed — {detail}')
+
+    def stop(self):
+        """Stop the worker thread."""
+        self._queue.put(None)
+        self._stop_event.set()
+        if self._thread:
+            self._thread.join(timeout=2)
 
 
 # ── ABSTRACT BASE ─────────────────────────────────────────────────────────────
@@ -52,6 +134,7 @@ class HarvardWrapper(PumpInterface):
     """
     Wraps HarvardElite to match the unified PumpInterface.
     Normalizes unit strings to Harvard format.
+    Uses a worker thread to decouple setup from execution.
     """
 
     # Validate and pass through — Harvard driver accepts full unit strings
@@ -64,9 +147,11 @@ class HarvardWrapper(PumpInterface):
         'pl/min': 'pl/min',
     }
 
-    def __init__(self, port, baudrate=9600, timeout=2):
+    def __init__(self, port, pump_id, logger, baudrate=9600, timeout=2):
         self._pump = HarvardElite(port, baudrate, timeout)
         self._direction = 'infuse'
+        self._worker = PumpWorker(pump_id, logger)
+        self._worker.start()
 
     def _normalize_units(self, units):
         u = units.lower().replace(' ', '')
@@ -75,28 +160,33 @@ class HarvardWrapper(PumpInterface):
             raise ValueError(f'Invalid units: {units}. Valid: {list(self.RATE_UNITS.keys())}')
         return result
 
-    def set_diameter(self, mm):
-        return self._pump.set_diameter(mm)
-
-    def set_rate(self, rate, units='ml/min'):
-        return self._pump.set_rate(rate, self._normalize_units(units))
-
-    def set_withdraw_rate(self, rate, units='ml/min'):
-        return self._pump.set_withdraw_rate(rate, self._normalize_units(units))
-
-    def set_volume(self, volume, units='ml'):
-        return self._pump.set_volume(volume, units)
-
-    def set_direction(self, direction):
-        self._direction = direction.lower()  # stores 'infuse' or 'withdraw'
-
-    def run(self):
+    def _start_run(self):
+        """Dispatch the start command based on the configured direction."""
         if self._direction == 'infuse':
             return self._pump.infuse()
         elif self._direction == 'withdraw':
             return self._pump.withdraw()
-        else:
-            raise ValueError(f"Invalid direction: {self._direction}")
+        raise ValueError(f'Invalid direction: {self._direction}')
+
+    def set_diameter(self, mm):
+        self._worker.submit('set_diameter', lambda: self._pump.set_diameter(mm))
+
+    def set_rate(self, rate, units='ml/min'):
+        u = self._normalize_units(units)
+        self._worker.submit('set_rate', lambda: self._pump.set_rate(rate, u))
+
+    def set_withdraw_rate(self, rate, units='ml/min'):
+        u = self._normalize_units(units)
+        self._worker.submit('set_withdraw_rate', lambda: self._pump.set_withdraw_rate(rate, u))
+
+    def set_volume(self, volume, units='ml'):
+        self._worker.submit('set_volume', lambda: self._pump.set_volume(volume, units))
+
+    def set_direction(self, direction):
+        self._direction = direction.lower()
+
+    def run(self):
+        self._worker.submit('run', self._start_run)
 
     def stop(self):
         return self._pump.stop()
@@ -105,6 +195,7 @@ class HarvardWrapper(PumpInterface):
         return self._pump.is_running()
 
     def wait_until_done(self, poll_interval=0.5, timeout=300):
+        self._worker.wait_idle(timeout)
         return self._pump.wait_until_done(poll_interval, timeout)
 
     def get_volume_dispensed(self):
@@ -113,23 +204,32 @@ class HarvardWrapper(PumpInterface):
     def get_status(self):
         return self._pump.get_status()
 
+    def _do_infuse(self, rate, units, volume, diameter_mm):
+        self._pump.set_diameter(diameter_mm)
+        self._pump.set_rate(rate, units)
+        self._pump.set_volume(volume)
+        self._direction = 'infuse'
+        self._pump.infuse()
+
+    def _do_withdraw(self, rate, units, volume, diameter_mm):
+        self._pump.set_diameter(diameter_mm)
+        self._pump.set_withdraw_rate(rate, units)
+        self._pump.set_volume(volume)
+        self._direction = 'withdraw'
+        self._pump.withdraw()
+
     def infuse(self, rate, units, volume, diameter_mm):
-        self.set_diameter(diameter_mm)
-        self.set_rate(rate, units)
-        self.set_volume(volume)
-        self.set_direction('infuse')
-        self.run()
+        u = self._normalize_units(units)
+        self._worker.submit('infuse', lambda: self._do_infuse(rate, u, volume, diameter_mm))
         self.wait_until_done()
 
     def withdraw(self, rate, units, volume, diameter_mm):
-        self.set_diameter(diameter_mm)
-        self.set_withdraw_rate(rate, units)
-        self.set_volume(volume)
-        self.set_direction('withdraw')
-        self.run()
+        u = self._normalize_units(units)
+        self._worker.submit('withdraw', lambda: self._do_withdraw(rate, u, volume, diameter_mm))
         self.wait_until_done()
 
     def close(self):
+        self._worker.stop()
         self._pump.close()
 
 
@@ -138,25 +238,30 @@ class HarvardWrapper(PumpInterface):
 class NewEraWrapper(PumpInterface):
     """
     Wraps NewEraPump to match the unified PumpInterface.
+    Uses a worker thread to decouple setup from execution.
     """
 
-    def __init__(self, pump: NewEraPump):
+    def __init__(self, pump: NewEraPump, pump_id, logger):
         self._pump = pump
+        self._worker = PumpWorker(pump_id, logger)
+        self._worker.start()
 
     def set_diameter(self, mm):
-        return self._pump.set_diameter(mm)
+        self._worker.submit('set_diameter', lambda: self._pump.set_diameter(mm))
 
     def set_rate(self, rate, units='ml/hr'):
-        return self._pump.set_rate(rate, units)
+        self._worker.submit('set_rate', lambda: self._pump.set_rate(rate, units))
 
     def set_volume(self, volume, units='ml'):
-        return self._pump.set_volume(volume * 1000)  # mL -> µL, drop units arg
+        # Driver expects µL and takes a single arg. Convert mL here.
+        volume_ul = volume * 1000 if units.lower() == 'ml' else volume
+        self._worker.submit('set_volume', lambda: self._pump.set_volume(volume_ul))
 
     def set_direction(self, direction):
-        return self._pump.set_direction(direction)
+        self._worker.submit('set_direction', lambda: self._pump.set_direction(direction))
 
     def run(self):
-        return self._pump.run()
+        self._worker.submit('run', lambda: self._pump.run())
 
     def stop(self):
         return self._pump.stop()
@@ -165,6 +270,7 @@ class NewEraWrapper(PumpInterface):
         return self._pump.is_running()
 
     def wait_until_done(self, poll_interval=0.5, timeout=300):
+        self._worker.wait_idle(timeout)
         return self._pump.wait_until_done(poll_interval, timeout)
 
     def get_volume_dispensed(self):
@@ -174,13 +280,22 @@ class NewEraWrapper(PumpInterface):
         return self._pump.get_status()
 
     def infuse(self, rate, units, volume, diameter_mm):
-        return self._pump.infuse(rate, units, volume, diameter_mm)
+        # Driver's infuse() runs the full sequence and converts mL->µL internally.
+        self._worker.submit(
+            'infuse',
+            lambda: self._pump.infuse(rate, units, volume, diameter_mm)
+        )
+        self.wait_until_done()
 
     def withdraw(self, rate, units, volume, diameter_mm):
-        return self._pump.withdraw(rate, units, volume, diameter_mm)
+        self._worker.submit(
+            'withdraw',
+            lambda: self._pump.withdraw(rate, units, volume, diameter_mm)
+        )
+        self.wait_until_done()
 
     def close(self):
-        pass  # network owns the serial port, not individual pumps
+        self._worker.stop()
 
 
 # ── LOGGER ───────────────────────────────────────────────────────────────────
@@ -226,7 +341,7 @@ class PumpController:
 
     def add_harvard(self, pump_id, port, baudrate=9600):
         """Register a Harvard Apparatus Pump 11 Elite."""
-        wrapper = HarvardWrapper(port, baudrate)
+        wrapper = HarvardWrapper(port, pump_id, self._logger, baudrate)
         self._pumps[pump_id] = wrapper
         self._logger.log(pump_id, 'REGISTERED', f'Harvard Elite on {port}')
         return wrapper
@@ -239,7 +354,7 @@ class PumpController:
             self._networks[port] = NewEraNetwork(port, baudrate)
         network = self._networks[port]
         pump = network.add_pump(address)
-        wrapper = NewEraWrapper(pump)
+        wrapper = NewEraWrapper(pump, pump_id, self._logger)
         self._pumps[pump_id] = wrapper
         self._logger.log(pump_id, 'REGISTERED', f'New Era on {port} address {address}')
         return wrapper
@@ -348,7 +463,7 @@ class PumpController:
     # ── CLEANUP ───────────────────────────────────────────
 
     def close_all(self):
-        """Close all serial connections."""
+        """Close all serial connections and stop worker threads."""
         for pump_id, pump in self._pumps.items():
             try:
                 pump.close()

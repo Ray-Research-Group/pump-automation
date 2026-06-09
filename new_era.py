@@ -9,6 +9,18 @@ import serial
 import time
 import threading
 
+
+def _fmt_number(value):
+    """
+    Format a number for New Era commands. Firmware accepts at most 4 significant
+    figures and rejects trailing-zero floats like '10760.0' with ?OOR/?NA.
+    Emits an integer string when the value is whole, else 4 sig figs.
+    """
+    if value == int(value):
+        return str(int(value))
+    return f'{value:.4g}'
+
+
 class NewEraPump:
     """
     Driver for a single New Era pump on a network.
@@ -130,7 +142,7 @@ class NewEraPump:
         if units_lower in ('ml/min', 'ml/hr'):
             rate = rate * 1000
 
-        return self._send(f'RAT {rate} {unit_code}')
+        return self._send(f'RAT {_fmt_number(rate)} {unit_code}')
 
     def get_rate(self):
         return self._send('RAT')
@@ -145,7 +157,7 @@ class NewEraPump:
             self.ser.reset_input_buffer()
             self.ser.write(f'{self.address}VOL UL\r'.encode())
             self._read_until_etx()
-            self.ser.write(f'{self.address}VOL {volume_ul}\r'.encode())
+            self.ser.write(f'{self.address}VOL {_fmt_number(volume_ul)}\r'.encode())
             raw = self._read_until_etx()
         return self._parse(raw)
 
