@@ -1,7 +1,19 @@
 import serial
 import time
 
+from pump_limits import check_harvard_rate
+
 _VALID_UNITS = {'ul/min', 'ml/min', 'ul/hr', 'ml/hr', 'nl/min', 'pl/min'}
+
+# Multiplier to convert a rate in <unit> to µL/min.
+_TO_UL_MIN = {
+    'ml/min': 1000.0,
+    'ul/min': 1.0,
+    'nl/min': 0.001,
+    'pl/min': 1e-6,
+    'ml/hr':  1000.0 / 60.0,
+    'ul/hr':  1.0 / 60.0,
+}
 
 
 class HarvardElite:
@@ -19,6 +31,7 @@ class HarvardElite:
             timeout=0.1,
         )
         self._direction = 'INF'
+        self._diameter_mm = None   # last set diameter, for rate-limit checks
         time.sleep(0.2)
         self._ser.reset_input_buffer()
 
@@ -65,20 +78,26 @@ class HarvardElite:
         return self._check_running(resp)
 
     def set_diameter(self, mm):
+        self._diameter_mm = float(mm)
         self._send(f'diameter {mm}')
         readback = self._send('diameter')
         return {'readback': readback}
 
-    def set_rate(self, rate, units):
+    def _check_rate(self, rate, units):
         if units not in _VALID_UNITS:
             raise ValueError(f"Invalid units '{units}'. Valid: {sorted(_VALID_UNITS)}")
+        if self._diameter_mm is not None:
+            rate_ul_min = rate * _TO_UL_MIN[units]
+            check_harvard_rate(rate_ul_min, self._diameter_mm)
+
+    def set_rate(self, rate, units):
+        self._check_rate(rate, units)
         self._send(f'irate {rate} {units}')
         readback = self._send('irate')
         return {'readback': readback}
 
     def set_withdraw_rate(self, rate, units):
-        if units not in _VALID_UNITS:
-            raise ValueError(f"Invalid units '{units}'. Valid: {sorted(_VALID_UNITS)}")
+        self._check_rate(rate, units)
         self._send(f'wrate {rate} {units}')
         readback = self._send('wrate')
         return {'readback': readback}

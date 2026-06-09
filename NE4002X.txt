@@ -1,0 +1,160 @@
+NE-4002X / NE-4502X Micro-Fluidic Syringe Pumps — Rates and Specifications
+Source: New Era Pump Systems Inc., www.SyringePump.com
+        https://www.syringepump.com/download/NE-4002X-4502X%20Rates%20and%20Specifications.pdf
+Retrieved: June 2026
+
+THIS IS THE PUMP WE ACTUALLY HAVE. The local file NE4000x.txt is the generic
+NE-4000 manual and overstates the rate/volume range. Trust the numbers here for
+NE-4002X firmware behavior.
+
+================================================================================
+HARD LIMITS THAT AFFECT THE DRIVER
+================================================================================
+
+- This is a MICRO-FLUIDIC pump. Rates are in the µL/min range, not mL/min.
+- Absolute maximum pumping rate: 1226 µL/min  (= 1.226 mL/min) with a B-D 60 mL syringe.
+- Absolute minimum pumping rate:  14.36 nL/hr with a B-D 1 mL syringe.
+- Maximum rate is DIAMETER-DEPENDENT (see table). A small syringe has a much
+  lower max rate than a large one.
+- The numeric field is 4 digits. Internal µL/hr rate caps at 9999 (the table's
+  "Maximum Rate µL/hr" column shows 9999 wherever the true max exceeds it).
+- "Volume to be Dispensed" on our unit is µL only (no working mL unit on this
+  firmware) and is bounded by the same 4-digit field => max 9999 µL (~10 mL)
+  per single dispense. Larger volumes require continuous mode (VOL 0) + timed
+  stop, or repeated dispenses.
+- Syringe inside diameter range: 0.100 to 50.00 mm.
+
+================================================================================
+MAX RATE BY DIAMETER — the numbers that matter for our 12.36 mm setup
+================================================================================
+
+Our experiment uses diameter_mm = 12.36. The closest table entries:
+
+  Syringe                 Inside Dia (mm)   Max Rate (µL/min)
+  B-D 5 mL                11.99             249.4
+  Monoject 6 mL           12.7              279.8
+
+So at ~12.36 mm the hardware max is roughly 250–280 µL/min.
+
+CONSEQUENCE: rate = 10.76 mL/min (10760 µL/min) is ~40x over the absolute pump
+max and ~43x over the limit for this diameter. rate = 1.076 mL/min (1076 µL/min)
+is still ~4x over the ~250 µL/min limit for 12.36 mm. Both will be rejected /
+out-of-range. A valid rate at this diameter is at most ~250 µL/min = 0.25 mL/min.
+
+================================================================================
+FULL RATE TABLE (Syringe | mL | Inside Dia mm | Max Rate µL/hr | Min Rate nL/hr | Max Rate µL/min)
+================================================================================
+
+B-D
+   1   4.699   2298    14.36    38.31
+   3   8.585   7673    47.91    127.8
+   5   11.99   9999    93.45    249.4
+  10   14.43   9999    135.4    361.3
+  20   19.05   9999    236      629.7
+  30   21.59   9999    303.1    808.8
+  60   26.59   9999    459.6    1226
+
+HSW
+   1   4.69    2290    14.3     38.16
+
+Norm-Ject
+   3   9.65    9695    60.54    161.5
+   5   12.45   9999    100.8    268.9
+  10   15.9    9999    164.4    438.6
+  20   20.05   9999    261.4    697.5
+  30   22.9    9999    340.9    909.9
+  50   29.2    9999    554.3    1479
+
+Monoject
+   1   5.74    3430    21.42    57.17
+   3   8.941   8322    51.97    138.7
+   6   12.7    9999    104.9    279.8
+  12   15.72   9999    160.7    428.8
+  20   20.12   9999    263.2    702.4
+  35   23.52   9999    359.6    959.9
+  60   26.64   9999    461.4    1231
+ 140   38      9999    938.7    2505
+
+Terumo
+   1   4.7     2299    14.36    38.33
+   3   8.95    8339    52.07    138.9
+   5   13      9999    109.9    293.2
+  10   15.8    9999    162.3    433.1
+  20   20.15   9999    264      704.5
+  30   23.1    9999    346.9    925.9
+  60   29.7    9999    573.4    1530
+
+Poulten & Graf (Glass)
+   1   6.7     4673    29.19    77.89
+   2   8.91    8265    51.61    137.7
+   3   9.06    8545    53.36    142.4
+   5   11.75   9999    89.75    239.5
+  10   14.67   9999    139.9    373.4
+  20   19.62   9999    250.3    667.9
+  30   22.69   9999    334.7    893.3
+  50   26.96   9999    472.5    1261
+
+Steel Syringes
+   1   9.538   9471    59.14    157.8
+   3   9.538   9471    59.14    157.8
+   5   12.7    9999    104.9    279.8
+   8   9.538   9471    59.14    157.8
+  20   19.13   9999    237.9    635
+  50   28.6    9999    531.8    1419
+
+SGE (Glass – Gas Tight)  [Syringe µL | Inside Dia mm | Max Rate µL/hr | Min Rate nL/hr]
+   5   0.343   12.24   0.077
+  10   0.485   24.48   0.153
+  25   0.728   55.17   0.345
+  50   1.03    110.4   0.69
+ 100   1.457   221     1.38
+
+SGE (mL sizes)  [mL | Inside Dia mm | Max Rate µL/hr | Min Rate nL/hr]
+  0.25   1.03    110.4   0.69
+  0.5    3.257   1104    6.896
+  1      4.606   2208    13.8
+  2.5    7.284   5523    34.49
+  5      10.3    9999    68.97
+ 10      14.57   9999    138
+ 25      23.03   9999    344.8
+ 50      27.5    9999    491.6
+100      34.99   9999    795.9
+
+Hamilton Microliter (Glass)  [Syringe µL | Inside Dia mm | Max Rate µL/hr | Min Rate nL/hr]
+   0.5   0.103   1.104   0.007
+   1     0.1457  2.21    0.014
+   2     0.206   4.418   0.028
+   5     0.3257  11.04   0.069
+
+================================================================================
+SPECIFICATIONS
+================================================================================
+
+Model      Style        Stall Detection   Syringes   Max Syringe Size
+NE-4002X   Stand-Alone  Yes               2          60 mL; 140 mL partially filled
+NE-4502X   OEM          Yes               2          60 mL; 140 mL partially filled
+
+Mechanical & Electrical
+  Motor type:                 Step motor
+  Motor steps per revolution: 400
+  Motor gearbox reduction:    25:1
+  Motor to drive screw ratio: 15/28
+  Drive screw pitch:          20.32 revolutions/inch
+  Micro-stepping:             1/16 to 1/2 depending on motor speed
+  Advance per step:           4.185267857 nm to 33.4821429 nm depending on motor speed
+  Power supply:               External wall adapter, 12V DC @ 1000 mA
+  Power connector:            2.1 mm, center positive, DC
+  Amperage:                   750 mA at full load
+  Dimensions:                 8 3/4" x 5 3/4" x 4 1/2" (22.86 x 14.605 x 11.43 cm)
+  Weight:                     3.8 lbs (1.63 kg)
+
+Operational
+  Maximum force:              150 lbs at minimum speed, 18 lbs at maximum speed
+  Syringe inside diameter:    0.100 to 50.00 mm
+  Maximum speed:              0.220934197 cm/min
+  Minimum speed:              8.27653E-05 cm/hr
+  Maximum pumping rate:       1226 µL/min with a B-D 60 mL syringe
+  Minimum pumping rate:       14.36 nL/hr with a B-D 1 mL syringe
+  Number of Program Phases:   41
+  RS-232 pump network:        100 pumps maximum
+  RS-232 selectable baud:     300, 1200, 2400, 9600, 19200

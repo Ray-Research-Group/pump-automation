@@ -9,6 +9,8 @@ import serial
 import time
 import threading
 
+from pump_limits import check_newera_rate, check_newera_volume
+
 
 def _fmt_number(value):
     """
@@ -39,6 +41,7 @@ class NewEraPump:
         self.ser = ser
         self.address = address
         self._lock = lock or threading.RLock()
+        self._diameter_mm = None   # last set diameter, for rate-limit checks
 
     def _send(self, cmd, timeout=1.5):
         with self._lock:
@@ -120,6 +123,7 @@ class NewEraPump:
 
     def set_diameter(self, mm):
         """Set syringe inside diameter in mm."""
+        self._diameter_mm = mm
         return self._send(f'DIA {mm}')
 
     def get_diameter(self):
@@ -137,10 +141,16 @@ class NewEraPump:
         unit_code = self.RATE_UNITS.get(units_lower)
         if unit_code is None:
             raise ValueError(f'Invalid units: {units}')
-        
+
         # Convert mL to uL
         if units_lower in ('ml/min', 'ml/hr'):
             rate = rate * 1000
+
+        # Validate against the mechanical limit for the current diameter before
+        # sending, so an out-of-range rate fails loudly instead of being mangled.
+        if self._diameter_mm is not None:
+            rate_ul_min = rate / 60.0 if units_lower in ('ul/hr', 'ml/hr') else rate
+            check_newera_rate(rate_ul_min, self._diameter_mm)
 
         return self._send(f'RAT {_fmt_number(rate)} {unit_code}')
 
@@ -154,24 +164,16 @@ class NewEraPump:
 
     def set_volume(self, volume_ul):
         """
-        Set the Volume to be Dispensed. Input is in µL for a uniform driver API.
-        The NE4000x numeric field is only 4 digits + 1 decimal (manual sec 9.4),
-        so a large µL value like 107600 overflows and is silently rejected.
-        Pick the unit (µL or mL) that keeps the value inside 4 significant digits,
-        set that unit first, then send the value.
+        Set the Volume to be Dispensed, in µL. The pump only has a µL unit and a
+        4-digit field, so anything over 9999 µL cannot be set as one dispense.
+        Raise instead of silently sending an out-of-range value the pump drops.
         """
-        # 9999 µL is the largest value that fits the field in µL.
-        if volume_ul <= 9999:
-            unit_code = 'UL'
-            value = volume_ul
-        else:
-            unit_code = 'ML'
-            value = volume_ul / 1000.0   # µL -> mL
+        check_newera_volume(volume_ul)
         with self._lock:
             self.ser.reset_input_buffer()
-            self.ser.write(f'{self.address}VOL {unit_code}\r'.encode())
+            self.ser.write(f'{self.address}VOL UL\r'.encode())
             self._read_until_etx()
-            self.ser.write(f'{self.address}VOL {_fmt_number(value)}\r'.encode())
+            self.ser.write(f'{self.address}VOL {_fmt_number(volume_ul)}\r'.encode())
             raw = self._read_until_etx()
         return self._parse(raw)
 
