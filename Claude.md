@@ -13,6 +13,7 @@ new_era.py             # New Era NE-4002X driver + network class
 pump_limits.py         # Diameter-based rate/volume limit checks for both pumps
 pump_controller.py     # Unified abstraction over both drivers (per-pump worker threads)
 orchestrate.py         # Experiment execution target — LLM-generated code goes here
+orchestrate_backup.py  # Saved copy of the prior orchestrate.py before the test harness
 test.py                # New Era address scanner on COM7 (addresses 0-9)
 debug_dir.py           # Direction/serial debug scratch script
 llms.txt               # Experiment programming interface for external LLMs
