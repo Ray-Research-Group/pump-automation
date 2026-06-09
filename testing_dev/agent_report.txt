@@ -1,0 +1,26 @@
+
+=== harvard_elite ===
+Port: COM6  Addr: N/A  Firmware: 11 ELITE I/W Single 3.0.4
+  [PASS] Firmware: 11 ELITE I/W Single 3.0.4 :
+  [PASS] Idle status: running=False
+  [PASS] Parameters: dia/rate/vol OK
+  [PASS] Direction INF: {'readback': 'INF'}
+  [PASS] Direction WDR: {'readback': 'WDR'}
+  [PASS] Motion: started=True stopped=True
+  Result: 6/6
+
+=== new_era_0 ===
+Port: COM7  Addr: 0  Firmware: NE4002XV4.670
+  [PASS] Firmware: NE4002XV4.670
+  [PASS] Idle status: status=S alarm=False
+  [PASS] Parameters: dia/rate/vol OK
+  [PASS] Direction INF: status=I
+  [PASS] Direction WDR: status=W
+  [PASS] OOR error: ?
+  [PASS] Motion: started=True stopped=True
+  Result: 7/7
+
+=== new_era_1 ===
+Port: COM7  Addr: 1  Firmware: ?
+  [FAIL] Connection: no response to probe (hardware dead or address not set)
+  Result: 0/1

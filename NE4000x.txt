@@ -1,0 +1,2629 @@
+WARNING
+NOT FOR
+CLINICAL USE
+ON HUMANS
+TWO CHANNEL
+SYRINGE PUMP MULTI-PHASER™
+MODEL NE-4000
+www.kŌechnology.it
+NE-1000 FAMILY OF PROGRAMMABLE SYRINGE PUMPS
+Publication #1240-01 Revision 18 V3.919
+Firmware Version V 3.919
+Quick Start Instructions
+Assumes that the pump was not previous programmed with a multiple Phase Pumping Program.
+• Plug in the pump.
+• Press the power switch to turn on power.
+• Press any key to stop the display from blinking.
+Setup Pumping Parameters
+To Change Numbers:
+• Use the up arrow keys to increment individual digits.
+• To set/clear the decimal point: Simultaneously press the 2 up-arrow keys under the 2 digits next to the decimal
+point position. Alternatively, press and hold the left-most up-arrow key for at least 1 second. When the digit
+increments from 9 to 0, the decimal point will begin to shift. Release the key when the decimal point is correct.
+• Press any non-arrow key, or wait 2 seconds, to enter the new setting. The display will blink when a new value is
+entered and stored in memory.
+Set the Syringe Inside Diameter:
+• Momentarily press the ‘Diameter’ key. Set the inside diameter of the syringe in millimeters (mm).
+Set the Pumping Rate.
+• Momentarily press the ‘Rate’ key.
+• To change the pumping rate units:
+− Momentarily press the ‘Rate’ key again. The display will show:
+− Press any up-arrow key to select the next available rate units while the units LEDs are blinking.
+− Press any non-arrow key, or wait 2 seconds, to set the rate units.
+• Set the pumping rate. If the pumping rate is out of range, the display will show:
+Set the Volume to be Dispensed or Continuous Pumping
+• Momentarily press the ‘Volume’ key.
+• When the display shows , the pump is set for continuous pumping. Pressing any up arrow key will change
+the display to 0.
+• For continuous pumping: Set the volume to 0.
+• For a Volume to be Dispensed: Set the volume. The default units are set according to the syringe diameter.
+Set the Pumping Direction
+• When the ‘Withdraw’ LED is lit, the pump is set for withdrawing. When not lit, the pump is set for infusing. Use the
+‘ ’ key to change the pumping direction.
+Load Syringes
+• Turn and lift center knob to release the pusher block, then slide to the required position.
+• Insert the syringe plungers in the pusher block slots.
+• Insert the syringe barrel flanges in the flange bracket, with the syringe barrel holder on the syringes. Tighten the
+flange brackets onto the syringe flange. Tighten the pusher block screws. Turn knob to lock pusher block.
+Prime/Purge: Press and hold the ‘Start/Stop’ key for one second. Release to stop.
+Start the Pump: Press and release the ‘Start/Stop’ key to start or stop the pump.
+When Pumping
+• The pumping rate can be changed.
+• With continuous pumping, the pumping direction can be changed.
+38035(6(738035(6(738035(6(738035(6(7 Press and hold the right-most up-arrow key while turning on power to the pump.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+i
+www.kŌechnology.it
+Table of Contents
+1. GENERAL INFORMATION .............................................................................................. 1
+1.1 WARNINGS ! AND CAUTIONS ! .............................................................................. 1
+1.2 DISCLAIMER .................................................................................................................... 1
+1.3 WARRANTY ..................................................................................................................... 1
+1.4 PACKING LIST ................................................................................................................. 2
+2. OVERVIEW .......................................................................................................................... 2
+2.1 GLOSSARY OF TERMINOLOGY AND CONCEPTS ............................................................ 3
+3. SETUP .................................................................................................................................... 5
+4. LOADING SYRINGES ........................................................................................................ 5
+5. USER INTERFACE.............................................................................................................. 5
+5.1 ENTERING VALUES ......................................................................................................... 6
+5.2 LCD DISPLAY ................................................................................................................. 6
+5.3 LEDS ............................................................................................................................... 6
+5.4 ARROW AND DECIMAL POINT KEYS ............................................................................. 7
+5.4.1 DECIMAL POINT ........................................................................................................ 7
+5.5 ‘DIAMETER’ AND ‘SETUP’ KEY...................................................................................... 7
+5.6 ‘RATE’ AND ‘PROGRAM PHASE #’ KEY ......................................................................... 7
+5.6.1 PUMPING RATE UNITS .............................................................................................. 7
+5.6.2 PROGRAM ENTRY MODE .......................................................................................... 8
+5.7 ‘VOLUME’ AND ‘PROGRAM FUNCTION’ KEY ............................................................... 8
+5.7.1 DISABLING “VOLUME TO BE DISPENSED” ................................................................ 8
+5.7.2 CLEARING “VOLUME DISPENSED” ........................................................................... 8
+5.7.3 PROGRAM ENTRY MODE .......................................................................................... 8
+5.8 PUMPING DIRECTION KEY ............................................................................................. 8
+5.8.1 STICKY DIRECTION ................................................................................................... 8
+5.9 ‘START’/’STOP’ KEY ...................................................................................................... 9
+5.10 ‘PROGRAM PHASE #’ (NUMBER) KEY........................................................................ 9
+5.11 ‘PROGRAM FUNCTION’ KEY ...................................................................................... 9
+5.11.1 PROGRAM PHASE FUNCTION PARAMETER ............................................................... 9
+5.12 ‘SETUP’ KEY ................................................................................................................ 9
+5.13 SPECIAL POWER-UP FUNCTIONS ............................................................................. 10
+5.13.1 FIRMWARE VERSION DISPLAY ................................................................................ 10
+5.13.2 RESET PUMPING PROGRAM .................................................................................... 10
+5.13.3 DEFAULT PROGRAM PRE-LOAD ............................................................................. 10
+5.13.4 PROGRAM ENTRY MODE LOCKOUT........................................................................ 10
+5.14 ERROR AND ALARM MESSAGES ............................................................................... 10
+5.15 STATUS MESSAGES ................................................................................................... 11
+6. OPERATION....................................................................................................................... 11
+6.1 SYRINGE INSIDE DIAMETER......................................................................................... 11
+6.1.1 DEFAULT VOLUME UNITS....................................................................................... 11
+6.1.2 CHANGING VOLUME UNITS .................................................................................... 12
+6.2 START/STOP TRIGGERS ................................................................................................ 12
+6.3 OPERATING THE PUMP ................................................................................................. 12
+6.4 PURGING........................................................................................................................ 12
+6.5 CHANGING THE PUMPING RATE AND DIRECTION WHILE PUMPING ........................ 12
+ii
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+6.6 VOLUME DISPENSED..................................................................................................... 12
+6.7 RESUMING WHEN PAUSED ........................................................................................... 13
+6.8 PUMP STALLED ............................................................................................................. 13
+7. SETUP CONFIGURATION .............................................................................................. 13
+7.1 POWER FAILURE MODE ............................................................................................... 14
+7.2 LOW NOISE MODE ........................................................................................................ 14
+7.3 AUDIBLE ALARM ENABLE ............................................................................................ 14
+7.4 TTL I/O OPERATIONAL TRIGGER DEFAULT CONFIGURATION ................................ 15
+7.5 TTL I/O DIRECTIONAL CONTROL INPUT CONFIGURATION ..................................... 15
+7.6 PUMP MOTOR OPERATING TTL OUTPUT CONFIGURATION ..................................... 16
+7.7 KEYPAD LOCKOUT ....................................................................................................... 16
+7.8 KEYPAD AND NOTIFICATION BEEP ENABLE ............................................................... 16
+7.9 RS-232 PUMP NETWORK CONFIGURATION ................................................................ 16
+8. PUMPING PROGRAM...................................................................................................... 17
+8.1 HOW TO ENTER PUMPING PROGRAMS ....................................................................... 17
+8.1.1 PUMPING PROGRAM PHASE NUMBER ..................................................................... 18
+8.2 PUMPING PROGRAM EDIT FUNCTIONS ....................................................................... 18
+8.3 PROGRAM FUNCTION DESCRIPTIONS ......................................................................... 19
+8.3.1 ‘RATE’: RATE FUNCTION ....................................................................................... 19
+8.3.2 ‘FILL’: FILL FUNCTION .......................................................................................... 19
+8.3.3 ‘INCR’: INCREMENT RATE FUNCTION.................................................................... 19
+8.3.4 ‘DECR’: DECREMENT RATE FUNCTION ................................................................. 20
+8.3.5 ‘STOP’: STOP PUMPING OPERATION AND END THE PROGRAM.............................. 20
+8.3.6 ‘JP:NN’: JUMP TO PHASE ........................................................................................ 20
+8.3.7 'PR:IN': SUB-PROGRAM SELECTION INPUT............................................................. 20
+8.3.8 'PR:NN': SUB-PROGRAM START LABEL ................................................................... 20
+8.3.9 ‘LP:ST’: DEFINE STARTING PHASE OF LOOP......................................................... 21
+8.3.10 ‘LP:EN’: DEFINE CONTINUOUS LOOP END ........................................................... 21
+8.3.11 ‘LP:NN’: DEFINE LOOP END AND LOOP REPETITIONS ........................................... 21
+8.3.12 'PS:NN': PAUSE PUMPING ....................................................................................... 21
+8.3.13 'IF:NN': JUMP TO PHASE IF EXTERNAL TRIGGER ................................................... 22
+8.3.14 'ET:NN': SETUP EVENT TRIGGER JUMP PHASE ....................................................... 22
+8.3.15 'ES:NN': SETUP EVENT SQUARE WAVE TRIGGER JUMP PHASE .............................. 22
+8.3.16 'ET:RS': EVENT RESET ............................................................................................ 22
+8.3.17 ‘CLR.D’: CLEAR TOTAL VOLUME DISPENSED ........................................................ 22
+8.3.18 ‘TR:AA’: OVERRIDE OPERATIONAL TRIGGER CONFIGURATION ............................. 22
+8.3.19 'OUT.N': SET TTL OUTPUT PIN .............................................................................. 23
+8.3.20 'BEEP': BEEP .......................................................................................................... 23
+8.4 PUMPING PROGRAM EXAMPLES.................................................................................. 23
+8.4.1 EXAMPLE 1: 2 STEP RATE ...................................................................................... 23
+8.4.2 EXAMPLE 2: REPEATED DISPENSES WITH SUCK BACK .......................................... 23
+8.4.3 EXAMPLE 3: RAMPING THE FLOW RATE ................................................................ 24
+8.4.4 EXAMPLE 4: COMPLEX DISPENSES WITH EXTERNAL SYNCHRONIZATION ............ 25
+8.4.5 EXAMPLE 5: CONTROL FROM A HIGH-LOW PRESSURE SENSOR ............................ 26
+8.4.6 EXAMPLE 6: AUTOMATED DISPENSING WITH SYNCHRONIZATION........................ 27
+8.4.7 EXAMPLE 7: SUB-PROGRAMS ................................................................................ 28
+8.4.8 EXAMPLE 8: DISPENSING WITH COMPLEX SYNCHRONIZATION ............................. 29
+8.4.9 EXAMPLE 9: AUTOMATIC REFILL .......................................................................... 30
+9. RS-232 COMMUNICATIONS .......................................................................................... 30
+9.1 CONNECTION AND NETWORKING ................................................................................ 30
+9.2 RS-232 PROTOCOL ....................................................................................................... 31
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+iii
+www.kŌechnology.it
+9.2.1 RS-232 GENERAL SYNTAX LEGEND ....................................................................... 31
+9.2.2 RS-232 PROTOCOL: BASIC MODE .......................................................................... 32
+9.2.3 RS-232 PROTOCOL: SAFE MODE ............................................................................ 32
+9.2.4 RS-232 PROTOCOL: BASIC AND SAFE MODE COMMON SYNTAX .......................... 33
+9.2.5 NETWORK COMMAND BURST ................................................................................. 33
+9.3 COMMAND ERRORS AND ALARMS............................................................................... 33
+9.4 RS-232 COMMAND SET ................................................................................................ 34
+9.4.1 PROGRAM FUNCTION COMMANDS ......................................................................... 34
+9.4.2 PUMP OPERATIONAL COMMANDS .......................................................................... 36
+9.4.3 CONFIGURATION AND SETUP COMMANDS ............................................................. 37
+9.4.4 GENERAL CONTROL AND STATUS COMMANDS ...................................................... 38
+9.4.5 SYSTEM COMMANDS .............................................................................................. 39
+9.5 GETTING STARTED WITH RS-232 ............................................................................... 40
+10. LOGIC INTERFACE: TTL INPUT AND OUTPUT ................................................. 41
+10.1 TTL I/O OPERATIONAL CONTROLS ........................................................................ 42
+10.2 TTL I/O CONTROL FROM THE PUMPING PROGRAM .............................................. 43
+10.3 TTL I/O CONTROL FROM RS-232 ........................................................................... 43
+11. APPENDIX ...................................................................................................................... 44
+11.1 RS-232 COMMAND SUMMARY ................................................................................. 44
+11.2 RS-232 PUMP NETWORK CONNECTOR WIRING ..................................................... 45
+11.3 ACCESSORIES ............................................................................................................ 45
+11.3.1 ANA-BOX™ .......................................................................................................... 45
+11.3.2 SYRINGE HEATER ................................................................................................... 45
+11.3.3 RS-232 NETWORK CABLES..................................................................................... 45
+11.3.4 AUTOMATION CABLE: SPECIAL COMMUNICATIONS MODES CONTROL CABLE .... 45
+11.3.5 VALVE CONTROLLER .............................................................................................. 46
+11.3.6 FOOT SWITCH.......................................................................................................... 46
+11.3.7 LOCKOUT DISABLE KEY ......................................................................................... 46
+11.3.8 FIRMWARE UPGRADE ............................................................................................. 46
+11.4 TROUBLESHOOTING AND MAINTENANCE ............................................................... 46
+11.5 SPECIFICATIONS ........................................................................................................ 47
+11.5.1 MECHANICAL & ELECTRICAL ................................................................................. 47
+11.5.2 OPERATIONAL ......................................................................................................... 47
+11.6 CUSTOM APPLICATIONS ........................................................................................... 47
+11.7 SYRINGE DIAMETERS AND RATE LIMITS ................................................................ 48
+iv
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+1. General Information
+Thank you for purchasing the NE-4000 Multi-Phaser™ Programmable Syringe Pump. With the NE-4000
+syringe pump you will be able to perform simple infusions or implement a complex automated dispensing
+system.
+Please familiarize yourself with the NE-4000’s operation by reading this user's manual. For future
+reference, record the serial number, located on the rear of the pump, and the date of purchase.
+New Era Pump Systems Inc., located in Farmingdale, NY USA, can be contacted at:
+Phone: (631) 249-1392 FAX: (707) 248-2089 Email: INFO@SYRINGEPUMP.COM
+WWW.SYRINGEPUMP.COM
+This Operating Manual, and the NE-4000’s hardware, electronics and firmware are copyrighted.
+Copyright 1999-2014, all rights reserved.
+1.1 Warnings ! and Cautions !
+! Read the user’s manual
+! No user serviceable parts are inside.
+! Disconnect power from the pump when connecting or disconnecting cables.
+! Do not immerse the pump in liquid
+! Install on a stable surface.
+! Keep hands and loose clothing away from the pump's moving parts.
+! The pump can automatically start when the Pumping Program is operating or when attached to an
+external control device.
+! Prevent liquids from entering openings in the rear of the pump.
+! Use only with the supplied power supply connected to a power source as specified on the power
+supply label.
+! Do not push objects of any kind into the chassis openings, except for appropriate cables and
+connectors.
+! If the pump becomes damaged, do not use unless certified safe by a qualified technician. Damage
+includes, but is not excluded to, frayed cords and deterioration in performance.
+! Discharge static from control cables before connecting by touching the cable to ground.
+! Before touching the pump, discharge static by touching ground.
+1.2 Disclaimer
+New Era Pump Systems, Inc. makes no representations or warranties, expressed, statutory or implied,
+regarding the fitness or merchantability of this product for any particular purpose. Further, New Era Pump
+Systems Inc. is not liable for any damages, including but not limited to, lost profits, lost savings, or other
+incidental or consequential damages arising from ownership or use of this product, or for any delay in the
+performance of its obligations under the warranty due to causes beyond its control. New Era Pump
+Systems Inc. also reserves the right to make any improvements or modifications to the product described
+in this manual at any time, without notice of these changes.
+New Era Pump Systems Inc. products are not designed, intended, or authorized for use in applications or
+as system components intended to support or sustain human life, as a clinical medical device for humans,
+or for any application in which the failure of the product could create a situation where personal injury or
+death may occur.
+All brand and product names used in this manual are the trademarks of their respective owners.
+1.3 Warranty
+New Era Pump Systems Inc. warranties this product and accessories for a period of two years, parts and
+labor, from the date of purchase. The repaired unit will be covered for the period of the remainder of the
+original warranty or 90 days, whichever is greater. Return shipping charges are not included.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+1
+www.kŌechnology.it
+A return authorization number must be obtained from New Era Pump Systems Inc. before returning a unit
+for repair. Warranty covered repairs will not be performed without a return authorization number. At the
+option of New Era Pump Systems Inc., a defective unit will be either repaired or replaced.
+This warranty does not cover damage by any cause including, but not limited to, any malfunction, defect
+or failure caused by or resulting from unauthorized service or parts, improper maintenance, operation
+contrary to furnished instructions, shipping or transit accidents, modifications or repair by the user, harsh
+environments, misuse, neglect, abuse, accident, incorrect line voltage, fire, flood, other natural disasters,
+or normal wear and tear. Changes or modifications not approved by New Era Pump Systems Inc. could
+void the warranty. Wearable parts, such as drive nuts, are not covered by the warranty.
+The foregoing is in lieu of all other expressed warranties and New Era Pump Systems Inc. does not
+assume or authorize any party to assume for it any other obligation or liability.
+1.4 Packing List
+Included with the NE-4000 Multi-Phaser™ Programmable Syringe Pump are the following items:
+• One of the following external unregulated power supply adapters:
+Input: One of: 120V AC 60 Hz, 220V AC 50 Hz, 240V AC 50 HZ,
+or other custom specified power supply
+Output: 12V DC @ 1000 mA (or compatible regulated power supply)
+• This Operating Manual
+2. Overview
+The model NE-4000 is a general purpose double syringe pump capable of infusion and withdrawal. It is
+controlled from a microcontroller based system which drives a step motor, allowing a large range of
+pumping rates configured to the inside diameter of the loaded syringe. The syringes are driven from a
+drive-screw and drive-nut mechanism.
+Features:
+♦ Infusion and withdrawal pumping of one or two
+syringes up to 60 mL. 140 mL partially filled.
+♦ Pumping rates from 1.436 μL/hr with a 1 mL
+syringe to 6023 mL/hr with a 60 mL syringe.
+♦ Stall detection: Automatically stops pump
+when pumping is impeded.
+♦ Infusion and withdrawal volumes separately
+accumulated.
+♦ Programmable dispense volumes.
+♦ Programmable Phases allowing complex
+pumping applications and interaction with
+external devices.
+♦ Program Sub-Programs, selectable by the user.
+♦ Non-volatile memory of all operating
+parameters and Pumping Program.
+♦ RS-232 bi-directional control from a computer
+♦ Built-in pump network driver. Pump network
+supports up to 100 pumps and other devices.
+♦ Two modes of RS-232 control, Basic and Safe.
+Safe mode provides communication error
+detection, loss of communication detection, and
+automatic transmitting of alarm conditions.
+♦ TTL logic I/O with firmware filtered control
+inputs to eliminate glitches and ringing on the
+control inputs.
+♦ Configurable and programmable TTL
+operational trigger for flexible logic control.
+♦ Power Failure Mode: Restarts the Pumping
+Program after a power interruption.
+♦ Audible Alarm.
+♦ Many more features!
+2
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+2.1 Glossary of Terminology and Concepts
+When a device has as many features as the NE-4000, understanding its operation could be a daunting task at
+first. By understanding the key concepts and terminology used in this manual, the operation of the NE-4000
+will become quite intuitive. Every effort has been made to design the NE-4000 with a consistent and intuitive
+user interface.
+To facilitate and enhance your understanding of the NE-4000’s operation, please take the time to familiarize
+yourself with the basic concepts below:
+3DUWVRIWKH3XPS3DUWVRIWKH3XPS3DUWVRIWKH3XPS3DUWVRIWKH3XPS
+1) Pusher Block
+2) End Plate
+3) Anti-Siphon Plate Adjustment Knob (2)
+4) Drive Release Knob (Turn and lift to release)
+5) Guide Rod (2 guide rods)
+6) Anti-Siphon Plate
+7) Drive-Screw
+8) Syringe Retainer Bracket
+9) Syringe Retainer Thumbscrew (2, one on
+each side)
+10) Syringe Clamp (2, one for each syringe)
+11) Syringe Holder Bracket and ‘V’ Slots
+12) Keypad / User Interface
+1
+2
+12
+3
+4
+5 6
+7
+8 9 10
+11
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+3
+www.kŌechnology.it
+3DUWVRID3DUWVRID3DUWVRID3DUWVRID6\ULQJH6\ULQJH6\ULQJH6\ULQJH
+7HUPLQRORJ\7HUPLQRORJ\7HUPLQRORJ\7HUPLQRORJ\
+0RPHQWDU\3UHVV A quick press, less than 1 second, and then release of a key on the keypad.
+'LVSOD\%OLQN A momentary blanking of the LCD display. This indicates that the new data
+entered by the user is valid and has been stored.
+3URJUDP(QWU\
+0RGH
+The mode where the Program Phase and Program function are selected and
+modified. In this mode the ‘Program Phase #’ and the ‘Program Function’ modes
+of the ‘Rate’ and ‘Volume’ keys are relevant.
+3XPSLQJ3URJUDP The sequence of automated operations entered into the pump. This could be as
+simple as a single function to pump at a single infusion rate continuously.
+3XPSLQJ3URJUDP
+2SHUDWLQJ
+When the pump is started with the ‘Start’/’Stop’ key, or any other source, the
+pump begins performing the operations in the Pumping Program until the
+Pumping Program ends or the pump is stopped with the ‘Start/Stop’ key, or any
+other source. While performing the operations defined in the Pumping Program,
+the Pumping Program is referred to as Operating.
+While Operating, the motor can be pumping or stopped, according to the Pumping
+Program.
+3XPSLQJ3URJUDP
+6WRSSHG
+The motor is stopped and the pump is not operating the Pumping Program.
+3XPSLQJ3URJUDP
+3DXVHG
+The Pumping Program has been stopped, but can be resumed at the point where it
+was stopped.
+3XPSLQJ3URJUDP
+5HVXPHG
+Continuing a Pumping Program that was Paused before the completion of the
+Pumping Program. The Pumping Program continues at the point where the
+Pumping Program was stopped.
+([HFXWHG The pump has performed a single operational Phase as defined in the Pumping
+Program.
+3URJUDP3KDVH A single defined operation in the Pumping Program.
+3KDVH1XPEHU A Program Phase’s numerical sequence location in the Pumping Program.
+&XUUHQWO\6HOHFWHG
+)XQFWLRQ
+Each Pumping Program Phase instructs the pump to perform a particular
+operation. Only one Program Phase is selected at any one time. This is the current
+Phase. Each Phase is set to one function. The set function of the current Phase is
+the currently selected function.
+3XPSLQJ5DWH
+)XQFWLRQ
+Each Pumping Program function instructs the pump to perform a particular
+operation. If the Phase’s operation instructs the system to pump, then associated
+with that Phase is the Phases’ pumping information. When ‘Program Entry
+Mode’ is exited, the ‘Rate’, ‘Volume’, and pumping direction keys refer to the
+currently selected Program Phase’s function. The Program functions that are
+associated with pumping information are referred to as Pumping Rate functions.
+)XQFWLRQ
+3DUDPHWHU
+Certain functions, which do not instruct the system to pump, require additional data.
+This additional data, displayed with the function, is the function’s parameter.
+6WDUW7ULJJHU The Pumping Program may be started, or stopped, from multiple sources. These
+are the keypad’s ‘Start’/’Stop’ key, the TTL I/O ‘Operational Trigger’ input, or
+from a command received through the RS-232 connection.
+Plunger
+Flange
+Plunger BarrelBarrel Flange
+4
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+3. Setup
+♦ Place the pump on a stable surface.
+♦ Plug the round connector end of the supplied power supply adapter into the power plug located on the lower
+right of the pump's rear. See section 10, Logic Interface: TTL Input and Output, for a diagram of the rear of
+the pump. Plug the other end of the power supply adapter into an appropriate electrical outlet. The pump will
+be powered when the bottom of the power switch, located on the upper right of the rear of the pump, labeled
+‘1’, is pressed. The red indicator on the switch is visible when the power switch is in the ‘on’ position. After
+power is applied to the pump, the pump’s display will flash.
+♦ Next the Pumping Program can be entered. Before the Pumping Program can be operated, the pump needs the
+measurement of the inside diameter, in millimeters, of the syringe that will be loaded. The syringe diameter
+can be entered using the keypad on the front panel of the pump.
+♦ Finally, the syringes can be loaded and the pump started.
+4. Loading Syringes
+The syringes are loaded by securing the barrel and the pusher flanges as follows:
+1: Loosen the 2 thumbscrews on the syringe retainer bracket.
+2: Turn the Drive Release Knob ¼ turn clock-wise, then lift. Taking care not to drag the drive-nut on the drive-
+screw, slide the block away from the syringe holder, providing sufficient space for the loaded syringe. While
+lifting the knob, press on the middle of the side for easiest movement.
+3: Lift the syringe clamps above the syringe holder bracket and turn 1/4 turn and then lower onto the syringe
+holder bracket. The syringe clamp should be away from the ‘V’ slot.
+4: Load each syringe with the barrel over the syringe holder bracket and the syringe plunger towards the middle
+of the pump. Place the barrel on the syringe holder bracket, in the ‘V’ slot, with the barrel flange inserted
+between the syringe holder bracket and syringe retainer bracket.
+5: On the pusher block, turn the thumbscrew to make the slot large enough for the plunger flange. Adjust the
+pusher block position as needed towards the syringe plunger. Place each syringe plunger flange into a slot
+and against the anti-siphon plate.
+6: Lock the pusher block in place by turning the release knob counter-clockwise until secure.
+7: For each syringe, lift the syringe clamp to slightly above the height of the syringe barrel and turn the syringe
+holder 1/4 turn back to its original position and then lower it onto the syringe barrel.
+8: Firmly push in the syringe retainer bracket against the syringe barrel flanges and tighten the 2 thumbscrews on
+the syringe retainer bracket. On the pusher block, turn the thumbscrews to tighten the plates against the
+plunger flanges.
+ To unload the syringe, reverse the instructions for syringe loading.
+5. User Interface
+mm
+Volume
+Dispensed
+mL
+Withdraw
+min
+hr Pumping
+Rate Volume Diameter Start
+Pumping Program
+Phase # Function
+Setup
+μL
+RS-232
+Indicator Units
+Indicators Pumping Direction
+Indicator
+Volume Dispensed
+Indicator
+Stop
+Motor
+Operating
+Program Entry Keys Pumping Direction Key
+Syringe ID
+Decimal Point: Press 2 keys
+Figure 1: Front Panel
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+5
+www.kŌechnology.it
+5.1 Entering Values
+When applicable, values can be changed by either displaying the current value, then using the arrow keys, or from
+a computer connected to the pump. The new value will be stored in the pump’s non-volatile memory, meaning that
+the new value will not be lost the next time that power is applied to the pump. The only exception is when the
+pumping rate is changed from an attached computer while the Pumping Program is operating. In this case the new
+pumping rate will not be stored in non-volatile memory.
+A displayed value can be changed by pressing the arrow keys below each digit. If the value to be changed is not
+currently displayed, when applicable, momentarily press the key associated with the required value. The display
+will show the setting’s current value and its units, if any.
+While the current value is being changed, the units LEDs associated with the value, if any, will blink. Except
+where noted, the new value is stored, and/or the selected operation takes effect, when either
+1) A non-arrow key is pressed or
+2) After a 2 second delay since the last arrow key was pressed.
+If the new value is valid and different from the original value, the display will blink, indicating that the new value
+was stored. Otherwise, if the value was invalid, an error message will be displayed. Pressing any key clears the
+error message and restores the original value.
+In general, if a parameter has 2 values, ‘off’ and ‘on’, they are represented by the numbers ‘0’ and ‘1’, respectfully.
+5.2 LCD Display
+The display consists of a 4 digit reflective LCD (Liquid Crystal Diode) display. This is the general purpose user
+display device for displaying numerical data, functions and parameters. The colon (:) is used for displaying time or
+for separating function abbreviations from their parameter values. In the upper left corner is a triangle that
+indicates valid reception of RS-232 remote communications.
+5.3 LEDs
+To the right of the LCD are 8 red, round, LED (Light Emitting Diode) indicators. The first 2 columns display the
+units of the displayed values. Units are expressed using 1 or 2 LEDs. For instance, ‘mL / hr’ is expressed by
+lighting the ‘mL’ and the ‘hr’ LEDs.
+‘Dispensed’ indicates that the displayed volume is the total ‘Volume Dispensed’ or pumped.
+When ‘Pumping’ is lit (not blinking), the motor is operating, either infusing or withdrawing. If blinking, the motor
+is not operating, and the Pumping Program is paused. When the pump is restarted, the Pumping Program will
+resume at the point where the Pumping Program was interrupted. When not lit (not blinking) the pump is stopped,
+but the Pumping Program may be operating a pause Phase. Starting the pump, when the Pumping Program is
+stopped, will start the Pumping Program from the beginning (Phase 1).
+‘Withdraw’ indicates that the pumping direction is set for withdrawing. If not lit, then the pumping direction is set
+for infusing. When blinking, “Sticky Direction” is set. Also, the ‘Withdraw’ LED indicates that the “Volume
+Dispensed” refers to the volume withdrawn. If not lit, the “Volume
+Dispensed” refers to the volume infused.
+LED Description LED Description
+mL Milliliters μL Microliters
+mm Millimeters min Minutes
+Dispensed Volume dispensed displayed hr Hours
+Withdraw Pumping Direction:
+Lit: Withdraw
+Not lit: Infuse
+Blinking: “Sticky Direction”
+Pumping Lit: Motor is operating
+Not lit: The Pumping Program is stopped or
+executing a Pause Function
+Blinking: The Pumping Program is paused
+Pumping rate units are expressed using 2 LEDs:
+‘mL/min’ =
+mL min
+hrμL
+‘mL/hr’ =
+mL min
+hrμL
+‘μL/min’ =
+mL min
+hrμL
+‘μL/hr’ =
+mL min
+hrμL
+6
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+5.4 Arrow and Decimal Point Keys
+Each of the four digits in the display is associated with the up arrow key directly below it. When applicable, the
+arrow key is used to increment the value of that digit, or advance to the next selection in a list of functions or
+settings.
+Each press of an up arrow key will increase the digit by 1, up to 9, and then back to 0. The arrow keys may also be
+held down for continuous incrementing of numbers. Some parameters, such as the RS-232 baud rate, scroll
+through a selection of values when the arrow keys are pressed. Other parameters have a fixed range of values, such
+as some setup parameters that are either turned on or off. In these cases, the arrow key will only scroll up to the
+maximum value for that parameter, then back to the minimum value.
+When changing the pumping rate units, each press of any arrow key will change the units LEDs to the next units
+selection.
+When the display blinks, the new value is stored and takes effect. This will occur when a non-arrow key is pressed
+or after a 2 second delay since the last key press.
+5.4.1 Decimal Point
+There are 4 decimal point positions on the LCD display. Each decimal point position is to the right of a digit in the
+display. The last decimal point position, to the right of the right-most digit is not displayed, indicating whole
+numbers with no decimal point.
+To move the decimal point, simultaneously press the 2 up arrow keys under the 2 digits next to the decimal point
+position. Press the same 2 up arrow keys to clear the decimal point, to display a whole number.
+Alternatively, to move the decimal point position, use the left-most arrow /decimal point key (Ï/z). Press and
+hold this key for at least 1 second and wait until the left-most digit scrolls past ‘9’ to ‘0’. While continuing to hold
+this key, the decimal point will shift 1 position to the right. After the right-most decimal point position, the
+decimal point will shift to the first decimal point position. Release the key when the decimal point is in the
+required position.
+5.5 ‘Diameter’ and ‘Setup’ Key
+The ‘Diameter’ key allows the syringe inside diameter to be viewed and set. While being displayed, the ‘mm’ LED
+is lit. Momentarily pressing this key will display the current diameter setting. With the Pumping Program stopped,
+pressing the up arrow keys will change the current diameter (see sec. 5.4, Arrow and Decimal Point Key). The
+‘mm’ LED will blink while the diameter is being changed.
+If the ‘Diameter’ key is pressed and held, ‘Setup’ mode will be entered. (See sec. 5.12, ‘Setup’ ).
+5.6 ‘Rate’ and ‘Program Phase #’ Key
+When the Pumping Program is stopped, except in “Program Entry Mode”, the ‘Rate’ key allows the pumping rate
+to be viewed or changed. If the currently selected function allows selection of rate units, momentarily pressing this
+key will switch between the ‘Rate’ display and the select rate units mode.
+To change the pumping rate displayed, use the up arrow keys (see sec. 5.4, Arrow and Decimal Point Key).
+While the Pumping Program is operating, pressing this key will display the current pumping rate, if applicable.
+While displayed, the current pumping rate can be changed by pressing the up arrow keys. The rate units will blink
+while the rate is being changed. The new pumping rate takes effect when the display blinks after a 2 second delay
+or when a non-arrow key is pressed. The new pumping rate is stored in the current Program Phase.
+See section 11.7, “Syringe Diameters and Rate Limits”, for a list of minimum and maximum pumping rates. A
+pumping rate of 0.0 will stop the pump. When the pumping rate is changed, if it is out of range of the pumping rate
+limits, the display will show nn , where ‘nn’ indicates the currently selected Phase Number. Pressing any
+key clears the message and returns to the previous pumping rate.
+5.6.1 Pumping Rate Units
+The pumping rate units can only be changed when the Pumping Program is not operating. If the currently selected
+function allows selection of rate units (‘RATE’ function), a momentary press of the ‘Rate’ key will enter Rate
+Units Change mode. The 2 LEDs representing the units will blink and the display will show: .
+Each press of any up arrow key selects the next rate units, as indicated by the blinking units LEDs. When the
+required rate units are blinking, press any non-arrow key or wait 2 seconds. The display will blink, indicating the
+rate units are stored. The rate units are stored in the currently selected Program Phase. The rate units can be
+independently set for each Phase with a ‘RATE’ function.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+7
+www.kŌechnology.it
+5.6.2 Program Entry Mode
+While the Pumping Program is stopped, “Program Entry Mode” can be entered by pressing and holding the ‘Rate’
+key. Release the key when the display shows the current Program Phase number: nn , where ‘nn’
+indicates the current Program Phase number.
+With the current Program Phase number displayed, if the currently selected Program Phase is set to a pumping rate
+function, a momentary press of this key will exit “Program Entry Mode” and return to the rate display.
+5.7 ‘Volume’ and ‘Program Function’ Key
+When the Pumping Program is stopped, except in “Program Entry Mode”, momentary presses of this key will
+switch the display between the “Volume to be Dispensed” and the “Volume Dispensed” displays, as indicted by the
+‘Dispensed’ LED.
+With the Pumping Program stopped, and the “Volume to be Dispensed” displayed, pressing the arrow keys will
+change the “Volume to be Dispensed” (see sec. 5.4, Arrow and Decimal Point Key). The units of the volume are
+set according to the syringe diameter, but can be changed. The new “Volume to be Dispensed” is stored in the
+current Program Phase. If the “Volume to be Dispensed” is disabled (“off”), pressing any up arrow key will
+change the display to 0.0. The “Volume to be Dispensed” can now be set using the up arrow keys.
+While pumping, pressing this key will switch between displaying the current “Volume Dispensed” and “Volume to
+be Dispensed”.
+5.7.1 Disabling “Volume to be Dispensed”
+To disable the “Volume to be Dispensed”, i.e. continuous pumping, set the “Volume to be Dispensed” to 0.0. After
+being stored, the display will show , indicating the “Volume to be Dispensed” is off. In this mode, the
+pump will not stop at a set volume and will pump continuously until the pump is stopped, or an “event trigger”,
+programmed into the Pumping Program, occurs.
+5.7.2 Clearing “Volume Dispensed”
+With the Pumping Program stopped, display the “Volume Dispensed”. Pressing and holding any up arrow key for
+one second will reset the infusion and withdrawal dispensed volumes to 0.
+5.7.3 Program Entry Mode
+“Program Entry Mode” is entered by pressing and holding the ‘Volume’ key. Release the key when the display
+shows the currently selected Program Phase’s function.
+In “Program Entry Mode”, when the Program Function is not displayed, momentarily pressing this key will display
+the current Program Function.
+When the Program Function is displayed, if the function is a pumping rate function, “Program Entry Mode” can be
+exited by momentarily pressing the ‘Volume’ key. The display will show the “Volume to be Dispensed”.
+Otherwise, pressing the ‘Volume’ key will display the “Volume Dispensed”. Pressing the ‘Volume’ key again will
+return to displaying the Program Function.
+5.8 Pumping Direction Key
+The pumping direction key, ‘ ’, changes the direction of pumping. Pressing this key switches the pumping
+direction between ‘infuse’ and ‘withdraw’, as indicated by the ‘Withdraw’ LED. When the LED is lit, the pumping
+direction is ‘withdraw’, not-lit, pumping direction is ‘infuse’, blinking indicates “Sticky Direction” is set. The new
+pumping direction is stored in the current Program Phase.
+The “Volume Dispensed” is accumulated separately for infusion and withdrawal. When the pumping direction is
+changed, the current “Volume Dispensed” is also changed accordingly between the infusion and withdrawal
+“Volume Dispensed” accumulations.
+When the Pumping Program is operating and the “Volume to be Dispensed” is non-zero, the pumping direction
+cannot be changed. Otherwise, when pumping continuously (“Volume to be Dispensed” disabled), the pumping
+direction can be changed.
+5.8.1 Sticky Direction
+With the pump stopped, press and hold the direction key to set “Sticky Direction”. The LED will blink when set.
+“Sticky Direction” will continue the pumping direction of the previous Pumping Phase or, if the first Phase, set the
+pumping direction according to the logic level of the “Pumping Direction” TTL input pin (pin 3):
+Direction Control: Reciprocating Pumps (dr:rE) Dual Pumps (dr:dU)
+Low Level: Infuse Withdraw
+8
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+5.9 ‘Start’/’Stop’ Key
+The ‘Start/Stop’ key starts or stops the Pumping Program’s operation. Pressing this key switches between the
+Pumping Program operating and the Pumping Program paused. When the ‘Start/Stop’ key is pressed before the
+completion of a Program, the motor is stopped and the Pumping Program will be paused. The ‘Pumping’ LED will
+then blink, indicating that the Pumping Program is paused.
+Pressing this key again will resume the Program at the point it was paused. If any other key is pressed while the
+Pumping Program is paused, the Pumping Program will be stopped and reset. Pressing the ‘Start/Stop’ key will
+then start the Pumping Program from the beginning (Phase 1).
+Pressing and holding this key while starting the Pumping Program will start the purge mode. Purge will begin after
+the key is held for one second, and continue until the key is released. The pump will stop after the key is released.
+“Button Trigger Event Trap” Program Function redirects ‘Stop’ key to a Program Event.
+5.10 ‘Program Phase #’ (Number) Key
+When in the “Program Entry Mode”, momentary presses of the ’Program Phase #’ and the ‘Program Function’
+keys switch between the Program Phase number and the Program Function displays. The Program Phase number
+will be displayed as nn , where ‘nn’ is the current Program Phase number.
+When the Program Phase number is displayed and the current Phase’s function is a rate function, a momentary
+press of the ‘Program Phase #’ key exits ‘Program Entry Mode, and displays the pumping rate.
+To change the current Program Phase number, press the arrow keys below the Phase number’s digits. The
+maximum Phase number is 41. To reset to Phase number 1, press and hold the ‘Program Phase #’ key until the
+Phase number is 1.
+When a new Program Phase number is selected, the current value of all settings will be that of the currently
+selected Program Phase.
+5.11 ‘Program Function’ Key
+When in the “Program Entry Mode”, momentary presses of the ’Program Phase #’ and the ‘Program Function’
+keys switch between the Program Phase number and the Program Function displays.
+With the Program Phase function displayed, the Program Function can be selected. Pressing any arrow key, or an
+arrow key to the left of the colon (:) or decimal point (.) if displayed with the function, will select the next Program
+Function. The selected function is stored by either pressing any non-arrow key, or after a 2 second delay. If the
+selected function is different from the original function, the display will blink when the selected function is stored.
+5.11.1 Program Phase Function Parameter
+If the selected function has a parameter associated with the function, the value of the parameter will be displayed to
+the right of the function name, separated by either a period (.) or a colon (:).
+To change the parameter’s value, press the arrow keys below the parameter’s digits. The parameter’s new value is
+stored by either pressing any non-arrow key or after a 2 second delay. If the parameter has changed from its
+original value, the display will blink when the parameter’s new value is stored.
+5.12 ‘Setup’ Key
+The secondary function of the ‘Diameter’ key is ‘Setup’. While the Pumping Program is not operating, press and
+hold the ‘Diameter’ key until the first setup configuration parameter, “Power Failure Mode”, is displayed:
+n .
+The display will consecutively display, for about 2 seconds, each Setup Configuration parameter and its current
+setting. Pressing any non-arrow key will immediately advance to the next Setup Configuration parameter.
+To change a Setup Configuration parameter, press an arrow key under the parameter’s value. To store the new
+value, press any non-arrow key or wait 2 seconds. If the parameter value differs from its previous value, the
+display will blink. The new parameter value will be stored and the next parameter will be displayed. See section 7,
+“Setup Configuration” for a complete description of the Setup Configurations.
+After the last configuration parameter is displayed, the display reverts back to displaying the syringe diameter.
+Any new parameter value will take effect immediately upon being stored.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+9
+www.kŌechnology.it
+5.13.1 Firmware Version Display
+To display the pump’s firmware version, press the left-most up-arrow key (Ï/z) while turning on power to the
+pump. The display will show: n.nn , where ‘n.nn’ is the firmware version number. Pressing any key will
+clear the display.
+5.13.2 Reset Pumping Program
+To clear out the current Program Function setups, press the right-most up-arrow key (Ï) while turning on power
+to the pump. The display will show . Pressing any key will clear the display.
+With a pump with as many complex features as the NE-4000, it is easy for a novice user experimenting with the
+pump's setup to get the pump into a 'weird' state. Performing this reset function will bring the pump out of a 'weird'
+state.
+5.13.3 Default Program Pre-Load
+Pressing the 'Volume'/'Program Function' key while turning on power to the pump will display the Default Program
+Menu and the display will show: . Currently, the only default program is the Reciprocating Pump
+program. When selected, the following program will be pre-set, plus the RS-232 communications mode will be
+set to Reciprocating Mode. The default program will over write any other program stored in memory and it can
+then be modified as needed. The following default program will be loaded and stored in the Pumping Program
+memory.
+The Reciprocating Pump Program sets the pump for use with a second pump, plus cable Part# CBL-DUAL, to
+create a continuous infusion system.
+Phase Function Rate Volume Direction
+1 RATE 500 mL/hr 10.0 mL Withdraw
+Phase Function Rate Volume Direction
+2 FILL 0.0 mL/hr ----------- ------------
+Phase Function
+3 JP:01
+5.13.4 Program Entry Mode Lockout
+Pressing the ‘Diameter’ key while turning on power to the pump will enter special parameter setup. The following
+will be displayed: n , currently, the only parameter. The “Program Entry Mode Lockout”, when
+enabled, prevents inexperienced users from entering “Program Entry Mode” from the keypad. Mode Disabled: ‘n’
+= 0 (default). Mode Enabled: ‘n’ = 1. When enabled, only Phase 1 ‘Rate’, ‘Volume’ and Pumping Direction can
+be changed. Cannot be enabled when the Pumping Program is currently programmed with a multiple Phase
+Program.
+5.14 Error and Alarm Messages
+If the value entered is beyond the pump's capabilities or is invalid, or an operational problem occurred, one of the
+following error or alarm messages will be displayed:
+Pump motor stalled alarm.
+Value entered is ‘Out Of Range’ of the pump’s operational limits.
+nn An out of range error occurred at Pumping Program Phase number ‘nn’, or the value just
+entered is out of range. Check the pumping parameters and syringe diameter.
+nn A Pumping Program error was encountered at Pumping Program Phase number ‘nn’.
+The indicated Phase is invalid in the context of the entire Pumping Program.
+Key pressed is not currently applicable.
+10
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+y g p
+A communications time-out alarm occurred with an attached computer while operating in
+the “Safe Communications Mode”. This most likely indicates that the RS-232 cable was
+detached or the communication program on the computer has ended without turning off
+“Safe Communications Mode”.
+n An error was detected during power up, where ‘n’ indicates the error. If n=1, then the
+values stored in the pump’s non-volatile memory were invalid and were reset. If n=2,
+then the non-volatile memory may need to be replaced.
+Pump settings are locked out from the keypad. The lockout key is needed to change
+settings. Lockout can also be reset with the reset function.
+5.15 Status Messages
+Indicates pumping rate units change mode. The units LED's will also be blinking.
+Indicates that the Pumping Program has paused and is waiting for the user to press
+‘Start’, or for an external operational trigger, to continue.
+Indicates that the pump is busy completing a long operation.
+Indicates that the “Volume to be Dispensed” is 0.00, and is turned off. This is the
+continuous pumping mode.
+Indicates that the pump is purging. Displayed while holding down the 'Start/Stop' key.
+nn Indicates that the Pumping Program paused and is waiting for the user to select a sub-
+program.
+Indicates that the pump’s RS-232 communications is set for either Reciprocating or Dual
+pumping modes. One of these messages will be briefly displayed while the pump is
+searching for the secondary pump. Normally, seeing one of these messages would
+indicate that the secondary pump is not attached or communication cannot be established.
+Indicates that the Pumping Program entry mode has been entered, possibly after the
+‘Rate’ key was pressed and held. A momentary press of the ‘Rate’ key will return the
+display to the pumping rate. This display may also indicate that the first Pumping
+Program Phase is not a ‘Rate’ function.
+6. Operation
+Before the pump can be operated, the pumping data must be setup. At minimum, the syringe
+inside diameter and a non-zero pumping rate needs to be set. The operation of the pump can
+then be started from the keypad, TTL I/O connector, or from RS-232 control. From the keypad,
+pressing the ‘Start / Stop’ key will start the pump operation.
+6.1 Syringe Inside Diameter
+The syringe inside diameter can only be set while the Pumping Program is stopped. Use the up arrow keys to set
+the diameter value. While the diameter value is being set, the ‘mm’ LED will blink. The new diameter value is
+stored after pressing any non-arrow key, or after a 2 second delay.
+Valid syringe diameters are from 0.1 mm to 50.0 mm. If the diameter is out of this range, the display will show
+‘oor’. Pressing any key restores the diameter display to its previous value. Changing the syringe diameter will not
+zero any current settings. Section 11.7, “Syringe Diameters and Rate Limits”, is a representative list, for
+reference, of syringe diameters for various syringe manufacturers and syringe sizes.
+6.1.1 Default Volume Units
+The units of the accumulated infusion and withdrawal volumes and the “Volume to be Dispensed” are set
+according to the diameter setting. NOTE: A change in the volume units will affect all “Volume to be Dispensed”
+settings in the Pumping Program. If the default volume units are changed (see next section), the selected volume
+units will remain in effect until a reset function is performed.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+11
+www.kŌechnology.it
+6.1.2 Changing Volume Units
+The Volume Units used for accumulated volumes and the “Volume to be Dispensed” settings can be changed to
+either ‘mL’ or ‘μL’. Volume Units can only be changed while the Pumping Program is stopped. A change in the
+Volume Units will affect all “Volume to be Dispensed” settings in the Pumping Program.
+To change the Volume Units, display the “Volume Dispensed” by pressing the “Volume” key once or twice. The
+current Volume Units and the “Dispensed” LED will be lit.
+Set the Volume Dispensed to 0.000 if it is not zero: Press and hold any up arrow key until the Volume Dispensed
+is set to 0.000.
+Now, pressing any up arrow key will change the display to and the current Volume Units will blink.
+Then, press any up arrow key to switch the Volume Units between ‘mL’ and ‘μL’. Press any non-arrow key or
+wait 2 seconds to enter the new Volume Units. The display will blink when entered. The selected Volume Units
+will remain in affect and override the default Volume Units. Changing the diameter will no longer change the
+Volume Units. Performming a system reset will cancel the override and allow the Volume Units to change to the
+default Volume Units when setting the syringe diameter.
+6.2 Start/Stop Triggers
+The Pumping Program can be started or stopped from three sources: The keypad ‘Start/Stop’ key, RS-232 ‘RUN’
+command, or the TTL I/O Operational Trigger input. Each can control the Pumping Program’s operation.
+6.3 Operating the Pump
+When the “Start/Stop” key is pressed, the Pumping Program begins to operate, starting with Phase 1. If the current
+Program Phase specifies a pumping rate, the pump will begin pumping, and the ‘Pumping’ LED will be lit. The
+pumping direction will depend on the Phase setup.
+While pumping, the pump will pump continuously in the current Program Phase, unless a “Volume to be
+Dispensed” is set, or an Event trigger is set. If a “Volume to be Dispensed” is set, the Program Phase will be
+complete after the set volume has been infused or withdrawn, measured from the start of the Phase.
+The display can be changed by pressing the ‘Rate’, ‘Volume’, or ‘Diameter’ keys.
+6.4 Purging
+To purge the syringe, with the Pumping Program stopped, press and hold the 'Start/Stop' key. The Pumping
+Program will start then, after one second, purge will begin. The pump will pump at its top speed in the currently
+set direction. Purging will continue until the 'Start/Stop' key is released, and then the pump will stop. While
+purging the display will show:
+6.5 Changing the Pumping Rate and Direction While Pumping
+Except with some complex Pumping Programs, the pumping rate can be changed while the pump is operating. To
+change the pumping rate, display the pumping rate by momentarily pressing the ‘Rate’ key. With the pumping rate
+is displayed, press the up arrow keys to change the rate. The rate units will blink while entering the rate. Rate
+units cannot be changed while pumping.
+The new rate is stored after a 2 second delay or by pressing a non-arrow key. If the new rate is within the operating
+range of the pump, the display will blink and the new rate will be stored in the current Program Phase and the pump
+will begin to pump at the new rate. If the new rate is out of the operating range of the pump, the display will show
+nn . Pressing any key clears the error message.
+The pumping direction can be changed while pumping if the “Volume to be Dispensed” is 0.0 (off). Pressing the
+direction key will immediately change the pumping direction and store the pumping direction in the current
+Program Phase. Also changing the pumping direction changes the accumulated “Volume Dispensed” according to
+the new pumping direction.
+6.6 Volume Dispensed
+When the total accumulated volume pumped is displayed, the ‘ml’ or ‘μl’ LED is lit and the ‘Dispensed’ LED is lit.
+Volume is computed based upon the syringe inside diameter setting. The accumulated Volume Dispensed can be
+displayed by pressing the ‘Volume’ key one, two, or three times, depending on the current display.
+12
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+The volume is accumulated separately for infusion and withdrawal. When the pump changes direction, the
+“Volume Dispensed” changes to the accumulated volume for the current pumping direction.
+The “Volume Dispensed” accumulations for infusion and withdrawal are reset to 0 when:
+A) With the pump stopped, pressing and holding any up arrow key while displaying the “Volume
+Dispensed”.
+B) A sub-program is selected when the Pumping Program executes a Program Selection function.
+C) The syringe diameter is changed.
+D) From the RS-232 clear “Volume Dispensed” command (CLD) or Clear Dispense function..
+E) The accumulated Volume Dispensed rolls over from 9999 to 0.
+F) The pump is powered on.
+6.7 Resuming When Paused
+If the Pumping Program is stopped before the completion of the Pumping Program, the ‘Pumping’ LED will blink,
+indicating that the Pumping Program is paused. While the ‘Pumping’ LED is blinking, starting the pump again will
+resume the Pumping Program where it was stopped. This means that the Pumping Program will continue at the
+point in the Phase where it was stopped and the ‘Volume to be Dispensed’ will still be referenced from when the
+Program Phase first started.
+Pressing any key other than the ‘Start’ key will cancel “Pumping Program paused” and the ‘Pumping’ LED will
+stop blinking. When the Pumping Program is started again, it will start from the beginning (Phase 1).
+6.8 Pump Stalled
+WARNING: Do not use Stall as a normal method of stopping the pump. Continuous stalling will cause damage to
+the drive nut.
+When the operation of the motor is impeded due to excessive force needed to drive the syringe, or when then collar
+clamp position is reached, the pump will stop, pausing the Pumping Program, and a stall alarm will occur. The
+display will show , the ‘Pumping’ LED will blink, and the buzzer will sound continuously if alarms are
+enabled. Also, if the RS-232 Safe Mode is enabled, an auto-alarm message will be sent to an attached computer.
+Pressing any key will stop the buzzer and clear the alarm. When the problem causing the pump motor to stall has
+been corrected, the Pumping Program can be resumed from any start trigger source: ‘Start’/’Stop’ key, TTL
+input, or RS-232 command.
+7. Setup Configuration
+To change or view the setup configuration, the Pumping Program must be stopped. Press the ‘Diameter’/‘Setup’
+key until the first parameter, ‘PF’ is displayed. After 2 seconds, or when any non-arrow key is pressed, the next
+parameter will be displayed (see sec. 5.12, ‘Setup’ Key). Pressing an arrow key under a value will increment,
+select, or scroll through the valid values for the parameter. The Setup Configurations will be displayed in the
+following order:
+n Power Failure mode, where ‘n’ is the current setting.
+n Low Noise mode, whre ‘n’ is the current setting
+n Alarm mode, where ‘n’ is the current setting.
+Display TTL I/O external logic connector settings. Press any arrow key to select.
+If TTL is selected, the following TTL logic settings will be displayed:
+aa Operational Trigger default setting. ‘aa’ is current setting.
+aa Directional control setting. 'aa' is current setting.
+n 'Pump Motor Operating' TTL output pin configuration. 'n' is the
+current setting.
+n *** The "Lockout Disable Key" needs to be inserted to display this setting. ***
+Locks out changing settings from the keypad. 'n' is the current setting.
+n Keypad and notifications beep enable, where ‘n’ is the current setting.
+If standard communications mode with a computer is set, then the following are displayed:
+nn RS-232 pump network address, where ‘nn’ is the network address.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+13
+www.kŌechnology.it
+nnnn RS-232 pump network baud rate, where ‘nnnn’ indicates the baud rate.
+Otherwise, the current communications mode will be displayed:
+, , or Reciprocating, Dual Pump, or Alternating
+Communications Mode.
+7.1 Power Failure Mode
+n Setting: ‘0’ = Disabled, ‘1’ = Enabled.
+When enabled, if the Pumping Program was operating when power to the pump was disrupted, the Pumping
+Program will automatically start operating when power is reconnected to the pump. Pressing any key on the
+keypad while powering up the pump will stop the Pumping Program from starting.
+)))) CAUTION: The Pumping Program will start operating from the beginning of the Pumping Program
+(Phase 1), regardless of what part of the Pumping Program was operating when the power was disrupted.
+When the NE-4000 syringe pump is used as a component in an automated infusion/withdrawal dispensing system,
+a Pumping Program can be designed to automatically synchronize the pusher block at the start of the Pumping
+Program. This would be accomplished using attached sensors that send signals to the Pumping Program.
+7.2 Low Noise Mode
+n Setting: ‘0’ = Disabled, ‘1’ = Enabled.
+A side effect of the pump’s high precision micro-stepped motor driver is a high frequency resonance sound at very
+low pumping speeds. This mode minimizes this sound by reducing the micro-stepping, increasing pulsations.
+7.3 Audible Alarm Enable
+n Setting: ‘0’ = Disabled, ‘1’ = Enabled.
+When alarms are enabled, a steady buzzer alarm will sound during alarm conditions, such as when the motor stalls:
+Pressing any key will stop the alarm.
+14
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+7.4 TTL I/O Operational Trigger Default Configuration
+aa Configures the default mode of the TTL I/O ‘Operational Trigger’ (pin 2) that will control the
+Pumping Program’s operation. This default setting can be overridden within a Pumping Program. (See sec. 10.1,
+TTL I/O Operational Controls). The 2 letter configuration Setting parameter to the right of the colon (:) is defined
+in column ‘Setting’ as follows:
+Setting
+RS-232 Command Setting
+FUN TRG <n>
+<n> => Name Function
+Ft 0 Foot Switch Falling edge starts or stops the Pumping Program
+FH 1 Foot Switch Hold Falling edge starts the Pumping Program
+Rising edge stops the Pumping Program
+F2 2 Foot Switch Reversed Rising edge starts or stops the Pumping Program
+LE 3 Level Control Falling edge stops the Pumping Program
+Rising edge starts the Pumping Program
+St 4 Start Only Falling edge starts the Pumping Program
+t2 5 Start Only Reversed Rising edge starts the Pumping Program
+SP 6 Stop Only Falling edge stops the Pumping Program
+P2 7 Stop Only Reversed Rising edge stops the Pumping Program
+rL 8 Start on Low Level Start Pumping Program on a low level
+rH 9 Start on High Level Start Pumping Program on a high level
+SL 10 Stop on Low Level Stop Pumping Program on a low level
+SH 11 Stop on High Level Stop Pumping Program on a high level
+oF 12 Trigger off Disable trigger
+Et 13 Trigger Event Pumping Program Function Only:. Trigger an
+event instead of stopping the pump
+bt 14 Button Trigger Event Pumping Program Function Only: Pressing ‘Stop’
+key triggers an event instead of stopping the pump
+7.5 TTL I/O Directional Control Input Configuration
+aa Configures how the TTL input ‘Pumping Direction’ (pin 3) will control the pumping direction. (See
+sec. 10.1, TTL I/O Operational Controls). The 2 letter configuration parameter to the right of the colon (:) is
+defined as follows:
+Setting Name Function
+rE Reciprocating Pumps Falling edge: Infuse; Rising edge: Withdraw
+dU Dual Pump Falling edge: Withdraw; Rising edge: Infuse
+The setting names are relevant to a 2 pump system, whereby the ‘Directional Control Input’ TTL pin is attached to
+the second pump’s ‘Pumping Direction Output’ TTL pin.
+In addition, “Directional Control Input” will affect how the “Sticky Direction” function operates. See “ Sticky
+Direction”, sec: 5.8.1
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+15
+www.kŌechnology.it
+7.6 Pump Motor Operating TTL Output Configuration
+n Configures the functionality of the 'Pump Motor Operating' TTL output pin (TTL pin 7).
+Settings: 0: Sets the output to logic high only when the motor is operating (pumping).
+Sets the output to logic low when the motor is not operating or when the Pumping Program is
+executing a pause timer or is stopped
+1: Sets the output to logic high when the motor is operating (pumping) or when the Pumping Program is
+executing a pause timer. Also alters operation of Alternating Communications Mode.
+Set the output to logic low when the Pumping Program is stopped
+7.7 Keypad Lockout
+n Setting: '0' = Disabled, '1' = Enabled.
+*** The "Lockout Disable Key" needs to be inserted into the TTL I/O connector to display this setting***
+When enabled, the "Lockout Disable Key" needs to be inserted in the TTL I/O connector to change any of the
+pump's settings. When the key is removed, the user can only start or stop the pump and review current settings.
+Settings can still be changed from RS-232. When the user attempts to change a setting, the message
+will be displayed.
+Auto-Run Mode: When used in conjuction with the Sub-Program Select programming function as Phase 1, the
+pump will enter Auto-Run Mode. In this mode, on power up, the Pumping Program will immediately begin to
+execute and the user would be prompted to enter a Sub-Program number.
+The "Lockout Disable Key" connects the "Program Input", TTL connector pin 6, to Ground, pin 9. The "Lockout
+Disable Key" is available as an accessory item.
+Lockout can also be disabled by performing a system reset, see sec. 5.13.2, "Reset Pumping Program."
+7.8 Keypad and Notification Beep Enable
+n Setting: ‘0’ = Disabled, ‘1’ = Enabled.
+When enabled, a beep will sound as follows:
+Condition Buzzer Action
+Pumping Program ended Continuous beeping
+Pumping Program paused for start trigger Continuous beeping
+A keypad button is pressed Single beep
+7.9 RS-232 Pump Network Configuration
+nn The pump can be configured to communicate either with a
+computer or another pump. Communications with a computer (Address Mode) is the default setting and will be
+indicated by the [Ad:nn] display.
+When in the default Address Mode, up to 100 pumps can be attached to a computer in a single pump network. The
+network address is defined by the 2 digits to the right of the colon (:). The valid range of addresses is from ‘00’ to
+‘99’. If only one pump is attached to the computer, set the network address to 0, [Ad:00] (factory default).
+After the network address is displayed, the baud rate is displayed. Each pump in the pump network and the
+computer must have the same baud rate setting. Any arrow key can be used to scroll through the selection of baud
+rates. The supported baud rates are: 300, 1200, 2400, 9600, and 19200 (displayed as [1920]).
+16
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+To change the communications mode:
+With the network address displayed [Ad:nn], press the left-most arrow key to enter the communications mode
+menu. Pressing any arrow key will scroll through the menu selections:
+Address Mode: Default communications with a computer mode.
+Reciprocating Pumps. Sends Start/Stop, Pumping rate and reverse
+pumping direction to an attached secondary pump.
+Reciprocating Pumps. Sends Start/Stop, Pumping rate and same
+pumping direction to an attached secondary pump.
+Alternating Pumps. Starts second pump when current pumping
+program stops. Modified by TTL RUN.1 and OUT.0 setting.
+Note: Communications with a computer requires the accessory cable: CBL-PC-PUMP-7.
+Dual pump modes requires the accessory cable: CBL-DUAL-3
+In Reciprocating or Dual Pumps Modes, the secondary pump must be left in its default communications setting of
+Address Mode, Address 0, and 19,200 baud rate. See the documentation with CBL-DUAL-3 cable for more
+detailed information.
+8. Pumping Program
+A Pumping Program is simply a pre-defined sequence of actions, or functions, which guarantees consistent and
+precise operation of the pump, automatically, and with or without any user intervention. A Pumping Program can
+be as simple as continuous pumping at a fixed infusion rate. Or a Pumping Programs could consist of a pumping
+rate and direction of pumping for a specified volume, then switch to another pumping rate. Also a Program can
+interact with external devices through the TTL I/O connector, make decisions, or stop pumping for a period of
+time.
+Programs are broken into individual operations called Phases. Each Phase consists of a function that can be a
+control function or pumping function. A pumping function, such as ‘RATE’, consists of a pumping rate, optional
+“Volume to be Dispensed”, and the pumping direction.
+Complex dispensing systems can be designed, involving multiple liquids, each dispensed from a different pump,
+plus other equipment and sensors. Pumping Programs can be designed for each pump which enables multiple
+pumps to synchronize with each other, and the other equipment and sensors, using a cable connected to the TTL
+I/O connectors of each pump.
+When the Pumping Program is started, either from the keypad, TTL I/O connector, or from RS-232, the Pumping
+Program will begin with Phase 1 of the Program. After the completion of each Phase, the pump will immediately
+start the next consecutive Phase. This linear sequence of Phases can be altered by certain functions that direct the
+Pumping Program to continue operation with a different Phase number. Some functions can change the order of
+operation conditionally based on external events.
+8.1 How to Enter Pumping Programs
+A Pumping Program can be entered directly from the pump’s keypad, or uploaded from a computer using
+PUMPTERM or SyringePumpPro software. A Pumping Program can be stored in a text file and edited with any
+word processor, which facilitates development and maintenance of the program. A Pumping Program generator
+spreadsheet is available to assist in developing a Pumping Program and to create the text file for uploading to a
+pump.
+Start by organizing your pumping requirements into specific actions and conditions that can then be programmed
+into Phases. For more advance programming methods, common groups of Phases can be grouped together and
+repeated multiple times using looping and jump functions.
+The current values of the pumping rate, optional “Volume to be Dispensed”, and pumping direction, all refer to the
+currently selected Phase. To display or change the currently selected Phase, enter “Program Entry Mode” by
+pressing and holding the ‘Rate’/’Program Phase #’ key until the current Phase number is displayed. The display
+will show , where ‘01’ refers to Phase 1. The pump will now be in “Program Entry Mode”. If the
+current Phase is not 1, press and hold the ‘Rate’/’Program Phase #’ key until the display is as shown. The pump
+will now be in Phase 1.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+17
+www.kŌechnology.it
+When in “Program Entry Mode”, with the display showing the Program Phase number, pressing the
+‘Volume’/’Program Function’ key will display the current “Program Function” for this Phase. If the current
+function is ‘RATE’, then a pumping infusion or withdrawal can be setup for this Phase.
+To change the “Program Function” selected, use the arrow keys to scroll through the functions until the required
+function is displayed. If the function has an associated parameter, enter the parameter after the function has been
+stored.
+Momentarily pressing the ‘Volume’/’Program Function’ key again will exit “Program Entry Mode” and display the
+“Volume to be Dispensed.” The pumping rate data, which includes the pumping rate, “Volume to be Dispensed”
+and pumping direction, can now be setup as previously described.
+When finished setting up the pumping rate data for the current Phase, enter “Program Entry Mode” again to select
+the next Program Phase. Press and hold the ‘Rate’/’Program Phase #’ key until the Phase number is displayed.
+Then use the arrow keys to set the Phase number to the next Phase to be setup. Pressing the right-most arrow once
+will set the Phase to Phase 2. Now all pumping data will refer to Phase 2. The second Phase can now be setup as
+described above for Phase 1.
+Continue selecting Phase numbers and entering the infusion or control setup for each Phase of the Pumping
+Program. The entire Pumping Program will be stored in non-volatile memory.
+Use the ‘STOP’ function to stop the pump and end the Pumping Program. If the Pumping Program does not
+operate the pump continuously, the last Phase of the Pumping Program must be a ‘STOP’ function (unless the last
+Phase number is the maximum Phase number).
+When the Pumping Program is started, with the ‘Start / Stop’ key, TTL I/O input, or RS-232 command, the
+Pumping Program will begin operating from Phase 1.
+Very complex dispensing Programs can be created with the Program functions available. Section 8.3 contains a
+detailed description of all the functions.
+8.1.1 Pumping Program Phase Number
+To set the current Program Phase number, enter “Program Entry Mode” and display the current Program Phase
+number.
+Using the right-most 2 arrow keys, change the selected Program Phase number. The displayed Program Phase
+number now becomes the currently selected Program Phase number. All function and pumping rate data will now
+refer to the currently selected Program Phase number.
+If the maximum Program Phase number, 41, is exceeded while changing the Phase number, the displayed Phase
+number will automatically be set to the maximum Program Phase number.
+8.2 Pumping Program Edit Functions
+When developing or updating a large Pumping Program, occasionally one or more Program Phases needs to be
+added or removed from the Pumping Program. Having to re-enter the entire Program could certainly be a tedious
+task.
+Two Program entry functions are available to simplify the Program development process. These are the ‘Insert’
+and ‘Delete’ functions. They allow a Program Phase to be removed from any point in the Pumping Program or a
+Phase to be inserted at any point.
+To access these functions, enter “Program Entry Mode” to display the Program Phase number [PH:nn]. Select the
+Program Phase number that is to be deleted or the Phase number where a new Phase is to be inserted in the
+Pumping Program.
+For example, if a Phase is to be inserted between Phases 24 and 25, select Phase 25. The inserted Phase will be at
+Phase 25, and all the Phases starting with the old Phase 25 will be shifted one Phase higher.
+Using either of the 2 left-most arrow keys, under ‘PH’ in the display, select the editing function. The arrow keys
+will scroll through the selection of editing functions:
+18
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+Editing Function Description
+PH Phase select
+In Insert Phase
+dE Delete Phase
+When the required editing function is displayed, press the ‘Rate’/’Program Phase #’ key before the 2 second time
+out. After the time out, or with any other key press, the function will be canceled.
+If ‘Insert’ or ‘Delete’ was selected, the Pumping Program will be edited. While the Program is being edited, the
+display will show [BUSY].
+If ‘Insert’ was selected, all Phases from the selected Phase to the maximum Phase will be moved to the next higher
+Phase, with the original maximum Phase being deleted. The inserted Phase will default to a ‘RATE’ function, if it
+is the first Phase, or a ‘STOP’ function otherwise.
+If ‘Delete’ was selected, the selected Phase will be removed, and all Phases higher than the selected Phase, up to
+the maximum Phase, will be moved to the next lower Phase.
+All Phases that reference the Phase number of another Phase, such as a ‘jump’ function or an ‘event’ function, will
+be automatically updated. The referenced Phase numbers will be automatically adjusted to compensate for the
+section of the Pumping Program that was shifted during the operation of the edit function.
+Ultimately, the easiest method to maintain and develop Pumping Programs is to download the Pumping Program to
+the pump from an attached computer. This would allow a single Pumping Program to be quickly programmed into
+multiple pumps. The computer would only need to be attached during the download since the Pumping Program is
+stored in the pump’s non-volatile memory.
+Also, a Pumping Program can be uploaded to an attached computer, which could then store it and produce a
+printout of the Pumping Program.
+8.3 Program Function Descriptions
+ÎÎÎÎ Each program function must be in a separate Program Phase ÍÍÍÍ
+8.3.1 ‘rAtE’: Rate Function
+Defines a pumping function with a fixed pumping rate. This function defines a pumping setup
+consisting of the pumping rate, optional “Volume to be Dispensed”, and pumping direction. Use the ‘Rate’,
+‘Volume’, and ‘Pumping Direction’ keys to set or review the pumping setup. For continuous pumping, set the
+“Volume to be Dispensed” to 0.0 (off). The “Volume to be Delivered” is disabled when the display reads [ off].
+8.3.2 ‘FILL’: Fill Function
+The Fill function reverses the pumping direction and withdraws or dispenses the volume dispensed or
+withdrawn. After a series of arbitrary dispenses, the Fill Function uses the Volume Dispensed to automatcally
+refill the syringe. The Volume Dispensed is cleared when the Fill Function begins.
+The pumping rate can be set, as with the Rate Function.
+Fill at the current dispense/withdraw rate: If the Fill function’s pumpng rate is set to 0.0, the previous function’s
+pumping rate will be used for the Fill rate.
+8.3.3 ‘InCr’: Increment Rate Function
+The increment and decrement functions operate the same as the ‘RATE’ function, except that the
+specified rate is added (‘INCR’) or subtracted (‘DECR’) from the current pumping rate. The current pumping rate
+when the function is executed is the base pumping rate for the function. If no base pumping rate exists, such as
+when executing a pause function or when the Pumping Program is first started, a Program error will occur and the
+Program will stop.
+The pumping rate units will be the same as the base pumping rate, and therefore cannot be set, nor are they
+displayed, with the pumping rate increment or decrement value. As with the ‘RATE’ function, a “Volume to be
+Dispensed” and pumping direction can be specified for the increment and decrement functions.
+When used within a Program loop, the pumping rate can be incremented or decremented in small step intervals.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+19
+www.kŌechnology.it
+8.3.4 ‘DECr’: Decrement Rate Function
+The decrement function subtracts the specified rate from the current pumping rate. For a full
+description, see section 8.3.3, ‘InCr’: Increment Rate Function.
+8.3.5 ‘StoP’: Stop Pumping Operation and End the Program
+Stops the pumping operation and stops the Pumping Program. The Pumping Program will begin at
+Phase 1 when started again. An implicit ‘Stop’ function is executed when the Program exceeds the maximum
+Phase number during operation. If alarms are enabled, the buzzer will beep continuously when the Pumping
+Program stops.
+8.3.6 ‘JP:nn’: Jump to Phase
+nn The ‘Jump’ function alters the consecutive operation of Program Phases. When executed, the
+Pumping Program will continue operation with Phase ‘nn’.
+8.3.7 'Pr:In': Sub-Program Selection Input
+The Pumping Program can be broken into sub-programs which can be selected by the user.
+Auto-Run Production Mode: When Phase 1 is set to Program Selection Input, and Lockout Mode is selected, the
+pump will enter Auto-Run Mode. When the pump is powered on, it will immediately begin executing the Pumping
+Program. The user will immediately be prompted to enter a sub-program number. This permits a set of production
+dispenses to be programmed into the pump. The user then would only be able to select from one of these
+production dispenses and not make any changes.
+Foot Switch Trigger Feature: If the Pumping Program was Paused, and the Paused Phase was a continuous
+pumping Rate function, then starting the pump with a foot switch will cancel the Pause and restart the Pumping
+Program Phase 1 causing the current program selection to be re-executed.
+When the Program Selection Input function is executed, the Pumping Program pauses and displays:
+nn , where 'nn' is the Program Selection.
+Using the right 2 arrow keys, under 'nn', the user enters the Label of the required Pumping Program. The Pumping
+Program Label is defined by any number from 0 to 99. When the 'Start' key is pressed, the Pumping Program
+continues execution at the Program Phase with the selected Pumping Program Selection Label. Also, the
+accumulated infusion and withdrawal dispensed volumes are set to zero.
+The pump searches for the selected Pumping Program Selection Label starting with the current Phase and
+continuing to the end of the Pumping Program memory, then from Phase 1 until the current Phase is reached again.
+If the selected label is not found, the 'out of range' error message is displayed. Pressing any key
+returns the display to the Program Selection Input display.
+If more than one Phase is defined with the same label, then execution continues with the first matching label
+encountered. The last selected program label is stored in non-volatile memory and becomes the default label the
+next time the current Program Phase is executed. More than one Program Selection Input function can be defined
+and placed at any Program Phase needed. To cancel the Program Select Input and stop the Pumping Program, turn
+the power to the pump off and on.
+If alarms are enabled, the buzzer will beep continuously while waiting for the start trigger.
+8.3.8 'Pr:nn': Sub-Program Start Label
+The Sub-Program Start Label function defines the start of a Pumping Program sub-program that can
+be selected by the user during Pump Program execution.
+After selecting the function, change '00', if needed, to a unique Program Label, from 0 to 99. See sec: 8.3.7, 'Pr:In':
+Sub-Program Selection Input for a full description. Place a Sub-Program Start Label, with a unique number for
+each Sub-Program, from 0 to 99, at the starting Phase of each sub-program section.
+When the Pumping Program encounters a Sub-Program Start Label in normal execution, it will be interpreted as
+“Jump to Phase 1” [JP:01], ending the sub-program, and, assuming Phase 1 is a Sub-Program Select function,
+[Pr:In], the user will be immediately prompted to select a sub-program.
+20
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+8.3.9 ‘LP:ST’: Define Starting Phase of Loop
+Defines the start of a Program loop. For a full description of Program looping, see sec. 8.3.11,
+‘LP:nn’:
+8.3.10 ‘LP:EN’: Define Continuous Loop End
+Loops to the most recently executed, unpaired, ‘loop start’ Phase, or Phase 1 if none. This function
+allows a section of the Program to be repeated continuously. For a full description of Program looping, see sec.
+8.3.11, ‘LP:nn’: .
+8.3.11 ‘LP:nn’: Define Loop End and Loop Repetitions
+nn Repeats execution of the defined loop ‘nn’ times.
+Loop starts and loop ends are uniquely paired during looping. When an unpaired ‘loop end’ function is executed,
+it is paired with the most recent unpaired ‘loop start’ function executed (‘LP:ST’). If no unpaired ‘loop start’
+function exists, Phase 1 is used as an implied unpaired ‘loop start’. This pairing defines the loop and the range of
+Phase numbers between the paired loop functions defines the scope of the loop.
+When a ‘loop end’ function is executed, Program operation continues with the ‘loop start’ function paired with the
+loop end function. There are 2 ‘loop end’ functions: Loop continuous (‘LP:EN’) and Loop for a preset number of
+iterations (‘LP:nn’), indicated by ‘nn’. Each time a paired ‘loop end’ function is executed, an iteration of the loop
+is complete. With the ‘LP:nn’ function, after ‘nn’ number of loop iterations, the defined loop is complete and
+Program execution continues with the next Program Phase after the ‘loop end’ function. The loop is then no longer
+defined or paired.
+While executing Phases within the scope of a defined loop, another ‘loop start’ and ‘loop end’ can be paired and
+become a defined loop within the scope of the first loop, which is referred to as the outer loop. The new loop being
+referred to as the inner loop. The pairing of a loop within a paired loop is referred to as nesting of loops, with each
+loop being one nested layer for the duration of the loops pairing. Loops can be nested for a total of 3 layers deep.
+Loops can only be nested within the scope of an outer loop.
+8.3.12 'PS:nn': Pause Pumping
+If ‘nn’ is non-zero, the Pumping Program will pause pumping (stops pumping) for ‘nn’ seconds. When executed,
+the display will show nn , with ‘nn’ decrementing to indicate the number of seconds until the next
+Program Phase is executed. After the pause interval, the next Program Phase will be executed.
+To set a pause time in tenths of seconds, select the decimal point between the digits. To select the decimal point,
+press and hold the right-most arrow key until the right-most digit scrolls to 9. After 9, the decimal point between
+the 2 digits will toggle on and off . Release the key when the decimal point is displayed, or cleared, as
+required. Now enter the required pause time from 0.1 to 9.9 seconds. While executing a pause time set in tenths of
+seconds, the display will only show '01' seconds during the pause.
+For pauses longer than the ‘99’ second maximum pause for this function, put the pause function within a Program
+loop. A Program section with the following functions in consecutive Phases:
+[LP:ST] [LP:ST] [PS:60] [LP:60] [LP:24],
+will pause the Pumping Program for 24 hours.
+If ‘nn’ is ‘00’ then the Pumping Program pauses and waits for a start trigger to resume the Program. The display
+will show when waiting for a start trigger.
+After the start trigger, the Program will resume with the next Phase. The start trigger can be from any source, the
+‘Start’/’Stop’ key, the TTL I/O Operational Trigger, or from RS-232. Any other key input will stop and reset the
+Pumping Program.
+If alarms are enabled, the buzzer will beep continuously while waiting for the start trigger.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+21
+www.kŌechnology.it
+8.3.13 'IF:nn': Jump to Phase If External Trigger
+nn The ‘IF’ function conditionally alters the Pumping Program’s execution based on an external signal.
+When executed, if the TTL I/O Program Input pin (pin 6) is low level, then the Pumping Program continues
+operation with Phase number ‘nn’. Otherwise, the Pumping Program continues operation with the next Phase.
+8.3.14 'Et:nn': Setup Event Trigger Jump Phase
+nn The ‘Event’ function sets a background event trap that is triggered by an external signal.
+This one time background trap, or interrupt, stays set during the Pumping Program’s entire execution until it is
+triggered, redefined, or reset. This function has no other effect on the operation of the pump until it is triggered.
+The event is triggered with either:
+1) A falling edge (high to low TTL transition) on the TTL ‘Event Trigger’ input (pin 4).
+2) A low level on the 'Event Trigger' input pin of at least 200 ms at the time the function is executed.
+3) The RS-232 ‘RUN E’ command.
+When triggered, the current operation of the pump and the Pumping Program is interrupted, and the Pumping
+Program immediately continues operation (jumps to) with Phase number ‘nn’.
+After being triggered, the event trigger is reset. If an event trigger function is executed (either 'Et' or ES' function)
+while another event trap is still set, the new event trigger will replace the previous event trap. Only one event can
+be defined at any time.
+8.3.15 'ES:nn': Setup Event Square Wave Trigger Jump Phase
+nn The 'Event Square Wave' function operates the same as the 'ET' 'Event' function, with the exception of
+the triggering conditions.
+The event is triggered with either:
+1) The rising or falling edge of the TTL ‘Event Trigger’ input (pin 4).
+2) The RS-232 ‘RUN E’ command.
+Therefore, a square wave function on the inupt pin can be used to toggle the pump between 2 sections of a
+Pumping Program. An example of this would be a Pumping Program that switched between a slow and fast
+pumping rate, controlled by a square wave input.
+8.3.16 'Et:rS': Event Reset
+’Event Reset’ cancels a previously set event trap by either the 'ES' or 'ET' function.
+8.3.17 ‘CLr.d’: Clear Total Volume Dispensed
+Sets the total volume dispensed to 0. Both infusion and withdraw volumes are reset.
+8.3.18 ‘tr:aa’: Override Operational Trigger Configuration
+aa Sets the Operational Trigger (pin 2) to mode ‘aa’, overriding the default setup Operational Trigger
+Configuration. See Sec. 7.4, ‘TTL I/O Operational Trigger Default Configuration’, for the settings for parameter
+‘aa’. The default setting for the Operational Trigger is always used to start the Pumping Program.
+8.3.18.1 Trigger Event-Trap
+‘Button Trigger Event Trap’ redirects a press of the ‘Stop’ key to the background event trap.
+‘Trigger Event Trap’ redirects a stop pump Operational Trigger to the background event trap.
+Instead of stopping the pump, an event defined by the ‘Event’ or ‘Event Square Wave’ function will be triggered,
+causing the Pumping Program to continue execution at the Phase number defined in the Event function.
+If an Event Trap has not been defined, then the Pumping Program continues execution at the next program phase.
+This is useful if the pump is executing a continuous infusion phase. The pump can continue to infuse until a foot
+swtich is pressed. The pumping prgram can then jump to a different phase, such as a withdraw phase, then stop
+the pump.
+22
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+The Trigger Event Trap is a one-time function. After triggering an Event Trap, the Trigger Event Trap is cleared.
+The Trigger Event function will not affect the current trigger configuration.
+8.3.19 'OUt.n': Set TTL Output Pin
+n Set ‘Program Output’ TTL I/O output (pin 5) to level ‘n’. If ‘n’ = 0, the output pin will be set low. If
+‘n’ = 1, the output pin will be set high.
+8.3.20 'bEEP': Beep
+Sounds a short beep.
+8.4 Pumping Program Examples
+8.4.1 Example 1: 2 Step Rate
+ml Dispensed0 5 30
+0
+2.5
+500
+ml/hr Rate
+Infuse 5.0 mL at 500 mL/hr, and then infuse 25.0 mL at 2.5 mL/hr. Then stop the pump.
+Phase Function Rate Volume Direction
+1 RATE 500 mL/hr 5.0 mL Infuse
+Phase Function Rate Volume Direction
+2 RATE 2.5 mL/hr 25.0 mL Infuse
+Phase Function
+3 STOP
+8.4.2 Example 2: Repeated Dispenses with Suck Back
+ml/hr Rate
+Time
+0
+0
+750
+  
+  
+5:00
+:30
+Dispense 2.0 mL with a 5 minute pause between dispenses. In addition, after each dispense, a volume of 0.25 mL
+is sucked back to prevent dripping. Also, 30 seconds before the end of the pause interval, a beep is sounded to alert
+the operator to prepare for the next dispense.
+Starting with the second dispense, 0.25 is added to the volume dispensed to compensate for the sucked back
+volume of the previous dispense. By changing the last Phase to a [LP:nn] function, the total number of dispenses
+can be set.
+When entering a function with associated data, such as with the ‘Pause’ in Phase 5, or the ‘Loop’ in Phase 6, the
+function is entered in 2 steps. First select the function and store it. Then enter the associated data.
+Phase Function Rate Volume Direction
+1 RATE 750 mL/hr 2.0 mL Infuse
+Phase Function Rate Volume Direction
+2 RATE 750 mL/hr 0.25 mL Withdraw
+Phase Function
+3 LP:ST
+Phase Function
+4 LP:ST
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+23
+www.kŌechnology.it
+y g p
+Phase Function
+5 PS:90
+Phase Function
+6 LP:03
+Phase Function
+7 BEEP
+Phase Function
+8 PS:30
+Phase Function Rate Volume Direction
+9 RATE 750 mL/hr 2.25 mL Infuse
+Phase Function Rate Volume Direction
+10 RATE 750 mL/hr 0.25 mL Withdraw
+Phase Function
+11 LP:EN
+8.4.3 Example 3: Ramping the Flow Rate
+ml/hr Rate
+Time
+0
+150
+200
+250
+Phases
+2 - 4
+Phases
+5 - 8
+Phases
+9-11
+Note: Graph is representative only.
+Pumping rate increments and decrements in steps.
+Continuously ramp up and down the pumping rate. Starting at 200 mL/hr, the pumping rate will increment to 250
+mL/hr in 1.0 mL/hr steps after every 0.1 mL has been dispensed. Then the pumping rate will decrement to 150
+mL/hr in 1.0 mL/hr steps after every 0.1 mL has been dispensed. Finally, the pumping rate is incremented back to
+200 mL/hr in 1.0 mL/hr steps after every 0.1 mL has been dispensed, then the process is repeated.
+Phase Function Rate Volume Direction
+1 RATE 200 mL/hr 0.1 mL Infuse
+Phase Function
+2 LP:ST
+Phase Function Rate Volume Direction
+3 INCR 1.0 0.1 mL Infuse
+Phase Function
+4 LP:50
+Phase Function
+5 LP:ST
+Phase Function Rate Volume Direction
+6 DECR 1.0 0.1 mL Infuse
+Phase Function
+7 LP:99
+Phase Function Rate Volume Direction
+8 DECR 1.0 0.1 mL Infuse
+Phase Function
+9 LP:ST
+24
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+y g p
+Phase Function Rate Volume Direction
+10 INCR 1.0 0.1 mL Infuse
+Phase Function
+11 LP:50
+Phase Function
+12 JP:02
+8.4.4 Example 4: Complex Dispenses with External Synchronization
+0
+0
+750 
+Withdraw (ml/hr) Infuse
+Start
+Trigger
+ 
+Start
+Trigger
+:60
+ 
+:60
+
+:60
+
+Start
+Trigger
+Start over
+Syringe
+Refill
+A more complex dispensing example, this Program contains different pumping requirements, including dispenses
+with multiple pumping rates. The first set of 3 dispenses drops down to a lower pumping rate during the dispense.
+When each dispense is completed, the buzzer beeps to alert the operator, then the pump waits for a start trigger
+before starting the next dispense.
+The next set of 3 dispenses have a fixed time interval of 60 seconds between dispenses. After the last set of
+dispenses, the syringe is refilled by the amount infused, 17.25 mL. Then the buzzer beeps, to alert the operator to
+the start of the first set of dispenses. The process is then repeated.
+Phase Function Rate Volume Direction
+1 RATE 750.0 mL/hr 0.5 mL Infuse
+Phase Function Rate Volume Direction
+2 RATE 300.0 mL/hr 1.5 mL Infuse
+Phase Function
+3 BEEP
+Phase Function
+4 PS:00
+Phase Function
+5 LP:02
+Phase Function Rate Volume Direction
+6 RATE 750.0 mL/hr 0.5 mL Infuse
+Phase Function Rate Volume Direction
+7 RATE 300.0 mL/hr 1.5 mL Infuse
+Phase Function
+8 BEEP
+Phase Function
+9 LP:ST
+Phase Function
+10 PS:60
+Phase Function Rate Volume Direction
+11 RATE 500.0 mL/hr 3.75 mL Infuse
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+25
+www.kŌechnology.it
+Phase Function
+12 LP:03
+Phase Function Rate Volume Direction
+13 RATE 900.0 mL/hr 17.25 mL Withdraw
+Phase Function
+14 BEEP
+Phase Function
+15 PS:00
+Phase Function
+16 LP:EN
+8.4.5 Example 5: Control from a High-Low Pressure Sensor
+10
+25
+ml/hr
+Pumping
+Rate
+Program
+Output Pin
+Event Input
+Pin
+Pressure high sensor
+Pressure low sensor
+Pressure trigger points
+This example demonstrates a Pumping Program whose control depends on an external sensor. Assuming a
+pressure sensor that is configured to detect a high pressure point and a low pressure point, the Pumping Program
+individually selects whether it will react to the high or low pressure point.
+The “Program Output” pin on the TTL I/O connector (pin 5) is used to select the high or low pressure point. When
+low, the low pressure point is selected (PH:01), and when high, the high pressure point is selected (PH:05). The
+Program begins by infusing continuously at 10.0 mL/hr (PH:02), while a background trap is set for the low
+pressure point (PH:03). To create a delay when the pressure sensor is switched from high pressure to low pressure
+when the “Program Output” pin is set, a small volume is pumped (PH:02, 06) before the background traps are set.
+When the low pressure trap is triggered, the pump sets the high pressure trap (PH:07) and begins to increment the
+flow rate. The flow rate is incremented in 1.0 mL/hr steps with every 0.25 mL dispensed (PH:08-10). If the high
+pressure trap hasn’t as yet been triggered, the flow rate will max out at 25.0 mL/hr while waiting for the high
+pressure trap (PH:11). When the high pressure point is reached, the pump immediately will drop down to 10.0
+mL/hr (PH:02), and once again wait for the low pressure point.
+Phase Function
+1 OUT.0
+Phase Function Rate Volume Direction
+2 RATE 10.0 mL/hr 0.005 Infuse
+Phase Function
+3 EV:05
+Phase Function Rate Volume Direction
+4 RATE 10.0 mL/hr 0.0 mL (off) Infuse
+Phase Function
+5 OUT.1
+Phase Function Rate Volume Direction
+6 RATE 10.0 mL/hr 0.005 Infuse
+26
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+Phase Function
+7 EV:01
+Phase Function
+8 LP:ST
+Phase Function Rate Volume Direction
+9 INCR 1.0 0.25 mL Infuse
+Phase Function
+10 LP:14
+Phase Function Rate Volume Direction
+11 RATE 25.0 mL/hr 0.0 mL (off) Infuse
+8.4.6 Example 6: Automated Dispensing with Synchronization
+'Power Failure
+Mode' Pumping
+Program Restart
+at Power Up
+Syringe
+Refill
+Event Trigger
+from
+Syringe Filled Sensor:
+Jump to Phase 3
+5:00:00 5:00:00 5:00:00 5:00:00 5:00:00
+    
+Restart Pumping Program
+The following is an automated dispensing Program for a NE-4000 syringe pump equipped with a ‘Syringe Filled
+Sensor’ attached to the TTL I/O connector, and a valve system to refill the syringe from a reservoir. It is also
+assumed that the ‘Power Failure’ mode is enabled.
+After a power fail restart, the pusher block is in an unknown position, making it impossible for an automated
+dispensing system to regain synchronization. With the Syringe Filled Sensor, the following Pumping Program will
+automatically synchronize the dispensing system, and then continue with the normal dispense.
+The first 2 Phases set an event trap for the Syringe Filled Sensor and refills the syringe until the sensor is triggered.
+When the sensor triggers the event, the pump’s pusher block will be synchronized with the Pumping Program. It is
+assumed that the sensor is positioned to refill the syringe with 60 mL. A withdraw volume of 61 mL is set as a
+safety feature.
+After the syringe is refilled, one 5 mL dispense is made every 5 hours. After 12 dispenses, the syringe is refilled
+using the sensor again.
+Phase Function
+1 EV:03
+Phase Function Rate Volume Direction
+2 RATE 1000.0 mL/hr 61 mL Withdraw
+Phase Function
+3 LP:ST
+Phase Function Rate Volume Direction
+4 RATE 200.0 mL/hr 5.0 mL Infuse
+Phase Function
+5 LP:ST
+Phase Function
+6 LP:ST
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+27
+www.kŌechnology.it
+y g p
+Phase Function
+7 PS:60
+Phase Function
+8 LP:60
+Phase Function
+9 LP:05
+Phase Function
+10 LP:12
+Phase Function
+11 JP:01
+8.4.7 Example 7: Sub-Programs
+This example shows some of the flexibilities provided by the Program Selection functions. The Pumping Program
+starts by refilling the syringe with 50 mL at a fast pumping rate (Phase 1), then the Pumping Program pauses for
+user sub-program selection (Phase 3). Then performs 5 dispenses of 10 mL at the selected rates, then refills the
+syringe again and pauses for the next user sub-program selection.
+The user is given the option of choosing one of three defined sub-programs.
+1: Dispense 10 mL at 100 mL/hr (Phase 4)
+2: Dispense 10 mL at 500 mL/hr (Phase 7)
+3: Dispense 10 mL at 750 mL/hr (Phase 10)
+After selecting the sub-program and pressing 'Start', the Pumping program continues execution at the selected sub-
+program. After the 10 mL dispense, each sub-program jumps or continues with the loop counter function (Phase
+12). The first 4 loops continue Program Execution with the next user sub-program selection. After the 5th loop,
+the program continues with Phase 13, which jumps back to the syringe refill function and starts the whole program
+over.
+Phase Function Rate Volume Direction
+1 RATE 1500.0 mL/hr 50 mL Withdraw
+Phase Function
+2 LP:ST
+Phase Function
+3 PR:IN
+Phase Function
+4 PR:01
+Phase Function Rate Volume Direction
+5 RATE 100.0 mL/hr 10 mL Infuse
+Phase Function
+6 JP:12
+Phase Function
+7 PR:02
+Phase Function Rate Volume Direction
+8 RATE 500.0 mL/hr 10 mL Infuse
+Phase Function
+9 JP:12
+Phase Function
+10 PR:03
+Phase Function Rate Volume Direction
+11 RATE 750.0 mL/hr 10 mL Infuse
+Phase Function
+12 LP:05
+28
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+y g p
+Phase Function
+13 JP:01
+8.4.8 Example 8: Dispensing with Complex Synchronization
+:01
+
+Repeat if
+Program Input
+low
+:10 :10
+ 
+Restart on Event Trigger
+or 10 seconds
+Event Trigger
+Withdraw Infuse
+TTL Program Ouput
+TTL High TTL Low
+Event Trigger
+Infuse until
+Event Trigger
+This example demonstrates a complex interaction with external equipment, such as synchronizing with another
+syringe pump. The Program includes a variety of interactions with external equipment, which demonstrates the
+various control possibilities of the NE-4000.
+The Pumping Program begins by canceling any previous event traps (PH:01) and raising the ‘Program Output’
+TTL line (PH:02). After 5.0 mL has been dispensed at 800 mL/hr (PH:03), the ‘Program Output’ TTL line is
+lowered (PH:04), sending a synchronization signal to another device.
+The pump then continues to pump at 800 mL/hr (PH:06) until a synchronization signal is received at the ‘Event
+Trigger’ TTL input, causing the Program to jump to Phase 7 (PH:05).
+The pump then withdraws 0.25 mL (PH:07), pauses for 1 second (PH:08), then repeats this process if the Program
+Input TTL line is low (PH:09), otherwise it continues with the next Phase.
+Next, the pump pauses for 10 seconds (PH:10). Then it pauses again for the lesser of another 10 seconds (PH:12)
+or until an Event Trigger occurs (PH:11). The Program then restarts (PH:13).
+Phase Function
+1 ET:RS
+Phase Function
+2 OUT.1
+Phase Function Rate Volume Direction
+3 RATE 800.0 mL/hr 5.0 mL Infuse
+Phase Function
+4 OUT.0
+Phase Function
+5 ET:07
+Phase Function Rate Volume Direction
+6 RATE 800.0 mL/hr 0.0 mL (OFF) Infuse
+Phase Function Rate Volume Direction
+7 RATE 1000.0 mL/hr 0.25 mL Withdraw
+Phase Function
+8 PS:01
+Phase Function
+9 IF:07
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+29
+www.kŌechnology.it
+Phase Function
+10 PS:10
+Phase Function
+11 ET:01
+Phase Function
+12 PS:10
+Phase Function
+13 JP:01
+8.4.9 Example 9: Automatic Refill
+While a foot switch is held, dispense continuously, starting with a 1.5 mL bolus. When the foot switch is released,
+the syringe will refill to the volume that was dispensed.
+In the pump’s general setup, set the TTL Trigger to “Foot Switch Hold” mode (TR:FH).
+Phase Function
+1 TR:ET Redirect trigger input to the Event Trap
+Phase Function
+2 ET:05 Set Trigger Event Trap to start syringe refill
+Phase Function Rate Volume Direction
+3 RATE 1000.0 mL/hr 1.5 mL Infuse Begin bolus dispense
+Phase Function Rate Volume Direction
+4 RATE 500.0 mL/hr 0.0 mL (OFF) Infuse Then infuse continuously
+Phase Function Rate
+5 FILL 1000.0 mL/hr Refill syringe when foot switch is released
+Phase Function
+6 STOP Then stop the pump
+9. RS-232 Communications
+The NE-4000 Syringe Pump can communicate with any computer or device with an RS-232
+communications port. The following assumes that the default Address Communications Mode
+is set.
+9.1 Connection and Networking
+On the rear of the pump are 2 square RJ-11 (“phone jack” style) sockets. Connect the RS-232 cable
+into the socket labeled “To Computer”. Connect the other end to the serial port on the computer, or other control
+device. Turn power off to the pump and the computer before connecting cables.
+If the pump is part of a pump network, connect a pump network cable between the socket labeled “To Network”,
+on the first pump, and the socket labeled “To Computer” on the next pump in the network. Repeat for each pump
+in the network, connecting the “To Network” socket of one pump to the “To Computer” socket on the next pump in
+the network. Up to 100 pumps can be networked together with a computer. See section 10, Logic Interface: TTL
+Input and Output, for a diagram of the rear of the pump. When communicating with a pump in a multi-pump
+network, each preceding pump in the network must be powered on.
+Each pump in the network needs a unique network address to identify the pump to the computer. Network
+addresses are from 00 to 99. If the network consists of only 1 pump, set the pump’s address to 0. Also, each pump
+needs to be set to the same baud rate as the computer. Use the ‘Setup’ function on the keypad to set the network
+address and the baud rate. See section 5.12, ‘Setup’ . The '*ADR' command can also be used to set the network
+address.
+The supported baud rates are 300, 1200, 2400, 9600, and 19200. The trade-off on baud rates is communications
+speed versus noise immunity. For most environments, 19200 would be acceptable. But in environments that are
+electrically noisy and/or over long cables, the communications signal may degrade or be disrupted, causing
+communications errors. In these situations, a lower baud rate may improve the reliability of the communications.
+30
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+9.2 RS-232 Protocol
+When the pump is used in a multi-pump network configuration, precede each command with a pump address.
+Pumps will ignore all commands that do not have their defined network address. If the network address is not
+specified in the command, the address will default to 0.
+After a command is sent to the pump, the pump will not accept any further communications until the current
+command has been processed. Completion of the command processing is indicated when the first byte of the
+response packet is transmitted. While the user is changing data or configurations from the keypad, command
+processing is delayed.
+A triangle appears in the upper left corner of the LCD display after the pump has received valid communications.
+This triangle remains on the display until the pump is powered off or until ‘Setup Configuration’ is entered.
+Communications to and from the pump uses the following data frame:
+Supported RS-232 Data Frames
+Baud rates: 19200, 9600, 2400, 1200, or 300
+Frame: 10 bit data frame (8N1):
+Start bit: 1
+Data bits: 8
+Stop bits: 1
+Parity: None
+Every command received by a pump in the network is acknowledged by the pump with a response packet that
+includes a status character indicating the current operational state of the pump.
+Two packet protocols are supported, Basic and Safe. The enabled communications protocol is stored in non-
+volatile memory, and therefore will be in effect at power up. Safe Mode provides a safer communications protocol
+than Basic Mode. Safe Mode detects corrupted data and loss of communication, as well as automatically
+transmitting status packets when an alarm occurs.
+Considering that the 19200 baud rate communicates at 52 μs per bit, a small glitch on the RS-232 cable, flipping a
+single bit, can convert a transmitted infusion rate of 100 mL/hr into 900 mL/hr, the need for the Safe Mode in a
+production environment is evident. However, Basic Mode is excellent for simplifying early development of a
+control program.
+While in the Basic Mode, the pump will accept either communications protocol, Basic or Safe, although the
+response packet will be in the current communications mode. This allows a computer’s communication’s driver to
+be designed with just one mode. A Safe Mode communications driver can send a ‘SAF’ command to the pump in
+the Safe Mode protocol while the pump is in Basic Mode. The response to the ‘SAF’ command, enabling Safe
+Mode, will then be in the Safe Mode protocol.
+9.2.1 RS-232 General Syntax Legend
+The following syntax expansion legend is common to all syntax expansions:
+Except where indicated, all command and response characters are ASCII data.
+<float> => <f> [ <float> ] Floating point number. Maximum of 4 digits plus 1 decimal
+point. Maximum of 3 digits to the right of the decimal point.
+<volume units> => UL μL (microliters)
+ML mL (milliliters)
+<TTL level> => 1 TTL high level
+0 TTL low level
+<on-off> => 1 On, enabled
+0 Off, disabled
+<phase data> => <n> [<n>] Program Phase number. Valid values: 1 to 41
+<count data> => <n> [<n>] Valid values: 1 to 99
+<number data> => <n> [<n>] Valid values: 0 to 99
+<text> => "any printable character" [<text>]
+<f> => { <n> | . } Floating point digits
+<n> => { 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 } Digits
+<byte> => “one byte of any data”
+( ) One byte of data expressed as (0xhh), where ‘hh’ is the data
+in hexadecimal.
+=> Is defined by. Syntax expands to next level of expansion.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+31
+www.kŌechnology.it
+< > Non-terminal syntax expansion
+[ ] Optional syntax
+{ } Required syntax
+| Or. Choose one of the syntax options.
+λ None. Syntax expands to nothing (lambda production).
+" " Description of syntax expansion
+9.2.2 RS-232 Protocol: Basic Mode
+Command syntax (to pump):
+<basic command protocol> => <command data> <CR>
+Response syntax (from pump):
+<basic response protocol> => <STX> <response data> <ETX>
+In the “Basic” communications mode, a master-slave protocol is used, whereby the pump will only transmit in
+response to a received command.
+When the pump receives the <basic command protocol>, <command data> will automatically be stripped of all
+space and control characters, and all text will be converted to upper case. This simplifies communications with the
+pump when commands are being manually typed in from a generic terminal emulator.
+To return the pump to Basic mode when in the Safe mode, send the following packet to the pump:
+(0x2) ( 0x8) SAF0 (0x55) (0x43) (0x3)
+9.2.3 RS-232 Protocol: Safe Mode
+Command syntax (to pump):
+<safe command protocol> => <STX> <length> <command data> <CRC 16> <ETX>
+Response syntax (from pump):
+<safe response protocol> => <STX> <length> <response data> <CRC 16> <ETX>
+Safe mode uses a more structured protocol including detection of corrupted communications, communications time
+outs, and auto-alarm responses. Safe mode is enabled using the ‘SAF’ command whose parameter setting is stored
+in the non-volatile memory.
+Safe mode uses a modified master-slave protocol, whereby the pump transmits in response to a received command.
+But, the pump also automatically transmits a status packet when an alarm condition occurs.
+Corrupted communications is detected using the 16 bit CCITT CRC algorithm computed over <transmitted data>.
+Packets transmitted and received include the CRC within the packets.
+The parameter sent with the “SAF” command is the communications time out. This time out, in seconds, is the
+time between the reception by the pump of consecutive valid communications packets. Each time a valid
+communications packet is received, the time out is reset. If the time out elapses, a pump alarm will occur, stopping
+the pump and the Pumping Program. The pump will display , and the buzzer will sound, if alarms are
+enabled, alerting the user. The communications time out timer will not restart until the next reception of a valid
+packet.
+In addition, there is a 0.5 second packet inter-byte time out. While receiving a communications packet, and before
+its complete reception, if a delay of 0.5 seconds occurs between bytes, the incomplete packet will be discarded.
+With the Auto-Alarm feature, whenever a pump alarm occurs, such as a pump stall, a response packet with the
+alarm status information will automatically be transmitted.
+Until the Safe Mode is disabled, each time power is applied to the pump, the pump defaults to the Safe mode of
+communications, but the communications time out timer will not be enabled until the first reception of a valid
+packet.
+Although the communications time out timer is not enabled, the Auto-Alarm feature will be enabled. Therefore,
+the pump will be in an Auto-Alarm only communications mode.
+When power is applied to the pump, or if the system should reset, a system reset alarm occurs. The Auto-Alarm
+feature, therefore, alerts the host computer that a pump reset has occurred.
+Also, when the user changes the baud rate, the communications time out timer is disabled until the next valid
+communications packet.
+32
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+9.2.4 RS-232 Protocol: Basic and Safe Mode Common Syntax
+<transmitted data> => { <command data> | <response data> }
+<command data> => [<address> | * ] [<command>] To pump
+<response data> => <address> <status> [ <data> ] From pump
+<status> => { <prompt> | <alarm> } Operational state of pump
+<prompt> =>
+I Infusing
+W Withdrawing
+S Pumping Program Stopped
+P Pumping Program Paused
+T Timed Pause Phase
+U Operational trigger wait (user wait)
+X Purging
+<alarm> => A ? <alarm type> Alarm
+<alarm type> =>
+R Pump was reset (power was interrupted)
+S Pump motor stalled
+T Safe mode communications time out
+E Pumping Program error
+O Pumping Program Phase is out of range
+<address> => <n> [ <n> ] Pump network address, 0 to 99
+* System command (overrides network address)
+<data> => <text> Response to command
+<CR> => (0x0D) Carriage return
+<STX> => (0x02) Start of packet transmission indicator
+<ETX> => (0x03) End of packet transmission indicator
+<CRC 16> => <byte> <byte> 16 bit CCITT CRC of <transmitted data> (high byte, low byte)
+<length> => <byte> Number of bytes remaining in packet, including this byte
+9.2.5 Network Command Burst
+The Network Command Burst feature is only applicable when communicating to a network of pumps.
+This special feature allows commands to be sent to a network of pumps simultaneously. For example, changing the
+pumping rates simultaneously on a network of pumps.
+Note: Since this special feature violates the general communications protocol of one command-one response, all of
+the pumps will be responding simultaneously, and therefore the communications response to a Network Command
+Burst will be gibberish and should be ignored.
+Command Format
+Command Burst => <n> <command> *
+Network Command Burst => < Command Burst > [Network Command Burst]
+Where <n> indicates the address of the pump that is to execute <command>. Maximum address is 9.
+n => {0 ... 9}
+Example: Simultaneously change the pumping rates of 3 pumps on a pump network as follows:
+Pump 0: 100 mL/hr
+Pump 1: 250 mL/hr
+Pump 2: 375 mL/hr
+Assuming that the current pumping rate units of all 3 pumps are currently mL/hr, send the following command,
+followed by a carriage return <CR>, (spaces are optional):
+0 rat 100 * 1 rat 250 * 2 rat 375 *
+9.3 Command Errors and Alarms
+If a command received by the pump is not recognized or the data is invalid, an error message will be in the <data>
+field of the response packet following the <prompt> field. The following are the error responses:
+<command error> => ? <error>
+<error> =>
+λ Command is not recognized (‘?’ only)
+NA Command is not currently applicable
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+33
+www.kŌechnology.it
+OOR Command data is out of range
+COM Invalid communications packet received
+IGN Command ignored due to a simultaneous new Phase start
+When an alarm occurs, the alarm must be acknowledged before any data is changed or the pump is started. Alarms
+are acknowledged by the user clearing the alarm message on the keypad, or the alarm status being sent in response
+to any valid RS-232 command. An alarm message sent automatically in the Safe Mode will not clear the alarm
+condition. This is to verify that the alarm message was sent to a receptive host, such as after a power failure when
+both the computer and the pump were reset. In this case, the pump will most likely send its reset alarm message
+before the computer has finished booting.
+9.4 RS-232 Command Set
+All data changed from RS-232 is stored in the non-volatile memory, except for changes to the pumping rate while
+pumping. All “Program Phase Data” refers to the currently selected Program Phase. Use the Phase select
+command (‘PHN’) to query or select the current Phase. A Phase consists of the pumping rate, ‘Volume to be
+Dispensed’, and the pumping direction.
+A packet without a command is interpreted as a status query. The addressed pump responds with a status only
+response packet.
+Except where noted, a command without any parameters is a query command. The response packet data will
+include the requested data. In general, the query response data will be in the same format as the parameters for
+setting the command. For example, the query diameter command ‘DIA’ will respond with ‘<float>‘ as the
+response ‘<data>‘.
+Otherwise, the command is a set command. If the data was set, a status only response packet will be sent. If the
+data was not set, the response packet will include an error (<command error>) message indicating why the data was
+not set.
+All commands are upper case.
+<command> =>
+DIAMETER
+DIA [ <float> ]
+Set/query inside diameter of syringe. Set is only valid when the Pumping Program is not operating.
+Setting the syringe diameter also sets the units for “Volume to be Dispensed” and “Volume Dispensed”.
+9.4.1 Program Function Commands
+The following commands are relevant to the currently select Program Phase. Note: During a Pumping Program’s
+operation, the currently selected Phase can change automatically.
+PHASE NUMBER
+PHN [ <phase data> ]
+Set/query currently selected Program Phase:
+Set:
+Currently selected Phase is set to <phase data>. Previous Phase is stored in non-volatile memory and the
+requested Phase is recalled from the non-volatile memory. Set is only valid if the Pumping Program is not
+operating.
+Query response:
+<phase data> Currently selected Phase.
+PUMPING PROGRAM FUNCTION
+FUN [ <phase function> ]
+Set/query the Pumping Program Phase’s function.
+This command is relevant to the currently selected Phase. Set is only valid if the Pumping Program is not
+operating
+For a more detailed description of Program commands, see sec. 8.3, Program Function Descriptions.
+34
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+<phase function> =>
+Rate Data Functions
+When a Phase’s function is set to a “Rate Data Function”, use the ‘RAT’, ‘VOL’, and ‘DIR’
+commands to setup the pumping parameters.
+RAT Pumping rate. ‘RATE’
+FIL Fill syringe to dispensed volume. ‘FILL’
+INC Increment rate. ‘INCR’
+DEC Decrement rate. ‘DECR’
+Non-Rate Control Functions
+STP Stop pump. ‘STOP’
+PAS <number data> Pauses pumping for ‘nn’ seconds. ‘PS:nn’
+PAS <n.n> Pauses pumping for 'n.n' seconds. 'PS:n.n'
+PRI Sub-Program Selection Input. 'Pr:In'
+PRL <number data> Sub-Program Start Label definition. 'Pr:nn'
+LPS Loop starting Phase. ‘LP:ST’
+LPE Loop end Phase. ‘LP:EN’
+LOP <count data> Loop to previous loop start ‘nn’ times. ‘LP:nn’
+JMP <phase data> Jump to Program Phase. ‘JP:nn’
+IF <phase data> If Program input TTL pin low, jump to Phase. ‘IF:nn’
+EVN <phase data> Set event trigger trap. ‘EV:nn’
+EVS <phase data> Set event square wave trigger trap. 'ES:nn'
+EVR Event trigger reset. ‘EV:RS’
+CLD Clear total dispense volume. ‘CLR.D’
+TRG <nn> Override Operational Trigger Default Mode, set to <nn>, ‘tr:aa’
+BEP Sound short beep. ‘BEEP’
+OUT <TTL level> Set programmable output pin. ‘OUT.n’
+PUMPING RATE
+RAT [ C | I ] [ <float> [ <rate units> ] ]
+Set/query pumping rate.
+<rate units> => UM = μL/min
+MM = mL/min
+UH = μL/hr
+MH = mL/hr
+Applicable only with “Rate Data Functions”.
+When setting the pumping rate, if the current Phase’s function is not ‘RATE’, then <rate units> is not
+applicable.
+While pumping, the pumping rate can only be set if the current Phase function is ‘RATE’ and the next
+Program Phase’s function to be executed is not ‘INCR’ or ‘DECR’. Also, while pumping, <rate units>
+cannot be set.
+The new pumping rate will only be stored in non-volatile memory if the Pumping Program is not
+operating.
+When the pumping rate is queried while pumping, the response will be the current pumping rate and units.
+Otherwise, the response will be the rate setting and units, if applicable. With the ‘INCR’ and ‘DECR’
+functions, these two responses are not the same.
+RAT C <float> [ <rate units> ]
+Allows the Pumping Program to continue after the pumping rate is changed. The RAT C command will
+not clear a Paused Pumping state after the rate is changed when the Pumping Program is paused.
+Normally, the Pumping Program would re-start from Phase 1 after the rate is changed while paused.
+RAT I <float> [ <rate units> ]
+Changes the pumping rate only if the pump is infusing. If the pumping direction is set to withdraw, the
+rate change will be ignored.
+VOLUME TO BE DISPENSED AND SET VOLUME UNITS
+VOL [ <float> | <volume units>]
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+35
+www.kŌechnology.it
+Set/query volume to be dispensed: <float>
+Applicable only with “Rate Data Functions”. Can only be set when the Pumping Program is not
+operating. The volume units are set according to the current syringe diameter setting. Do not send the
+volume units when setting the volume.
+Example: VOL 12.45 Sets the current phase “Volume to be Dispensed” to 12.45.
+Set volume units: <volume units>
+Overrides the default volume units set when the syringe diameter is set.
+Example: VOL UL Sets all volume units to μl.
+Query response:
+<float> <volume units>
+PUMPING DIRECTION
+DIR [ INF | WDR | REV | STK ]
+Set/query pumping direction
+INF = Infuse
+WDR = Withdraw
+REV = Reverse pumping direction
+STK = “Sticky Direction” (See “Sticky Direction”, sec: .5.8.1)
+Applicable with all Program Phase functions. Cannot be set when the Pumping Program is operating and
+the “Volume to be Dispensed” is non-zero.
+The pumping direction cannot be changed if an alarm condition exists.
+Query response: { INF | WDR | STK}
+When set to “Sticky Direction”, query will respond with the current pumping direction ( INF or WDR)
+while pumping.
+9.4.2 Pump Operational Commands
+START PUMPING PROGRAM
+RUN [ <phase data> ]
+[E [<phase data> ] ]
+Starts the Pumping Program operation.
+If the Pumping Program was paused, then the Pumping Program resumes at the point where it was
+stopped. Otherwise, the Pumping Program starts from Phase 1.
+Sub-Programs: If a Phase number is specified (<phase data>), then the Pumping Program will start at the
+specified Phase number. By programming sub-programs in different sections of the Pumping Program
+memory, this command can be used to individually execute different sub-programs.
+The pump cannot be started if an alarm condition exists.
+E [ <phase data> ]
+Trigger a Pumping Program Event while the Pumping Program is active.
+Triggers a pre-defined event defined with the Pumping Program’s Event function, causing an immediate
+jump to the Pumping Program Phase defined by the event function.
+If <phase data> is specified, the program will immediately jump to the Pumping Program Phase specified
+by <phase data>, and cancel any other event set by the Pumping Program.
+PURGE PUMP
+PUR Starts purge. Pump infuses or withdraws at the top speed, depending on the pumping direction.
+STP command or ‘Start/Stop’ key will stop the pump.
+STOP PUMPING PROGRAM
+STP
+If the Pumping Program is operating, the pump will be stopped and the Pumping Program will be paused.
+If the Pumping Program is paused, the stop command will cancel the pause and reset the Pumping
+Program to Phase 1.
+36
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+VOLUME DISPENSED
+DIS
+Queries volume dispensed only. Set not applicable.
+Response:
+I <float> W <float> <volume units>
+Where: “I <float>“ refers to the infusion volume dispensed, and “W <float>” refers to the withdrawn
+volume.
+CLEAR VOLUME DISPENSED
+CLD { INF | WDR }
+Sets the Infused or withdrawn volume dispensed to 0. Command is only valid while the Pumping
+Program is not operating. Query is not applicable.
+INF = Infusion volume
+WDR = Withdrawn volume
+Query is not applicable.
+9.4.3 Configuration and Setup Commands
+New settings for any of the following commands will be stored in the non-volatile memory.
+LOW MOTOR NOISE
+LN [ <on-off> ]
+Set/query low motor noise mode. Increases motor stepping resolution.
+ALARM SETUP
+AL [ <on-off> ]
+Set/query alarm setup mode. Set alarm enables or disables alarm buzzer mode.
+POWER FAIL SETUP
+PF [ <on-off> ]
+Set/query Power Failure mode. Set Power Failure enables or disables Power Failure mode.
+TTL I/O OPERATIONAL TRIGGER DEFAULT SETUP
+TRG [ <trigger setup> ]
+Set/Query TTL I/O Operational Trigger (Pin 2) default input configuration.
+TTL I/O Operational Trigger is set to <trigger setup>.
+<trigger setup> => FT = Foot switch trigger (falling edge start/stop)
+FH = Foot switch hold (falling edge start, rising edge start)
+F2 = Foot switch reverse (rising edge start/stop)
+LE = Level trigger (rising edge start, falling edge stop)
+ST = Start only trigger (falling edge start)
+T2 = Start only trigger reversed (rising edge start)
+SP = Stop only trigger (falling edge stop)
+P2 = Stop only trigger reversed (rising edge stop)
+RL = Start on low level
+RH = Start on high level
+SL = Stop on low level
+SH = Stop on high level
+OF = Trigger off (disabled)
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+37
+www.kŌechnology.it
+TTL I/O DIRECTIONAL CONTROL INPUT SETUP
+DIN [ 0 | 1 ]
+Set/query directional control input setup
+Settings => 0 = Falling edge: Infuse, Rising edge Withdraw
+Same as "dr:rE" setting from the keypad.
+Use this setting with the CBL-TTL-1, reciprocating pump cable, to create a 2 pump
+continuous infusion system
+1 = Falling edge: Withdraw, Rising edge Infuse
+Same as "dr:dU" setting from the keypad.
+Use this setting with the CBL-TTL-1, reciprocating pump cable, to create a 2 pump dual
+pumping system
+PUMP MOTOR OPERATING TTL OUTPUT CONFIGURATION
+ROM [ <on-off> ]
+Set/query Pump Motor Operating TTL output configuration (TTL pin 7)
+Settings => 0 = Output is logic high only when the pump motor is operating (pumping).
+1 = Output is logic high when the pump motor is operating (pumping) or when the Pumping
+Program is executing a pause timer.
+SET KEYPAD LOCKOUT
+LOC [P] [ <on-off> ]
+Set/query keypad lockout mode. Set keypad lockout disables changing any settings from the keypad
+unless the "Lockout Disable Key" is inserted.
+P [ <on-off> ]
+Set/Query Program Entry Mode Lockout. Set Program Entry Mode Lockout prevents inexperienced users
+from entering “Program Entry Mode” from the keypad. When enabled, only the Phase 1 ‘Rate’, ‘Volume’
+and Pumping Direction can be changed. Cannot be enabled when the Pumping Program is currently
+programmed with a multiple Phase Program.
+SET KEYPAD AND NOTIFICATION BEEP
+BP [ <on-off> ]
+Set/query keypad and notification beep mode. Set beep enables or disables beep mode.
+9.4.4 General Control and Status Commands
+TTL I/O OUTPUT SETTING
+OUT <n> <TTL level>
+Sets TTL level on user definable output pin on the ‘TTL I/O’ connector.
+<n> Indicates pin number on ‘TTL I/O’ connector
+Valid value: 5 (Program Output pin)
+Query is not applicable.
+TTL INPUT QUERY
+IN <n>
+Queries TTL level of pin on ‘TTL I/O’ connector. Set is not applicable.
+<n> Indicates pin number on ‘TTL I/O’ connector
+Valid values: 2, 3, 4, and 6.
+Query response: <TTL level>
+38
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+BUZZER
+BUZ [ 0 | { 1 [ < n > ] } ]
+Sets / queries buzzer
+Set: 0 = Turn buzzer off;
+1 = Turn buzzer on
+if <n> specified
+If <n> = 0, buzzer beeps continuously,
+otherwise buzzer beeps <n> times
+if <n> not specified, buzzer sounds continuously
+Query response: { 0 | 1 }
+0 = Buzzer off
+1 = Buzzer is on continuously or beeping.
+9.4.5 System Commands
+SET PUMP NETWORK ADDRESS AND BAUD RATE
+* ADR [ <address> [ B { 19200 | 9600 | 2400 | 1200 | 300 } ] ]
+[DUAL | RECP | ALTR]
+Set/query pump network address
+<address> => <n> [<n>]
+<address> Valid range: 0 to 99
+B { 19200 | 9600 | 2400 | 1200 | 300 } will change the baud rate as indicated. NOTE: The command
+response and all further communications will be at the specified baud rate.
+Special communications modes
+DUAL Sets the pump to Dual Pumping mode with a secondary pump.
+RECP Sets the pump to Reciprocating Pumping mode with a secondary pump.
+ALTR Sets Alternating pumping mode.
+All special communications modes use 19,200 baud rate.
+This is a special system command that will be accepted by the pump regardless of its current address or mode.
+Once set, the pump will only respond to commands with the set address and at the specified baud rate.
+Note: Once a special communications mode is set, the pump will only respond to commands that are preceded by
+the ‘*’ character. To exit special communication mode, reset the address: * ADR 0
+Example: *ADR Query current address setting
+*ADR 3 Set pump network address to 3. The pump will now only respond to
+commands with address 3
+*ADR 5 B 1200 Set the pump network address to 5 and the baud rate to 1200. The command
+response will be at 1200 baud
+ENABLE SAFE COMMUNICATIONS MODE
+SAF [ <time out> ]
+Set/query Safe communications mode setting.
+<time out> => <n> [ <n> [ <n> ] ]
+<time out> Valid range: 0 to 255.
+If <time out> = 0 then Basic communication mode is set, disabling Safe mode,
+If <time out> > 0 then Safe communications mode is enabled. After the reception of this command, valid
+communications must be received every <time out> seconds.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+39
+www.kŌechnology.it
+FIRMWARE VERSION QUERY
+VER
+Response: NE<model>V <n> . <nnn>
+where ‘<n>.<nnn>‘ is current firmware version number.
+Set is not applicable.
+MASTER PROGRAM RESET
+* RESET
+Clears program memory and resets communication parameters to Basic mode and address 0.
+This is a special system command that will be accepted by the pump regardless of its current address.
+9.5 Getting Started With RS-232
+Before beginning to develop pump control software for a computer, first setup and experiment with the pump’s
+communication. After attaching the pump to the computer, run a terminal emulation Program on the computer. A
+generic terminal emulator, supplied as standard software with many computers, can be used to communicate with
+the pump in the Basic communications mode.
+New Era Pump Systems Inc. supplies a terminal emulator, for demonstration purposes only, which allows more
+complex control of the pump. Also, this terminal emulator contains a “Pump Programming Language” (PPL™),
+which allows Pumping Programs to be developed using symbolic text, modified, and stored in computer files, then
+uploaded to the pump. In addition, a Pumping Program generator spreadsheet is available to assist in developing a
+Pumping Program and to create the text file for uploading to a pump.
+With a generic terminal emulator, setup the terminal emulator with the same baud rate as the pump and with an 8
+bit data, no parity, and 1 stop bit (8N1) data frame. Set the communications port to the port that is attached to the
+pump. Also enable local echo (half-duplex) and turn flow control off.
+From the terminal emulator, you can interactively control the pump by typing in commands on your computer and
+seeing the pump’s responses on your screen. This will give you a feel for how the commands work in addition to
+allowing you to quickly develop the control sequence that will eventually be coded into the software being
+developed.
+The final benefit of using a terminal emulator is the elimination of several variables if the control software does not
+work properly. If the pump works correctly with the terminal emulator, then this verifies that the hardware is
+working properly and will work with any software. Any communications problems can then be narrowed down to
+the control software.
+Note on USB: If an RS-232 port is not available on your PC, the pump may be operated through a USB to RS-232
+converter cable (available as an accessory, part #CBL-USB232). This cable attaches to the standard RS-232 to PC
+cable (part #CBL-PC-PUMP-7). The PC will create a virtual RS-232 communications port that communicates
+through the USB to RS-232 converter cable. The terminal emulator can communicate through this virtual port.
+40
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+10. Logic Interface: TTL Input and Output
+New Era Pump Systems Inc.
+WWW.SYRINGEPUMP.COM
+(631) 249-1392
+Farmingdale, NY info@syringepump.com
+12
+1.0
+4000
+Figure 2: Rear of Pump
+On the rear of the pump is a DB-9 connector, below the ‘TTL-I/O’ label, which is used for TTL I/O. The logic
+signals on this connector permit bi-directional control with external equipment.
+Control input TTL logic levels must be held steady for a minimum of 100 ms to be recognized. To minimize the
+possibility of false signals caused by glitches and ringing, which could be caused by the closure of mechanical
+switches, TTL control inputs are firmware filtered. With a sampling period of 50 ms, glitches of less than 100 ms
+are filtered out.
+Edge detection requires the detection of a change in TTL levels. With a minimum of 100 ms to detect a level, an
+edge requires a minimum of 200 ms to be detected. Since the next level change can be detected in 100 ms, creating
+another edge, the maximum edge to edge frequency is 10 Hz.
+Edge changes to the ‘Pumping Direction’ and ‘Operational Trigger’ inputs must occur at least 50 ms apart.
+Falling edge refers to a logic high to logic low transition. Rising edge refers to a logic low to a logic high
+transition. To guarantee recognition of logic levels, voltages on the input lines must be within the following
+ranges:
+TTL logic low (0): 0 to 1.5 V
+logic high (1): 3.5 to 5.25 V
+The Vcc and Ground pins, pins 1 and 9, are for logic reference only. To assure proper voltage levels, the Ground
+pin should always be connected to the signal ground of a sensing or controlling device that is attached to any other
+pin on the TTL I/O connector. The Vcc pin should not be used to source current. The TTL I/O pins are defined as
+follows:
+Pin
+1
+Pin
+9
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+41
+www.kŌechnology.it
+y g p
+Pin # Definition Type Function
+1 Vcc (5V) Reference Logic high reference. Power on indicator.
+2 Operational Trigger Input Configurable start/stop operational trigger input.
+[Ft] Foot Switch Falling edge: Start or stop trigger
+[FH] Foot Switch Hold Falling edge: Start trigger
+Rising edge: Stop trigger
+[F2] Foot Switch Reverse Rising edge: Start or stop trigger
+[LE] Level Falling edge: Stop trigger
+Rising edge: Start trigger
+[St] Start only Falling edge: Start trigger
+[t2] Start only Reverse Rising edge: Start trigger
+[SP] Stop only Falling edge: Stop trigger
+[P2] Stop only Reverse Rising edge: Stop trigger
+[rL] Start on low level Low level: Start trigger
+[rH] Start on high level High level: Start trigger
+[SL] Stop on low level Low level: Stop trigger
+[SH] Stop on high level High level: Stop trigger
+[OF] Trigger off (disabled)
+[Et] Program function: Redirects trigger to Event trap
+[bt] Program function: Redirects ‘Stop’ key to Event trap
+3 Pumping Direction Input Changes pumping direction according to setup
+[dr:rE] [dr:dU]
+Falling edge: Infuse Withdraw
+Rising edge: Withdraw Infuse
+4 Event Trigger Input Event input or user definable input
+5 Program Output Output Program controlled output or user definable output
+6 Program Input Input Program conditional input read by the “IF” program function.
+Also user definable input.
+Also used by the keypad lockout function.
+7 Pump Motor Operating Output [RUN.0] High: Pumping; Low: Not pumping
+[RUN.1] High: Pumping or Pause timer
+Low: Pumping Programmed stopped or paused
+8 Pumping Direction Output High: Infuse; Low: Withdraw
+9 Ground (0V) Reference Logic low reference
+10.1 TTL I/O Operational Controls
+While the user is changing settings or configuration from the keypad, external control by the ‘Pumping Direction’
+and ‘Operational Trigger’ inputs will be ignored. These controls will also be ignored if an alarm condition exists.
+Operational Trigger (Pin 2): The input signal on this pin controls the operation of the Pumping Program. Its
+functionality is user configurable. Use the ‘TR:nn’ Setup Default Configuration to configure this input pin (See
+Section 7.4, TTL I/O Operational Trigger Default Configuration).
+Each option defines when the Operational Trigger input is activated. When activated, the trigger emulates the
+‘Start/Stop’ key:
+Foot Switch: Operates like the ‘Start/Stop’ key, whereby each falling edge (contact to ground) either starts or
+stops/pauses the Pumping Program.
+Foot Switch Hold: Falling edge starts the Pumping Program and the rising edge stops the Pumping Program.
+With a foot switch, the Pumping Program will run while the foot switch was held down.
+Foot Switch Reversed: Operates like the ‘Start/Stop’ key, whereby each rising edge either starts or stops/pauses
+the Pumping Program.
+42
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+Level Control: Falling edge stops/pauses the Pumping Program, Rising edge starts the Pumping Program. This
+configuration can be used with a contact closure timer or in an automation setup, allowing logic
+level control over the operation of the pump.
+Start Only: Falling edge starts the Pumping Program. This configuration only allows the starting of the
+Pumping Program. This would be useful, for example, with a laboratory animal trained to press a
+lever. The animal can start the Pumping Program, but repeated presses would have no effect
+until the Pumping Program permits it.
+Start Only Reversed: Same as ‘Start Only’, but operates on the Rising edge to start the Pumping Program.
+Stop Only: Falling edge Stops the Pumping Program. This configuration only allows the stopping/pausing
+of the Pumping Program. This would be useful, for example, with an end of travel limit switch.
+Also, this switch can be used as a power on homing switch.
+Stop Only Reversed: Same as ‘Stop Only’, but operates on the Rising edge to stop the Pumping Program.
+Run on Low Level: Starts the pump whenever the level is low
+Run on High Level: Starts the pump whenever the level is high
+Stop on Low Level: Stop the pump whenever the level is low
+Stop on High Level: Stop the pump whenever the level is high
+Trigger off: Trigger control is disabled
+Event Trap Trigger: Redirects a Stop Operational Trigger to the Event Trap.
+Button Event Trigger: Redirects ‘Stop’ key to the Event Trap.
+Pump Motor Operating (Pin 7): This output provides an external signal indicating when the pump motor is
+operating. This pin is configured with the n setup command, or the "ROM" remote command. When
+set to 0, the output is only at logic high when the motor is operating (pumping). When set to 1, the output is logic
+high when the motor is operating or when the Pumping program is executing a pause timer. Otherwise, the output
+is a logic low.
+Pumping Direction Controls (Input: Pin 3; Output: Pin 8): Allows bi-directional control of the pumping
+direction. The input pin, when activated, emulates the pumping direction key, changing the pumping direction.
+This function, therefore, is only applicable where the pumping direction key would be applicable. The function of
+the input pin is configured with the aa setup command, or the "DIN" remote command.
+When the mode is set to reciprocating pumps ("rE" setup command), then if the current pumping direction is
+withdraw, a falling edge sets the direction to infuse. If the current pumping direction is infuse, a rising edge sets
+the direction to withdraw. Otherwise, this input pin has no effect.
+When the mode is set to dual pumps ("dU" setup command), then if the current pumping direction is withdraw, a
+rising edge sets the direction to infuse. If the current pumping direction is infuse, a falling edge sets the direction to
+withdraw. Otherwise, this input pin has no effect.
+Dual and reciprocating pumping systems are created using 2 pumps attached with the accessory cable CBL-TTL-1.
+The output pin provides an output signal to external devices indicating the direction of pumping. A logic low
+indicates withdraw, and a logic high indicates infuse. For example, this pin can be used to control an external
+valve, allowing the syringe to refill from a reservoir.
+10.2 TTL I/O Control from the Pumping Program
+Various Pumping Program functions can define how the pump reacts to levels on the TTL I/O connector or set
+output levels. These are summarized in the following table:
+Pumping
+Program
+Function
+TTL I/O Control Pin Pin # Action
+OUT.n Program Output 5 Set logic level output to ‘n’
+EV:nn Event Trigger 4 Falling edge triggers a jump to Phase ‘nn’
+ES:nn Event Square wave
+Trigger
+4 Rising or falling edge triggers a jump to Phase 'nn'
+IF:nn Program Input 6 Low level causes a jump to Phase ‘nn’
+PS:00 Operational Trigger 2 Trigger activation resumes Program operation
+10.3 TTL I/O Control from RS-232
+The logic levels of pins 2, 3, 4, and 6 can be queried from an attached computer using the RS-232 ‘IN’ command.
+The output logic level of pin 5 can be set with the RS-232 ‘OUT’ command.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+43
+www.kŌechnology.it
+11. Appendix
+11.1 RS-232 Command Summary
+<command> =>
+DIA [ < float > ] Syringe inside diameter
+PHN [ < phase data > ] Program Phase number
+FUN [ < phase function > ] Program Phase function
+< phase function > =>
+RAT Pumping rate. ‘RATE’
+FIL Fill syringe to volume dispensed. ‘FILL’
+INC Increment rate. ‘INCR’
+DEC Decrement rate. ‘DECR’
+STP Stop pump. ‘STOP’
+JMP <phase data> Jump to Program Phase. ‘JP:nn’
+PRI Sub-Program Selection Input. 'Pr:In'
+PRL <number data> Sub-Program Start Label definition. 'Pr:nn'
+LPS Loop starting Phase. ‘LP:ST’
+LOP <count data> Loop to previous loop start ‘nn’ times. ‘LP:nn’
+LPE Loop end Phase. ‘LP:EN’
+PAS <number data> Pauses pumping for ‘nn’ seconds. ‘PS:nn’
+PAS [n.n] Pauses pumping for 'n.n' seconds. 'PS:n.n'
+IF <phase data> If Program input low, jump to Program Phase. ‘IF:nn’
+EVN <phase data> Set event trigger. ‘Et:nn’
+EVS <phase data> Set event square wave trigger. 'ES:nn'
+EVR Event trigger reset. ‘Et:RS’
+CLD Clear total dispense volume. ‘CLR.D’
+TRG <nn> Override default operational trigger configuration ‘tr:aa’
+BEP Sound short beep. ‘BEEP’
+OUT { 0 | 1 } Set programmable output pin. ‘OUT.n’
+RAT [C | I ] [ <float> [ UM | MM | UH | MH ] ] Pumping rate
+VOL [ <float> | <volume units>] Volume to be Dispensed, or set Volume units
+DIR [ INF | WDR | REV | STK ] Pumping direction
+RUN [ <phase data> ] Starts the Pumping Program
+[E [<phase data>] ] Pumping Program event trigger
+PUR Start purge
+STP Stop/pauses the Pumping Program or purge
+DIS Query volume dispensed
+CLD { INF | WDR } Clear volume dispensed
+SAF [ <n> [ <n> [ <n> ] ] ] Safe communications mode
+LN [ 0 | 1] Low motor noise mode
+AL [ 0 | 1] Alarm buzzer mode
+PF [ 0 | 1] Power failure auto-restart mode
+TRG [ FT | FH | F2 | LE | ST | T2 | SP | P2 | RL | RH | SL | SH |OF ] Operational trigger default mode
+DIN [ 0 | 1] Directional input control mode
+ROM [0 | 1] Pump Motor Operating TTL output mode
+LOC [ P ] [ 0 | 1]] Keypad lockout mode or Program Entry Mode lockout
+BP [ 0 | 1] Key and Notification beep mode
+OUT 5 { 0 | 1 } Set TTL output level
+IN { 2 | 3 | 4 | 6 } Query TTL input level
+BUZ [ 0 | { 1 [ < n > ] } ] Buzzer control
+VER Query firmware version
+System Commands: Valid regardless of current network address
+*ADR [ <n> [<n>] [ B <baud-rate>] ] Network address and baud rate
+*ADR [ DUAL | RECP | ALTR ] Set Reciprocating, Dual, or Alternating pumping mode
+*RESET Resets pump. Clears program memory and resets setup.
+------------------------------------------------------------------------------------------------------------------------------
+Network Command Burst => <n> <command> * [Network Command Burst]
+- Communicate simultaneously with multiple pumps on a pump network.
+Any command preceded by the asterisk symbol ‘*’ bypasses the pump network address and Safe mode.
+44
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+11.2 RS-232 Pump Network Connector Wiring
+RS-232
+To Network To Computer
+PC Com Port Connectors
+25 Pin 9 Pin
+3 - Receive 2 - Receive Connect to pump TXD
+2 - Transmit 3 - Transmit Connect to pump RCV
+9 - Ground 5 - Ground Connect to pump GND
+11.3 Accessories
+11.3.1 ANA-BOX™
+Part #: ADPT-ANABOX, Analog voltage control interface.
+Allows the pump to be controlled by a variable voltage source. Allows the Creation of a closed loop system
+allowing the NE-4000 to be controlled by an external sensor, such as a pressure sensor, or other variable voltage
+source. Start or stop the pump at a specific voltage level. Set the pumping rate to be proportional to the voltage
+input.
+11.3.2 Syringe Heater
+Part#: SYRINGE-HEATER, Visit www.SyringeHeater.com for details.
+Flexible heating pad that wraps around the syringe. Thermo-Kinetic Heat Clamping digital controller will heat a
+syringe to a set temperature up to 100 C.
+11.3.3 RS-232 Network Cables
+RS-232 Network Primary Cable
+7 foot cable, part #: CBL-PC-PUMP-7
+25 foot cable, part #: CBL-PC-PUMP-25
+Cable to connect a pump, or the first pump in a pump network, to a standard personal computer’s serial port with a
+DB-9 or DB-25 connector. Included with this cable is a 9 pin to 25 pin converter.
+RS-232 Network Secondary Cable
+7 foot cable, part #: CBL-NET-7
+25 foot cable, part #: CBL-NET-25
+Cable to connect additional pumps, after the first pump, to the pump network.
+USB to RS-232 Converter Cable
+USB to RS-232 cable, software drivers on CD, part#: CBL-USB232
+Attached to the RS-232 Network Primary Cable, allows communication through a PC’s USB port.
+11.3.4 Automation Cable: Special Communications Modes Control Cable
+Part #: CBL-DUAL-3
+Using two NE-4000 syringe pumps, this cable either creates an automated, continuous operation pumping system,
+whereby one pump is refilling while the other is dispensing, or creates a dual pumping system, with both pumps
+operating in the same direction. Plus other special communications modes.
+RCV from network
+TXD to network
+TXD to computer
+RCV from computer
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+45
+www.kŌechnology.it
+This cable is attached to two NE-4000 syringe pumps via their RS-232 connectors. In this setup, with the pumps
+configured for this operation, one pump acts as the Master controller. With the Master pump programmed with a
+continuous infusion program, the other pump will always be pumping in the opposite direction. With proper
+plumbing, this will create a continuous infusion system.
+Alternatively, the pumps can be set to Dual Pump Mode, whereby the second pump will always follow the program
+on the first pump, including starting, stopping, direction changes, and rate changes.
+When either pump stops, for any reason, the other pump will stop.
+11.3.5 Valve Controller
+Part# ADPT-VALVE-INTERFACE-1 (For one pump)
+Part# ADPT-VALVE-INTERFACE-2 (For two pumps, includes CBL-TTL-1)
+Provides a control interface for your electronic valves. Attach your electronic valves, and the interface will control
+the activation of the valves. The 2 pump interface is used to create a continuous infusion/refill system.
+11.3.6 Foot Switch
+Part #: ADPT-2
+Allows the pump to be operated from a foot switch. Attaches to the TTL I/O connector.
+11.3.7 Lockout Disable Key
+Part#: ADPT-LOCKOUT-KEY
+Enables setting Keypad Lockout mode and allows changing of settings while Keypad Lockout is set.
+11.3.8 Firmware Upgrade
+Part#: FW-1-NE1010, Upgrades to the newest version of the firmware.
+Part#: FW-1X-NE1010, Gradient/Linear ramping for smooth gradients, plus other new program functions.
+Part#: FW-1X2-NE1010, Also expands the Pumping Program memory to 340 Phases.
+Contact your dealer for these upgrades and to determine the current available version of the pumps internal
+firmware.
+11.4 Troubleshooting and Maintenance
+Maintenance: Periodically, apply a small amount of all-purpose oil to the guide rods and grease to the drive
+screw.
+The mechanism should be kept clean to prevent impeded operation.
+No other special maintenance or calibrations are needed
+RS-232 Communications: If no RS-232 communications is possible or garbled responses are received from the
+pump, check the following:
+If the triangle appears in the upper left of the LCD display, then the pump is receiving valid communications. The
+communications problem is probably with the receiving communication application or with the receive line on the
+cable.
+If the Basic communications mode is used, check if the pump is in Safe communications mode. See section 9.2,
+RS-232 Protocol, for instructions on how to change the communications mode.
+Verify the pump’s baud rate and network address. To set the RS-232 communications parameters, see section 5.12,
+‘Setup’ .
+Using a lower baud rate may also improve the reliability of the RS-232 communications.
+Pusher block makes a snap or click sound when the pump is started: This is a normal condition. When the
+pusher block is manually moved, the drive-nut may not have been fully engaged on the drive screw. The sound
+heard is the drive-nut engaging on the drive screw.
+Pump doesn’t stop after dispensing a set volume: The pump was previously setup with a multiple Phase
+Pumping Program. To simply dispense a fixed volume at a fixed pumping rate, the second Program Phase must be
+the ‘Stop’ function. See section 8.1, How to Enter Pumping Programs, for instructions on changing the Pumping
+Program.
+Pump stops pumping after a period of time: A dispense target volume has been set. Verify that the dispense
+target volume is set to 0.
+46
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+11.5 Specifications
+11.5.1 Mechanical & Electrical
+Syringe sizes: Up to 60 mL. 140 mL partially filled
+Number of syringes: 2
+Motor type: Step motor
+Motor steps per revolution: 200
+Microstepping: 1/8 to 1/2 depending on motor speed
+Advance per step: 0.41852679 ȝm to 1.67410714 ȝm depending on motor speed
+Motor to drive screw ratio: 15/28
+Drive screw pitch: 20.32 revolutions/”
+Power connector: 2.1 mm, center positive, DC
+Voltage at DC connector: 12V DC at full load
+Amperage: 1000 mA at full load
+Power supply type: Unregulated linear external wall adapter, country and power source
+specific (or compatible regulated power supply)
+Power supply output rating: 12V DC @ 1000 mA
+Dimensions: 8 3/4” x 5 3/4” x 4 1/2” (LxWxH)
+(22.86 cm x 14.605 cm x 11.43 cm)
+Weight: 3.6 lbs. (1.63 kg)
+11.5.2 Operational
+Maximum speed: 18.08035714 cm/min
+Minimum speed: 0.008276531 cm/hr
+Maximum pumping rate: 6023 mL/hr with a B-D 60 mL syringe
+Minimum pumping rate: 1.436 μL/hr with a B-D 1 mL syringe
+Maximum force: 100 lbs. at minimum speed, 18 lbs. at maximum speed
+Number of Program Phases: 41
+RS-232 pump network: 100 pumps maximum
+RS-232 selectable baud rates: 300, 1200, 2400, 9600, 19200
+Syringe inside diameter range: 0.100 to 50.00 mm
+11.6 Custom Applications
+For specialized and OEM applications, contact your dealer or New
+Era Pump Systems Inc. Custom modifications can be made to the
+mechanics or the firmware.
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+47
+www.kŌechnology.it
+11.7 Syringe Diameters and Rate Limits
+Syringe
+Manufacturer
+(all names ™)
+Syringe
+(mL)
+Inside
+Diameter
+(mm)
+Maximum
+Rate
+(mL/hr)
+Minimum
+Rate
+(μL/hr)
+Maximum
+Rate
+(mL/min)
+B-D 1 4.699 188.1 1.436 3.135
+3 8.585 627.9 4.791 10.46
+5 11.99 1224 9.345 20.41
+10 14.43 1774 13.54 29.56
+20 19.05 3091 23.59 51.53
+30 21.59 3971 30.3 66.19
+60 26.59 6023 45.96 100.3
+HSW 1 4.69 187.4 1.43 3.123
+Norm-Ject 3 9.65 793.4 6.054 13.22
+5 12.45 1320 10.08 22.01
+10 15.9 2153 16.44 35.89
+20 20.05 3425 26.14 57.08
+30 22.9 4468 34.09 74.46
+50 29.2 7264 55.43 121
+Monoject 1 5.74 280.7 2.142 4.678
+3 8.941 681.1 5.197 11.35
+6 12.7 1374 10.49 22.9
+12 15.72 2105 16.07 35.09
+20 20.12 3449 26.32 57.48
+35 23.52 4713 35.96 78.55
+60 26.64 6046 46.14 100.7
+140 38 9999 93.87 205
+Terumo 1 4.7 188.2 1.436 3.136
+3 8.95 682.4 5.207 11.37
+5 13 1439 10.99 23.99
+10 15.8 2126 16.23 35.44
+20 20.15 3459 26.4 57.65
+30 23.1 4546 34.69 75.77
+60 29.7 7515 57.34 125.2
+Poulten & 1 6.7 382.4 2.919 6.374
+Graf 2 8.91 676.3 5.161 11.27
+(Glass) 3 9.06 699.3 5.336 11.65
+5 11.75 1176 8.975 19.6
+10 14.67 1833 13.99 30.56
+20 19.62 3279 25.03 54.66
+30 22.69 4386 33.47 73.1
+50 26.96 6192 47.25 103.2
+Steel 1 9.538 775.1 5.914 12.91
+Syringes 3 9.538 775.1 5.914 12.91
+5 12.7 1374 10.49 22.9
+8 9.538 775.1 5.914 12.91
+20 19.13 3118 23.79 51.96
+50 28.6 6969 53.18 116.1
+Syringe
+(μL) Inside
+Diameter
+(mm)
+Maximum
+Rate
+(μL/hr)
+Minimum
+Rate
+(μL/hr)
+Syringe
+(mL) Inside
+Diameter
+(mm)
+Maximum
+Rate
+(mL/hr)
+Minimum
+Rate
+(μL/hr)
+SGE 5 0.343 1002 0.008 0.25 2.303 45.18 0.345
+(gas tight) 10 0.485 2004 0.016 0.5 3.257 90.38 0.69
+25 0.728 4515 0.035 1 4.606 180.7 1.38
+50 1.03 9039 0.069 2.5 7.284 452 3.449
+100 1.457 9999 0.138 5 10.3 903.9 6.897
+Hamilton 0.5 0.103 90.39 0.001 10 14.57 1808 13.8
+Microliter 1 0.146 181.6 0.002 25 23.03 4518 34.48
+2 0.206 361.5 0.003 50 27.5 6443 49.16
+5 0.326 905.4 0.007 100 34.99 9999 79.59
+48
+NE-4000 Multi-Phaser™ New Era Pump Systems™
+www.kŌechnology.it
+KF Technology Srl - Via Amedeo Bocchi, 84/8 - 00125 Roma - Italy
+Ph: +39 06.454.34.179 - Mobile: +39 339.533.03.22 - Fax +39 06.9725.3131 - Skype: kft2002
+info@kftechnology.it - www.kftechnology.it
