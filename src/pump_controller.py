@@ -74,14 +74,15 @@ class PumpWorker:
         self._submitted += 1
         self._queue.put((label, fn))
 
-    def wait_idle(self, timeout=300):
+    def wait_idle(self, timeout=None):
         """
         Block until every submitted task has finished processing.
-        Raises RuntimeError if any task errored, TimeoutError if it hangs.
+        Raises RuntimeError if any task errored, TimeoutError if timeout expires.
+        timeout: seconds to wait, or None for infinite (default).
         """
-        deadline = time.time() + timeout
+        deadline = None if timeout is None else (time.time() + timeout)
         while self._done_count < self._submitted:
-            if time.time() > deadline:
+            if deadline is not None and time.time() > deadline:
                 raise TimeoutError(
                     f'{self._pump_id}: tasks did not finish within {timeout}s '
                     f'({self._done_count}/{self._submitted} done)'
@@ -194,9 +195,9 @@ class HarvardWrapper(PumpInterface):
     def is_running(self):
         return self._pump.is_running()
 
-    def wait_until_done(self, poll_interval=0.5, timeout=300):
+    def wait_until_done(self, poll_interval=0.5, timeout=None):
         self._worker.wait_idle(timeout)
-        return self._pump.wait_until_done(poll_interval, timeout)
+        return self._pump.wait_until_done(poll_interval, timeout if timeout else 300)
 
     def get_volume_dispensed(self):
         return self._pump.get_volume_dispensed()
@@ -269,9 +270,9 @@ class NewEraWrapper(PumpInterface):
     def is_running(self):
         return self._pump.is_running()
 
-    def wait_until_done(self, poll_interval=0.5, timeout=300):
+    def wait_until_done(self, poll_interval=0.5, timeout=None):
         self._worker.wait_idle(timeout)
-        return self._pump.wait_until_done(poll_interval, timeout)
+        return self._pump.wait_until_done(poll_interval, timeout if timeout else 300)
 
     def get_volume_dispensed(self):
         return self._pump.get_volume_dispensed()
@@ -387,7 +388,7 @@ class PumpController:
         self._logger.log(pump_id, 'RUN')
         self.get(pump_id).run()
 
-    def wait_until_done(self, pump_id, poll_interval=0.5, timeout=300):
+    def wait_until_done(self, pump_id, poll_interval=0.5, timeout=None):
         self.get(pump_id).wait_until_done(poll_interval, timeout)
         self._logger.log(pump_id, 'DONE')
 
@@ -421,12 +422,12 @@ class PumpController:
             except Exception as e:
                 self._logger.log(pump_id, 'RUN ERROR', str(e))
 
-    def wait_until_all_done(self, poll_interval=0.5, timeout=300):
+    def wait_until_all_done(self, poll_interval=0.5, timeout=None):
         """Block until all pumps have stopped."""
         self._logger.log('ALL', 'WAITING FOR ALL TO FINISH')
         start = time.time()
         while any(p.is_running() for p in self._pumps.values()):
-            if time.time() - start > timeout:
+            if timeout is not None and time.time() - start > timeout:
                 self.stop_all()
                 raise TimeoutError('Not all pumps finished within timeout — all stopped')
             time.sleep(poll_interval)
