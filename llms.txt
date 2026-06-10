@@ -90,6 +90,9 @@ The system now **rejects out-of-range values loudly** with the exact limits prin
 
 ### Registered Pumps
 ```python
+import sys
+sys.path.insert(0, 'src')
+
 from pump_controller import PumpController
 
 ctrl = PumpController(log_file='experiment.log')
@@ -195,6 +198,9 @@ The driver handles unit conversion internally. Never pass volumes in µL to `Pum
 Always generate a complete, self-contained Python block in this structure:
 
 ```python
+import sys
+sys.path.insert(0, 'src')
+
 from pump_controller import PumpController
 
 ctrl = PumpController(log_file='experiment.log')
