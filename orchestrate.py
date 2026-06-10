@@ -30,7 +30,7 @@ try:
     ctrl.run_parallel([
         {
             'pump_id': 'pump_a',
-            'rate': 15,
+            'rate': 20,
             'units': 'ul/min',
             'volume': 1,
             'diameter_mm': 12.36,
@@ -38,7 +38,7 @@ try:
         },
         {
             'pump_id': 'pump_b',
-            'rate': 5,
+            'rate': 20,
             'units': 'ul/min',
             'volume': 1,
             'diameter_mm': 12.36,
@@ -46,7 +46,7 @@ try:
         },
         {
             'pump_id': 'pump_c',
-            'rate': 5,
+            'rate': 20,
             'units': 'ul/min',
             'volume': 1,
             'diameter_mm': 12.36,

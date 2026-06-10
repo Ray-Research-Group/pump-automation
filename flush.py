@@ -26,20 +26,19 @@ ctrl.add_new_era('pump_c', port='COM7', address=1)
 try:
     # 10 uL/min for 30 minutes
     # Total volume = 300 uL = 0.3 mL per pump
-    while True:
-        ctrl.run_parallel([
+    ctrl.run_parallel([
 
-            {
-                'pump_id': 'pump_a',
-                'rate': 20,
-                'units': 'ul/min',
-                'volume': 1,
-                'diameter_mm': 12.36,
-                'direction': 'infuse'
-            }
-        ])
+        {
+            'pump_id': 'pump_a',
+            'rate': 20,
+            'units': 'ul/min',
+            'volume': 1,
+            'diameter_mm': 12.36,
+            'direction': 'infuse'
+        }
+    ])
 
-        print("All pumps completed successfully.")
+    print("All pumps completed successfully.")
 
 except Exception as e:
     print(f'Experiment error: {e}')
