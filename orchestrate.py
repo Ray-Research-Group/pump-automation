@@ -8,6 +8,9 @@ Nothing here pumps more than ~1 mL or runs longer than a few seconds.
 Adjust DIAMETER_MM / PORTS / ADDRESSES at the top if your setup differs.
 """
 
+import sys
+sys.path.insert(0, 'src')
+
 import traceback
 from pump_controller import PumpController
 from pump_limits import (

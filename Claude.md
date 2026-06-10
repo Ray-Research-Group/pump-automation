@@ -8,18 +8,22 @@ Python venv: `.venv` — always activate before running anything.
 ## Architecture
 
 ```
-harvard_elite.py       # Harvard Apparatus Pump 11 Elite driver
-new_era.py             # New Era NE-4002X driver + network class
-pump_limits.py         # Diameter-based rate/volume limit checks for both pumps
-pump_controller.py     # Unified abstraction over both drivers (per-pump worker threads)
-orchestrate.py         # Experiment execution target — LLM-generated code goes here
-orchestrate_backup.py  # Saved copy of the prior orchestrate.py before the test harness
-test.py                # New Era address scanner on COM7 (addresses 0-9)
-debug_dir.py           # Direction/serial debug scratch script
+orchestrate.py         # Experiment execution target — paste LLM-generated code here
 llms.txt               # Experiment programming interface for external LLMs
-Harvard.txt            # Harvard Pump 11 Elite manual (spec table + Appendix A/B rate limits)
-NE4002X.txt            # New Era NE-4002X rates + specs (the pump we actually have)
-NE4000x.txt            # Generic NE-4000 manual — OVERSTATES range, do not trust limits
+
+src/
+  harvard_elite.py     # Harvard Apparatus Pump 11 Elite driver
+  new_era.py           # New Era NE-4002X driver + network class
+  pump_limits.py       # Diameter-based rate/volume limit checks for both pumps
+  pump_controller.py   # Unified abstraction over both drivers (per-pump worker threads)
+  test.py              # New Era address scanner on COM7 (addresses 0-9)
+  debug_dir.py         # Direction/serial debug scratch script
+  orchestrate_backup.py # Saved copy of prior orchestrate.py (reference)
+  
+  Harvard.txt          # Harvard Pump 11 Elite manual (spec table + Appendix A/B)
+  NE4002X.txt          # New Era NE-4002X rates + specs (the pump we actually have)
+  NE4000x.txt          # Generic NE-4000 manual — OVERSTATES range, do not trust
+  PROGRESS.md          # Session log
 ```
 
 ## Hardware
@@ -110,6 +114,29 @@ The controller gives each pump its own worker thread for setup. Setup errors
 # Install deps
 pip install pyserial
 ```
+
+## Running Experiments
+
+Paste LLM-generated code into the top-level `orchestrate.py` file, then:
+
+```bash
+cd /path/to/pump-automation
+python orchestrate.py
+```
+
+The script automatically adds `src/` to `sys.path`, so imports work seamlessly.
+
+## Import Structure
+
+All internal imports within `src/` use bare module names (e.g., `from pump_limits import check_harvard_rate`), which works because they're in the same directory. The root `orchestrate.py` adds `src` to `sys.path` before importing:
+
+```python
+import sys
+sys.path.insert(0, 'src')
+from pump_controller import PumpController
+```
+
+This keeps the API clean: users see only `orchestrate.py` and `llms.txt` at the root, and can paste code directly without worrying about import paths.
 
 ## Code Style
 
