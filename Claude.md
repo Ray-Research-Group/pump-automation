@@ -49,6 +49,12 @@ New Era pumps share COM7 via daisy chain. Address is set on each pump individual
 - **New Era `?OOR`**: rate out of range for current syringe diameter — check diameter is set first. `pump_limits.py` now catches most of these before they reach the pump.
 - **Port locking**: only one process can hold a COM port. Kill all Python processes before opening a new connection: `taskkill /F /IM python.exe`
 
+## Timeouts
+
+By default, **there is no timeout** — pumps can run indefinitely. If you want to set a timeout, pass `timeout=seconds` to:
+- `wait_until_done(pump_id, timeout=120)` — wait max 120 seconds for one pump
+- `wait_until_all_done(timeout=120)` — wait max 120 seconds for all pumps
+
 ## Rate & Volume Limits — `pump_limits.py`
 
 Both pumps compute flow as pusher velocity × syringe cross-sectional area, so
@@ -125,6 +131,25 @@ python orchestrate.py
 ```
 
 The script automatically adds `src/` to `sys.path`, so imports work seamlessly.
+
+### Keyboard Interrupt (Ctrl+C)
+
+To stop all pumps gracefully when you press Ctrl+C, add signal handling to your orchestrate.py:
+
+```python
+import signal
+
+def signal_handler(signum, frame):
+    print('\n[KEYBOARD INTERRUPT] Stopping all pumps...')
+    ctrl.stop_all()
+    ctrl.close_all()
+    print('[CLOSED] All connections closed.')
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+```
+
+See `src/example_with_keyboard_stop.py` for a complete working example.
 
 ## Import Structure
 

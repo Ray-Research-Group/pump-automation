@@ -258,7 +258,7 @@ class NewEraPump:
         return self._send('VER')
 
     # ── BLOCKING WAIT ────────────────────────────────────
-    def wait_until_done(self, poll_interval=0.2, timeout=300):
+    def wait_until_done(self, poll_interval=0.2, timeout=None):
         start = time.time()
         time.sleep(0.5)  # give motor time to actually start before first poll
         while True:
@@ -269,7 +269,7 @@ class NewEraPump:
                 elapsed = time.time() - start
                 if elapsed > 1.0:
                     break
-            if time.time() - start > timeout:
+            if timeout is not None and time.time() - start > timeout:
                 raise TimeoutError(f'Pump {self.address} did not finish within {timeout}s')
             if self.is_alarmed():
                 raise RuntimeError(f'Pump {self.address} alarm detected')
@@ -348,11 +348,11 @@ class NewEraNetwork:
         for pump in self.pumps.values():
             pump.run()
 
-    def wait_until_all_done(self, poll_interval=0.5, timeout=300):
+    def wait_until_all_done(self, poll_interval=0.5, timeout=None):
         """Block until all pumps have stopped."""
         start = time.time()
         while any(p.is_running() for p in self.pumps.values()):
-            if time.time() - start > timeout:
+            if timeout is not None and time.time() - start > timeout:
                 raise TimeoutError('Not all pumps finished within timeout')
             time.sleep(poll_interval)
 

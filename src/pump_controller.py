@@ -122,7 +122,7 @@ class PumpInterface:
     def run(self): raise NotImplementedError
     def stop(self): raise NotImplementedError
     def is_running(self): raise NotImplementedError
-    def wait_until_done(self, poll_interval=0.5, timeout=300): raise NotImplementedError
+    def wait_until_done(self, poll_interval=0.5, timeout=None): raise NotImplementedError
     def get_volume_dispensed(self): raise NotImplementedError
     def get_status(self): raise NotImplementedError
     def infuse(self, rate, units, volume, diameter_mm): raise NotImplementedError
@@ -197,7 +197,7 @@ class HarvardWrapper(PumpInterface):
 
     def wait_until_done(self, poll_interval=0.5, timeout=None):
         self._worker.wait_idle(timeout)
-        return self._pump.wait_until_done(poll_interval, timeout if timeout else 300)
+        return self._pump.wait_until_done(poll_interval, timeout)
 
     def get_volume_dispensed(self):
         return self._pump.get_volume_dispensed()
@@ -272,7 +272,7 @@ class NewEraWrapper(PumpInterface):
 
     def wait_until_done(self, poll_interval=0.5, timeout=None):
         self._worker.wait_idle(timeout)
-        return self._pump.wait_until_done(poll_interval, timeout if timeout else 300)
+        return self._pump.wait_until_done(poll_interval, timeout)
 
     def get_volume_dispensed(self):
         return self._pump.get_volume_dispensed()
