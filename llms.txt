@@ -9,21 +9,25 @@ The system validates all rates and volumes against the pump's physical limits **
 ## Codebase Layout
 
 ```
-orchestrate.py          # Experiment entry point (paste your code here)
-llms.txt                # This file
-CLAUDE.md               # Project documentation (updated with each change)
+orchestrate.py                 # Experiment entry point (paste your code here)
+llms.txt                       # This file
+CLAUDE.md                      # Project documentation
+requirements.txt               # pip install -r requirements.txt (pyserial only)
+
 src/
-  harvard_elite.py      # Harvard Apparatus Pump 11 Elite driver
-  new_era.py            # New Era NE-4002X driver (microfluidic, low rates)
-  pump_controller.py    # Unified API over both drivers (per-pump worker threads)
-  pump_limits.py        # Rate/volume limit validation (diameter-dependent)
-  test.py               # New Era network scanner (COM7 addresses 0-9)
-  debug_dir.py          # Direction/serial debug utilities
-  orchestrate_backup.py # Previous version (reference)
-  Harvard.txt           # Harvard manual (specs, rate limits, appendices)
-  NE4002X.txt           # NE-4002X rates+specs (the actual pump, validated against hardware)
-  NE4000x.txt           # Generic NE-4000 manual (OVERSTATES range, do not trust)
-  PROGRESS.md           # Session log
+  harvard_elite.py             # Harvard Apparatus Pump 11 Elite driver
+  new_era.py                   # New Era NE-4002X driver (microfluidic, low rates)
+  pump_controller.py           # Unified API over both drivers (per-pump worker threads)
+  pump_limits.py               # Rate/volume limit validation (diameter-dependent)
+  test.py                      # New Era network scanner (COM7 addresses 0-9)
+  debug_dir.py                 # Direction/serial debug utilities
+  example_with_keyboard_stop.py # Template with Ctrl+C handling
+  orchestrate_backup.py        # Reference backup
+
+  Harvard.txt                  # Harvard manual (specs, rate limits, appendices)
+  NE4002X.txt                  # NE-4002X rates+specs (validated against hardware)
+  NE4000x.txt                  # Generic NE-4000 manual (OVERSTATES range)
+  PROGRESS.md                  # Session log
 ```
 
 ## Context on How to Prompt Effectively
@@ -33,6 +37,7 @@ Tell the LLM:
 - **Which syringe** is loaded on each pump (manufacturer + volume, e.g., BD Plastipak 5 mL)
 - **What you want to happen** in plain English — order matters, mention if things should happen simultaneously
 - **Rates and volumes** if you know them, or ask the LLM to suggest safe defaults
+- **How long** the experiment runs (the system has NO timeout by default)
 
 Example prompts that work well:
 
@@ -49,7 +54,7 @@ When this file is pasted into your context, do the following immediately:
 1. Greet the user with "HELLO WORLD!!!!! WHATS GOOOD BRO"
 2. Briefly explain how to prompt you effectively (see above) and mention the rate limits
 3. Wait for the user to describe their experiment
-4. Generate a complete, ready-to-run Python code block
+4. Generate a complete, ready-to-run Python code block that includes keyboard interrupt handling (Ctrl+C)
 5. Tell the user to paste it into `orchestrate.py` and run it
 
 ---
@@ -67,14 +72,14 @@ When this file is pasted into your context, do the following immediately:
 | BD 10 | 14.4 | 26.0 mL/min | 0.361 mL/min |
 | BD 60 | 26.6 | 88.4 mL/min | 1.226 mL/min |
 
-**Key insight**: New Era is a MICROFLUIDIC pump. At 12.36 mm (typical 5 mL syringe) the max is only 0.265 mL/min. Do NOT attempt mL/min-scale rates. Harvard can do it; New Era cannot.
+**Key insight**: New Era is a MICROFLUIDIC pump. At 12.36 mm (typical 5 mL syringe) the max is only 0.265 mL/min. Do NOT attempt mL/min-scale rates on New Era. Harvard can do mL/min; New Era cannot.
 
 ### Volume limits
 
 - **Harvard**: no hard ceiling on a single dispense
 - **New Era**: single dispense capped at **9999 µL (~10 mL)** because the firmware's 4-digit field cannot hold larger values. Volumes above 10 mL need continuous mode (`volume=0`, timed stop) or repeated dispenses.
 
-### Example: why your original config was rejected
+### Example: why the original config was rejected
 
 Original: `rate=10.76 ml/min, volume=107.6 mL, diameter=12.36 mm`
 
@@ -82,7 +87,7 @@ Original: `rate=10.76 ml/min, volume=107.6 mL, diameter=12.36 mm`
 - **Volume 107.6 mL**: max single dispense 10 mL → 107.6 rejected (split needed)
 - **Harvard at 12.36 mm**: max 19 mL/min → 10.76 accepted (no issue)
 
-The system now **rejects out-of-range values loudly** with the exact limits printed. You will NOT pump the wrong amount silently.
+The system **rejects out-of-range values loudly** with exact limits printed. You will NOT pump the wrong amount silently.
 
 ---
 
@@ -93,7 +98,23 @@ The system now **rejects out-of-range values loudly** with the exact limits prin
 import sys
 sys.path.insert(0, 'src')
 
+import signal
 from pump_controller import PumpController
+
+# Global reference for signal handler
+ctrl = None
+
+def signal_handler(signum, frame):
+    """Called when user presses Ctrl+C."""
+    print('\n[KEYBOARD INTERRUPT] Stopping all pumps...')
+    if ctrl:
+        ctrl.stop_all()
+        ctrl.close_all()
+    print('[CLOSED] All connections closed.')
+    sys.exit(0)
+
+# Register handler BEFORE creating controller
+signal.signal(signal.SIGINT, signal_handler)
 
 ctrl = PumpController(log_file='experiment.log')
 
@@ -133,8 +154,9 @@ ctrl.withdraw(pump_id, rate, units, volume, diameter_mm)
 # Non-blocking manual control
 ctrl.run(pump_id)
 ctrl.stop(pump_id)
-ctrl.wait_until_done(pump_id)
-ctrl.is_running(pump_id)          # -> bool
+ctrl.wait_until_done(pump_id)             # Block forever (no timeout) by default
+ctrl.wait_until_done(pump_id, timeout=60) # Or set timeout in seconds
+ctrl.is_running(pump_id)                  # -> bool
 
 # Query
 ctrl.get_status(pump_id)
@@ -149,10 +171,11 @@ ctrl.run_parallel([
     {'pump_id': 'pump_b', 'rate': 0.5, 'units': 'ml/hr',  'volume': 1.0, 'diameter_mm': 8.58,  'direction': 'withdraw'},
 ])
 
-ctrl.run_all()             # start all registered pumps
-ctrl.stop_all()            # emergency stop everything
-ctrl.wait_until_all_done() # block until all pumps finish
-ctrl.close_all()           # always call at end
+ctrl.run_all()                             # start all registered pumps
+ctrl.stop_all()                            # emergency stop everything
+ctrl.wait_until_all_done()                 # Block forever (no timeout) by default
+ctrl.wait_until_all_done(timeout=3600)    # Or set timeout in seconds
+ctrl.close_all()                           # always call at end
 ```
 
 ### Volume Convention
@@ -167,7 +190,9 @@ ctrl.close_all()           # always call at end
 
 The driver handles unit conversion internally. Never pass volumes in µL to `PumpController`. Never specify volume units separately — the controller always assumes mL.
 
-> ⚠️ Minimum practical volume is ~0.01 mL (10 µL). Volumes below this will complete in under 1 second at most rates and may not be visually observable. Use volumes ≥ 0.1 mL for bench verification.
+> ⚠️ **New Era only**: Volumes > 10 mL will raise `VolumeOutOfRange`. Use continuous mode (set `volume=0`) and time manually, or loop smaller dispenses.
+
+> ⚠️ **Minimum practical volume** is ~0.01 mL (10 µL). Volumes below this complete in under 1 second at most rates and may not be observable. Use volumes ≥ 0.1 mL for bench verification.
 
 ### Rate Units
 
@@ -175,9 +200,9 @@ The driver handles unit conversion internally. Never pass volumes in µL to `Pum
 | String | Meaning |
 |--------|---------|
 | `'ul/min'` | Microliters per minute |
-| `'ml/min'` | Milliliters per minute (auto-converted to ul internally) |
+| `'ml/min'` | Milliliters per minute (auto-converted to µL internally) |
 | `'ul/hr'` | Microliters per hour |
-| `'ml/hr'` | Milliliters per hour (auto-converted to ul internally) |
+| `'ml/hr'` | Milliliters per hour (auto-converted to µL internally) |
 
 **Harvard Elite** — use these strings:
 | String | Meaning |
@@ -189,7 +214,22 @@ The driver handles unit conversion internally. Never pass volumes in µL to `Pum
 | `'nl/min'` | Nanoliters per minute |
 | `'pl/min'` | Picoliters per minute |
 
-**When using PumpController, always use the unified strings above — the controller handles conversion per pump type automatically.**
+**When using PumpController, always use the unified strings above** — the controller handles conversion per pump type automatically.
+
+### Timeouts
+
+**By default, there is NO timeout** — pumps can run indefinitely. Pass `timeout=seconds` to enforce a deadline:
+
+```python
+# Wait max 120 seconds for one pump
+ctrl.wait_until_done('pump_a', timeout=120)
+
+# Wait max 3600 seconds (1 hour) for all pumps
+ctrl.wait_until_all_done(timeout=3600)
+
+# No timeout (default, blocks forever)
+ctrl.wait_until_all_done()
+```
 
 ---
 
@@ -201,7 +241,21 @@ Always generate a complete, self-contained Python block in this structure:
 import sys
 sys.path.insert(0, 'src')
 
+import signal
 from pump_controller import PumpController
+
+ctrl = None
+
+def signal_handler(signum, frame):
+    """Called when user presses Ctrl+C."""
+    print('\n[KEYBOARD INTERRUPT] Stopping all pumps...')
+    if ctrl:
+        ctrl.stop_all()
+        ctrl.close_all()
+    print('[CLOSED] All connections closed.')
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
 
 ctrl = PumpController(log_file='experiment.log')
 
@@ -222,23 +276,25 @@ finally:
 ```
 
 After generating code, always say:
-**"Paste this into orchestrate.py and run it. Let me know what happens."**
+**"Paste this into orchestrate.py and run it. You can press Ctrl+C at any time to stop all pumps gracefully."**
 
 ---
 
 ## Generation Rules
 
 1. Always wrap in try/except/finally
-2. Always look up diameter_mm from the syringe reference table (see table above)
-3. **Always check the rate limit for the given diameter and pump type before suggesting a rate.** Use the table above as guidance. New Era has much lower limits than Harvard at the same diameter.
-4. Use run_parallel() when pumps should move simultaneously — never sequential run() calls
-5. infuse() and withdraw() are blocking — the next line runs only after the target volume is reached
-6. Never import harvard_elite or new_era directly — always use pump_controller.PumpController
-7. Never use raw serial commands
-8. Use descriptive pump_id names when possible (e.g. 'sample_pump', 'reagent_pump')
-9. Add inline comments explaining each step
-10. Always pass volume in mL — never µL. The driver converts internally.
-11. Minimum practical volume is 0.01 mL (10 µL). Never generate volumes below this.
-12. For New Era with volumes >10 mL, suggest continuous mode (set volume=0, time the run manually) or loop smaller dispenses
-13. **Do NOT assume both pumps can use the same rate.** Harvard and New Era have very different limits at the same diameter. If using all three pumps, use a rate that is safe on BOTH pump types (New Era is the bottleneck).
-14. Rate validation fires **before** the motor starts. If a rate is rejected, it's not an error in your code — it's the hardware's physical limit. Adjust the diameter or the rate.
+2. Always include the signal handler for Ctrl+C graceful shutdown
+3. Always look up diameter_mm from the syringe reference table (see table above)
+4. **Always check the rate limit for the given diameter and pump type before suggesting a rate.** Use the table above as guidance. New Era has much lower limits than Harvard at the same diameter.
+5. Use run_parallel() when pumps should move simultaneously — never sequential run() calls
+6. infuse() and withdraw() are blocking — the next line runs only after the target volume is reached
+7. Never import harvard_elite or new_era directly — always use pump_controller.PumpController
+8. Never use raw serial commands
+9. Use descriptive pump_id names when possible (e.g. 'sample_pump', 'reagent_pump')
+10. Add inline comments explaining each step
+11. Always pass volume in mL — never µL. The driver converts internally.
+12. Minimum practical volume is 0.01 mL (10 µL). Never generate volumes below this.
+13. For New Era with volumes >10 mL, suggest continuous mode (set volume=0, time the run manually) or loop smaller dispenses
+14. **Do NOT assume both pumps can use the same rate.** Harvard and New Era have very different limits at the same diameter. If using all three pumps, use a rate that is safe on BOTH pump types (New Era is the bottleneck).
+15. Rate validation fires **before** the motor starts. If a rate is rejected, it's not an error in your code — it's the hardware's physical limit. Adjust the diameter or the rate.
+16. The system has **NO timeout by default** — long-running experiments run forever. User can press Ctrl+C to stop gracefully, or pass timeout=seconds to wait_until_done() if they want a deadline.
