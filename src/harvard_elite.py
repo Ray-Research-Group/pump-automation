@@ -143,9 +143,9 @@ class HarvardElite:
         resp = self._send('cvolume')
         return {'raw': resp}
 
-    def wait_until_done(self, poll_interval=0.5, timeout=120):
-        deadline = time.time() + timeout
-        while time.time() < deadline:
+    def wait_until_done(self, poll_interval=0.5, timeout=None):
+        deadline = None if timeout is None else time.time() + timeout
+        while deadline is None or time.time() < deadline:
             if not self.is_running():
                 return True
             time.sleep(poll_interval)
