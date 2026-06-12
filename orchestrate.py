@@ -4,9 +4,36 @@ sys.path.insert(0, 'src')
 import signal
 from pump_controller import PumpController
 
+
+
+
+
+# ---------------------CONFIG ZONE START------------------------------
+
 DIAMETER = 12.36   # mm
 RATE     = 38      # µL/min
-VOLUME   = 0.019   # mL (= 19 µL)
+VOLUME   = 1   # mL (= 19 µL)
+
+# ---------------------CONFIG ZONE END------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ctrl = None
 

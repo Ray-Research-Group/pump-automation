@@ -8,7 +8,7 @@ ctrl = None
 
 def signal_handler(signum, frame):
     """Called when user presses Ctrl+C."""
-    print('\n[KEYBOARD INTERRUPT] Stopping all pumps...')
+    print('\n[KEYBOARD INTERRUPT] Stopping pump...')
     if ctrl:
         ctrl.stop_all()
         ctrl.close_all()
@@ -19,26 +19,22 @@ signal.signal(signal.SIGINT, signal_handler)
 
 ctrl = PumpController(log_file='experiment.log')
 
+# Harvard Apparatus Pump 11 Elite
 ctrl.add_harvard('pump_a', port='COM6')
-ctrl.add_new_era('pump_b', port='COM7', address=0)
-ctrl.add_new_era('pump_c', port='COM7', address=1)
 
 try:
-    # 10 uL/min for 30 minutes
-    # Total volume = 300 uL = 0.3 mL per pump
-    ctrl.run_parallel([
+    print("Starting infusion...")
 
-        {
-            'pump_id': 'pump_a',
-            'rate': 20,
-            'units': 'ul/min',
-            'volume': 1,
-            'diameter_mm': 12.36,
-            'direction': 'infuse'
-        }
-    ])
+    # Infuse 1 mL at 20 µL/min
+    ctrl.infuse(
+        pump_id='pump_a',
+        rate=15,
+        units='ul/min',
+        volume=1.0,      # mL
+        diameter_mm=12.36
+    )
 
-    print("All pumps completed successfully.")
+    print("Infusion complete.")
 
 except Exception as e:
     print(f'Experiment error: {e}')
