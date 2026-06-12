@@ -49,8 +49,11 @@ signal.signal(signal.SIGINT, signal_handler)
 
 ctrl = PumpController(log_file='experiment.log')
 
+#ctrl.add_new_era('pump_b', port='COM7', address=0)
+#ctrl.add_new_era('pump_c', port='COM7', address=1)
+
 ctrl.add_new_era('pump_b', port='COM7', address=0)
-ctrl.add_new_era('pump_c', port='COM7', address=1)
+ctrl.add_new_era('pump_c', port='COM7', address=0)
 
 print('Pump CLI ready. Rate: 38 µL/min | Volume: 19 µL')
 print('  1 = pump_b infuse / pump_c withdraw')

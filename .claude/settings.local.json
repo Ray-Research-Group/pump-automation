@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(.venv\\\\Scripts\\\\activate)",
-      "Bash(python pump_agent.py)"
+      "Bash(python pump_agent.py)",
+      "Bash(brew fetch *)",
+      "Read(//Users/danvu/Library/Caches/Homebrew/downloads/**)"
     ]
   }
 }
