@@ -6,6 +6,10 @@ REM ===================================================================
 
 cd /d "%~dp0"
 
+REM -- Pull the latest code. If it fails (offline, no git, local edits), --
+REM -- just keep going and launch whatever version is already here.      --
+where git >nul 2>&1 && git pull origin prod
+
 REM -- First time: create the virtual environment if it isn't there --
 if not exist ".venv\Scripts\pythonw.exe" (
     echo First-time setup, this takes a minute...
