@@ -11,6 +11,16 @@ Python venv: `.venv` — always activate before running anything.
 orchestrate.py         # Experiment execution target — paste LLM-generated code here
 llms.txt               # Experiment programming interface for external LLMs
 
+UI/                    # Tkinter control panel — run with `python UI/app.py`
+  app.py               # Entry point: window, shared PumpController, Notebook, STOP bar, log
+  state.py             # AppState: slot A/B/C -> pump_id map, registration, refresh callbacks
+  worker.py            # Runs blocking controller calls off the GUI thread via a queue
+  config_row.py        # PumpConfigRow widget (checkbox + dia/rate/units/vol/dir), reused by Multiple + Orchestrate
+  setup_tab.py         # Map each slot to Harvard or New Era on a COM port/address
+  single_tab.py        # Run one pump (infuse/withdraw)
+  multiple_tab.py      # Run several pumps in parallel (run_parallel)
+  orchestrate_tab.py   # Dynamic stack of sequential steps; each step is a parallel group
+
 src/
   harvard_elite.py     # Harvard Apparatus Pump 11 Elite driver
   new_era.py           # New Era NE-4002X driver + network class
