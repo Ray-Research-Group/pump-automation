@@ -20,7 +20,6 @@ from pump_controller import PumpController  # noqa: E402
 from state import AppState  # noqa: E402
 from worker import Worker  # noqa: E402
 from setup_tab import SetupTab  # noqa: E402
-from single_tab import SingleTab  # noqa: E402
 from multiple_tab import MultipleTab  # noqa: E402
 from orchestrate_tab import OrchestrateTab  # noqa: E402
 
@@ -40,13 +39,11 @@ class App:
         notebook.pack(fill='both', expand=True, padx=8, pady=(8, 0))
 
         self.setup = SetupTab(notebook, self.state, self.worker)
-        self.single = SingleTab(notebook, self.state, self.worker)
         self.multiple = MultipleTab(notebook, self.state, self.worker)
         self.orchestrate = OrchestrateTab(notebook, self.state, self.worker)
 
         notebook.add(self.setup.frame, text='Setup')
-        notebook.add(self.single.frame, text='Single')
-        notebook.add(self.multiple.frame, text='Multiple')
+        notebook.add(self.multiple.frame, text='Manual')
         notebook.add(self.orchestrate.frame, text='Orchestrate')
 
         # Bottom bar: STOP + log pane
@@ -68,7 +65,7 @@ class App:
         self.log.tag_configure('err', foreground='#c0392b')
         self.log.tag_configure('msg', foreground='black')
 
-        self.run_tabs = [self.single, self.multiple, self.orchestrate]
+        self.run_tabs = [self.multiple, self.orchestrate]
 
         root.protocol('WM_DELETE_WINDOW', self.on_close)
         self._poll()

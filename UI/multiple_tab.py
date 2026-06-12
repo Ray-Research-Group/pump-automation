@@ -12,7 +12,7 @@ class MultipleTab:
         self.worker = worker
         self.frame = ttk.Frame(notebook, padding=12)
 
-        ttk.Label(self.frame, text='Multiple Pumps (parallel)',
+        ttk.Label(self.frame, text='Manual — run pumps (parallel)',
                   font=('TkDefaultFont', 13, 'bold')).grid(
             row=0, column=0, sticky='w', pady=(0, 8))
 
