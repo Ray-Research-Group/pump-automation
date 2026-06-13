@@ -116,7 +116,7 @@ def signal_handler(signum, frame):
 # Register handler BEFORE creating controller
 signal.signal(signal.SIGINT, signal_handler)
 
-ctrl = PumpController(log_file='experiment.log')
+ctrl = PumpController(log_file='logs/experiment.log')
 
 # Harvard Apparatus Pump 11 Elite
 ctrl.add_harvard('pump_a', port='COM6')
@@ -257,7 +257,7 @@ def signal_handler(signum, frame):
 
 signal.signal(signal.SIGINT, signal_handler)
 
-ctrl = PumpController(log_file='experiment.log')
+ctrl = PumpController(log_file='logs/experiment.log')
 
 ctrl.add_harvard('pump_a', port='COM6')
 ctrl.add_new_era('pump_b', port='COM7', address=0)

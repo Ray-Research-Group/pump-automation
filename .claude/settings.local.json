@@ -4,7 +4,9 @@
       "Bash(.venv\\\\Scripts\\\\activate)",
       "Bash(python pump_agent.py)",
       "Bash(brew fetch *)",
-      "Read(//Users/danvu/Library/Caches/Homebrew/downloads/**)"
+      "Read(//Users/danvu/Library/Caches/Homebrew/downloads/**)",
+      "Bash(git rm *)",
+      "Bash(rm -f experiment.log _ui_script.py)"
     ]
   }
 }

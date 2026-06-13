@@ -31,7 +31,7 @@ class App:
         root.geometry('1000x760')
 
         self.ctrl = PumpController(
-            log_file=os.path.join(_ROOT, 'experiment.log'))
+            log_file=os.path.join(_ROOT, 'logs', 'experiment.log'))
         self.state = AppState(self.ctrl)
         self.worker = Worker()
 

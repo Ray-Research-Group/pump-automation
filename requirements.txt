@@ -1,1 +1,2 @@
+# Python 3.8+ required (tkinter, threading, queue, subprocess all stdlib)
 pyserial>=3.5

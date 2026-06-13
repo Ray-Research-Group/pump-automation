@@ -47,7 +47,7 @@ def signal_handler(signum, frame):
 
 signal.signal(signal.SIGINT, signal_handler)
 
-ctrl = PumpController(log_file='experiment.log')
+ctrl = PumpController(log_file='logs/experiment.log')
 
 #ctrl.add_new_era('pump_b', port='COM7', address=0)
 #ctrl.add_new_era('pump_c', port='COM7', address=1)

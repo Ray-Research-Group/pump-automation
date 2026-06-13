@@ -14,7 +14,7 @@ from tkinter import ttk, filedialog
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _ROOT = os.path.dirname(_HERE)
-_SCRIPT_PATH = os.path.join(_ROOT, '_ui_script.py')
+_SCRIPT_PATH = os.path.join(_ROOT, 'logs', '_ui_script.py')
 _LLMS_PATH = os.path.join(_ROOT, 'llms.txt')
 
 _TEMPLATE = """\
@@ -22,7 +22,7 @@ import sys
 sys.path.insert(0, 'src')
 from pump_controller import PumpController
 
-ctrl = PumpController(log_file='experiment.log')
+ctrl = PumpController(log_file='logs/experiment.log')
 ctrl.add_harvard('harvard_elite', port='COM6')
 ctrl.add_new_era('new_era_0', port='COM7', address=0)
 
@@ -90,7 +90,7 @@ class OrchestrateTab:
 
     def _load(self):
         path = filedialog.askopenfilename(
-            initialdir=_ROOT,
+            initialdir=os.path.join(_ROOT, 'protocols'),
             filetypes=[('Python scripts', '*.py'), ('All files', '*.*')])
         if path:
             with open(path, 'r') as f:
@@ -100,7 +100,7 @@ class OrchestrateTab:
 
     def _save(self):
         path = filedialog.asksaveasfilename(
-            initialdir=_ROOT,
+            initialdir=os.path.join(_ROOT, 'protocols'),
             defaultextension='.py',
             filetypes=[('Python scripts', '*.py'), ('All files', '*.*')])
         if path:

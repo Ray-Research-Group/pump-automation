@@ -1,5 +1,5 @@
 .venv/
-*.log
 *.pyc
 __pycache__/
-_ui_script.py
+logs/*.log
+logs/_ui_script.py
