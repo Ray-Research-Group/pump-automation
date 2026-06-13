@@ -9,6 +9,9 @@ class AppState:
         self.ctrl = controller
         # slot -> description string while registered, else None
         self.registered = {s: None for s in SLOTS}
+        # slot -> (ptype, port, addr) so connections can be re-established
+        # after a script run releases the COM ports
+        self.conn_params = {}
         self._refresh_callbacks = []
 
     def pump_id(self, slot):

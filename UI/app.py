@@ -27,7 +27,7 @@ from orchestrate_tab import OrchestrateTab  # noqa: E402
 class App:
     def __init__(self, root):
         self.root = root
-        root.title('Syringe Pump Automation')
+        root.title('Ray Research Lab - Syringe Pump Automation')
         root.geometry('1000x760')
 
         self.ctrl = PumpController(
@@ -79,6 +79,8 @@ class App:
             tab.set_busy(busy)
 
     def stop_all(self):
+        if self.orchestrate.abort_if_running():
+            return  # task thread handles reconnect + stop_all
         try:
             self.ctrl.stop_all()
             self.worker.log('STOP ALL sent.')

@@ -1,47 +1,36 @@
-"""Orchestrate tab: a dynamic stack of steps that run top-to-bottom.
+"""Orchestrate tab: paste or load a Python script and run it as a subprocess.
 
-Each step is a parallel group (1-3 slots). run_parallel blocks until a step's
-pumps finish, so calling it per step in order gives sequential execution.
+Scripts run exactly like `python orchestrate.py` — they open their own
+PumpController and COM ports. The UI releases its connections before launch
+and reacquires them on exit. STOP kills the subprocess then reconnects and
+stops the pumps.
 """
 
+import os
+import sys
+import subprocess
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, filedialog
 
-from config_row import PumpConfigRow
-from state import SLOTS
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.dirname(_HERE)
+_SCRIPT_PATH = os.path.join(_ROOT, '_ui_script.py')
+_LLMS_PATH = os.path.join(_ROOT, 'llms.txt')
 
+_TEMPLATE = """\
+import sys
+sys.path.insert(0, 'src')
+from pump_controller import PumpController
 
-class Step:
-    def __init__(self, parent, state, index):
-        self.state = state
-        self.frame = ttk.LabelFrame(parent, padding=8)
-        self.label = tk.StringVar(value=f'Step {index}')
+ctrl = PumpController(log_file='experiment.log')
+ctrl.add_harvard('harvard_elite', port='COM6')
+ctrl.add_new_era('new_era_0', port='COM7', address=0)
 
-        head = ttk.Frame(self.frame)
-        head.grid(row=0, column=0, sticky='w')
-        ttk.Label(head, text='Label').grid(row=0, column=0, padx=(0, 4))
-        ttk.Entry(head, textvariable=self.label, width=18).grid(row=0, column=1)
+# protocol here
 
-        # controls (wired by the tab after creation)
-        self.up_btn = ttk.Button(head, text='↑', width=3)
-        self.down_btn = ttk.Button(head, text='↓', width=3)
-        self.del_btn = ttk.Button(head, text='Remove', width=8)
-        self.up_btn.grid(row=0, column=2, padx=(12, 2))
-        self.down_btn.grid(row=0, column=3, padx=2)
-        self.del_btn.grid(row=0, column=4, padx=2)
-
-        self.rows = []
-        for i, slot in enumerate(SLOTS):
-            row = PumpConfigRow(self.frame, slot, state)
-            row.grid(row=i + 1, column=0, sticky='w', pady=1)
-            self.rows.append(row)
-
-    def refresh(self):
-        for row in self.rows:
-            row.refresh()
-
-    def build_configs(self):
-        return [c for c in (r.build_config() for r in self.rows) if c is not None]
+ctrl.stop_all()
+ctrl.close_all()
+"""
 
 
 class OrchestrateTab:
@@ -49,93 +38,176 @@ class OrchestrateTab:
         self.state = state
         self.worker = worker
         self.frame = ttk.Frame(notebook, padding=12)
-        self.steps = []
-        self._counter = 0
+        self._proc = None
+        self._killed = False
 
-        ttk.Label(self.frame, text='Orchestrate (sequential steps)',
+        ttk.Label(self.frame, text='Orchestrate (script runner)',
                   font=('TkDefaultFont', 13, 'bold')).grid(
-            row=0, column=0, sticky='w', pady=(0, 8))
+            row=0, column=0, columnspan=2, sticky='w', pady=(0, 8))
 
+        # button bar
         bar = ttk.Frame(self.frame)
-        bar.grid(row=1, column=0, sticky='w')
-        ttk.Button(bar, text='+ Add step', command=self.add_step).grid(
-            row=0, column=0)
-        self.run_btn = ttk.Button(bar, text='Run sequence', command=self._run)
-        self.run_btn.grid(row=0, column=1, padx=8)
+        bar.grid(row=1, column=0, columnspan=2, sticky='w', pady=(0, 6))
+        ttk.Button(bar, text='Load…', command=self._load).grid(row=0, column=0)
+        ttk.Button(bar, text='Save as…', command=self._save).grid(row=0, column=1, padx=4)
+        ttk.Button(bar, text='Insert template', command=self._insert_template).grid(row=0, column=2)
+        ttk.Button(bar, text='LLM prompt…', command=self._show_llm_prompt).grid(row=0, column=3, padx=(12, 0))
+        self.run_btn = ttk.Button(bar, text='Run script', command=self._run)
+        self.run_btn.grid(row=0, column=4, padx=(4, 0))
 
-        # scrollable step list
-        self.canvas = tk.Canvas(self.frame, height=420, highlightthickness=0)
-        scroll = ttk.Scrollbar(self.frame, orient='vertical',
-                              command=self.canvas.yview)
-        self.canvas.configure(yscrollcommand=scroll.set)
-        self.canvas.grid(row=2, column=0, sticky='nsew', pady=8)
-        scroll.grid(row=2, column=1, sticky='ns')
+        # code editor
+        editor_frame = ttk.Frame(self.frame)
+        editor_frame.grid(row=2, column=0, sticky='nsew')
+        self.editor = tk.Text(editor_frame, font=('Courier', 11), undo=True,
+                              wrap='none', width=80, height=28)
+        vscroll = ttk.Scrollbar(editor_frame, orient='vertical', command=self.editor.yview)
+        hscroll = ttk.Scrollbar(editor_frame, orient='horizontal', command=self.editor.xview)
+        self.editor.configure(yscrollcommand=vscroll.set, xscrollcommand=hscroll.set)
+        self.editor.grid(row=0, column=0, sticky='nsew')
+        vscroll.grid(row=0, column=1, sticky='ns')
+        hscroll.grid(row=1, column=0, sticky='ew')
+        editor_frame.rowconfigure(0, weight=1)
+        editor_frame.columnconfigure(0, weight=1)
+
         self.frame.rowconfigure(2, weight=1)
         self.frame.columnconfigure(0, weight=1)
 
-        self.inner = ttk.Frame(self.canvas)
-        self.canvas.create_window((0, 0), window=self.inner, anchor='nw')
-        self.inner.bind('<Configure>', lambda e: self.canvas.configure(
-            scrollregion=self.canvas.bbox('all')))
-
-        state.on_refresh(self.refresh)
-        self.add_step()
-
-    def add_step(self):
-        self._counter += 1
-        step = Step(self.inner, self.state, self._counter)
-        step.del_btn.configure(command=lambda s=step: self.remove_step(s))
-        step.up_btn.configure(command=lambda s=step: self.move(s, -1))
-        step.down_btn.configure(command=lambda s=step: self.move(s, +1))
-        self.steps.append(step)
-        self._relayout()
-
-    def remove_step(self, step):
-        step.frame.destroy()
-        self.steps.remove(step)
-        self._relayout()
-
-    def move(self, step, delta):
-        i = self.steps.index(step)
-        j = i + delta
-        if 0 <= j < len(self.steps):
-            self.steps[i], self.steps[j] = self.steps[j], self.steps[i]
-            self._relayout()
-
-    def _relayout(self):
-        for i, step in enumerate(self.steps):
-            step.frame.grid(row=i, column=0, sticky='ew', pady=4)
-            step.up_btn.configure(state='disabled' if i == 0 else 'normal')
-            step.down_btn.configure(
-                state='disabled' if i == len(self.steps) - 1 else 'normal')
-
-    def refresh(self):
-        for step in self.steps:
-            step.refresh()
+    # ── public API (called by app.py) ─────────────────────────────────────────
 
     def set_busy(self, busy):
         self.run_btn.configure(state='disabled' if busy else 'normal')
 
+    def abort_if_running(self):
+        proc = self._proc
+        if proc and proc.poll() is None:
+            self._killed = True
+            proc.kill()
+            self.worker.log('Killing running script...', 'error')
+            return True
+        return False
+
+    # ── button handlers ───────────────────────────────────────────────────────
+
+    def _load(self):
+        path = filedialog.askopenfilename(
+            initialdir=_ROOT,
+            filetypes=[('Python scripts', '*.py'), ('All files', '*.*')])
+        if path:
+            with open(path, 'r') as f:
+                text = f.read()
+            self.editor.delete('1.0', 'end')
+            self.editor.insert('1.0', text)
+
+    def _save(self):
+        path = filedialog.asksaveasfilename(
+            initialdir=_ROOT,
+            defaultextension='.py',
+            filetypes=[('Python scripts', '*.py'), ('All files', '*.*')])
+        if path:
+            with open(path, 'w') as f:
+                f.write(self.editor.get('1.0', 'end-1c'))
+
+    def _insert_template(self):
+        self.editor.delete('1.0', 'end')
+        self.editor.insert('1.0', _TEMPLATE)
+
     def _run(self):
-        try:
-            plan = [(s.label.get(), s.build_configs()) for s in self.steps]
-        except ValueError:
-            self.worker.log('Check numeric fields in the steps.', 'error')
-            return
-        plan = [(label, cfgs) for label, cfgs in plan if cfgs]
-        if not plan:
-            self.worker.log('No steps with selected pumps.', 'error')
+        text = self.editor.get('1.0', 'end-1c').strip()
+        if not text:
+            self.worker.log('Script editor is empty.', 'error')
             return
 
+        with open(_SCRIPT_PATH, 'w') as f:
+            f.write(text)
+
+        params = dict(self.state.conn_params)
         ctrl = self.state.ctrl
         worker = self.worker
 
         def task():
-            for label, cfgs in plan:
-                ids = ', '.join(c['pump_id'] for c in cfgs)
-                worker.log(f'▶ {label}: {ids}')
-                ctrl.run_parallel(cfgs)
-                worker.log(f'✓ {label} done')
+            self._killed = False
+            ctrl.release_all()
+            worker.log('COM ports released. Starting script...')
 
-        self.worker.log(f'Running sequence of {len(plan)} steps.')
+            try:
+                proc = subprocess.Popen(
+                    [sys.executable, '-u', _SCRIPT_PATH],
+                    cwd=_ROOT,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT,
+                    text=True,
+                    bufsize=1,
+                )
+                self._proc = proc
+                for line in proc.stdout:
+                    worker.log(line.rstrip())
+                rc = proc.wait()
+            finally:
+                self._proc = None
+
+            if self._killed:
+                worker.log('Script killed.', 'error')
+            elif rc != 0:
+                worker.log(f'Script exited with code {rc}.', 'error')
+            else:
+                worker.log('Script finished.')
+
+            self._reconnect(params, ctrl, worker)
+
+            if self._killed:
+                try:
+                    ctrl.stop_all()
+                    worker.log('STOP ALL sent after kill.')
+                except Exception as e:
+                    worker.log(f'Stop error after kill: {e}', 'error')
+
         self.worker.run_async(task)
+
+    def _show_llm_prompt(self):
+        try:
+            with open(_LLMS_PATH, 'r') as f:
+                text = f.read()
+        except Exception as e:
+            self.worker.log(f'Could not read llms.txt: {e}', 'error')
+            return
+
+        win = tk.Toplevel(self.frame)
+        win.title('LLM Prompt - paste into any LLM')
+        win.geometry('700x540')
+
+        box = tk.Text(win, font=('Courier', 10), wrap='word', padx=8, pady=8)
+        scroll = ttk.Scrollbar(win, orient='vertical', command=box.yview)
+        box.configure(yscrollcommand=scroll.set)
+        box.insert('1.0', text)
+        box.configure(state='disabled')
+        box.pack(side='left', fill='both', expand=True)
+        scroll.pack(side='right', fill='y')
+
+        def copy_all():
+            win.clipboard_clear()
+            win.clipboard_append(text)
+            copy_btn.configure(text='Copied!')
+            win.after(1500, lambda: copy_btn.configure(text='Copy all'))
+
+        btn_bar = ttk.Frame(win)
+        btn_bar.pack(side='bottom', fill='x', padx=8, pady=6)
+        copy_btn = ttk.Button(btn_bar, text='Copy all', command=copy_all)
+        copy_btn.pack(side='left')
+        ttk.Button(btn_bar, text='Close', command=win.destroy).pack(side='right')
+
+    def _reconnect(self, params, ctrl, worker):
+        if not params:
+            return
+        worker.log('Reconnecting pumps...')
+        for slot, (ptype, port, addr) in params.items():
+            pump_id = self.state.pump_id(slot)
+            try:
+                if ptype == 'Harvard':
+                    ctrl.add_harvard(pump_id, port=port)
+                else:
+                    ctrl.add_new_era(pump_id, port=port, address=addr)
+                worker.log(f'Pump {slot} reconnected.')
+            except Exception as e:
+                worker.log(
+                    f'Pump {slot} reconnect failed: {e}. Use Setup tab to reconnect.',
+                    'error')

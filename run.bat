@@ -8,7 +8,13 @@ cd /d "%~dp0"
 
 REM -- Pull the latest code. If it fails (offline, no git, local edits), --
 REM -- just keep going and launch whatever version is already here.      --
-where git >nul 2>&1 && git pull origin prod
+REM -- Public repo: force the anonymous HTTPS URL so pull never prompts  --
+REM -- for a password, and disable any credential prompt as a backstop.  --
+where git >nul 2>&1 && (
+    git remote set-url origin https://github.com/Ray-Research-Group/pump-automation.git
+    set GIT_TERMINAL_PROMPT=0
+    git -c credential.helper= pull origin prod
+)
 
 REM -- First time: create the virtual environment if it isn't there --
 if not exist ".venv\Scripts\pythonw.exe" (

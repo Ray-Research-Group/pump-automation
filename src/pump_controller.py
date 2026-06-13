@@ -463,6 +463,27 @@ class PumpController:
             raise RuntimeError(f'Parallel run errors: {errors}')
     # ── CLEANUP ───────────────────────────────────────────
 
+    def release_all(self):
+        """Close every pump and serial network and forget them.
+
+        Frees the COM ports so another process (e.g. a UI-launched script)
+        can open them. Re-register pumps afterwards with add_harvard /
+        add_new_era.
+        """
+        for pump_id, pump in list(self._pumps.items()):
+            try:
+                pump.close()
+            except Exception:
+                pass
+        self._pumps.clear()
+        for port, network in list(self._networks.items()):
+            try:
+                network.close()
+            except Exception:
+                pass
+        self._networks.clear()
+        self._logger.log('ALL', 'RELEASED')
+
     def close_all(self):
         """Close all serial connections and stop worker threads."""
         for pump_id, pump in self._pumps.items():

@@ -20,7 +20,7 @@ class Worker:
     def run_async(self, fn, on_done=None):
         """Run blocking fn() on a worker thread. Pushes log/done/error events."""
         if self._busy:
-            self.log('Busy — wait for the current run to finish.', 'error')
+            self.log('Busy. Wait for the current run to finish.', 'error')
             return
 
         self._busy = True

@@ -7,7 +7,7 @@ from serial.tools import list_ports
 
 from state import SLOTS
 
-TYPES = ['— none —', 'Harvard', 'New Era']
+TYPES = ['select type', 'Harvard', 'New Era']
 
 # Suggested defaults from the hardware table in Claude.md
 DEFAULTS = {
@@ -111,7 +111,7 @@ class SetupTab:
         port = row['port'].get().strip()
         pump_id = self.state.pump_id(slot)
 
-        if ptype == '— none —':
+        if ptype == 'select type':
             self.worker.log(f'Pump {slot}: pick a type first.', 'error')
             return
         if not port:
@@ -122,10 +122,12 @@ class SetupTab:
             if ptype == 'Harvard':
                 self.state.ctrl.add_harvard(pump_id, port=port)
                 desc = f'Harvard on {port}'
+                self.state.conn_params[slot] = ('Harvard', port, None)
             else:
                 addr = int(row['addr'].get())
                 self.state.ctrl.add_new_era(pump_id, port=port, address=addr)
                 desc = f'New Era on {port} addr {addr}'
+                self.state.conn_params[slot] = ('New Era', port, addr)
         except Exception as e:
             self.worker.log(f'Pump {slot} connect failed: {e}', 'error')
             return
@@ -145,6 +147,7 @@ class SetupTab:
             self.worker.log(f'Pump {slot} disconnect: {e}', 'error')
         # drop our mapping regardless
         self.state.ctrl._pumps.pop(pump_id, None)
+        self.state.conn_params.pop(slot, None)
         self.state.mark_unregistered(slot)
         self.rows[slot]['status'].set('not connected')
         self.rows[slot]['status_lbl'].configure(foreground='gray')

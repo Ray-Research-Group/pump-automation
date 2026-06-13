@@ -276,7 +276,7 @@ finally:
 ```
 
 After generating code, always say:
-**"Paste this into orchestrate.py and run it. You can press Ctrl+C at any time to stop all pumps gracefully."**
+**"Paste this into orchestrate.py and run it, or paste it directly into the Orchestrate tab in the UI. You can press Ctrl+C (or hit STOP ALL in the UI) at any time to stop all pumps gracefully."**
 
 ---
 
